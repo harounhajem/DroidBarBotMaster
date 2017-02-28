@@ -65,7 +65,10 @@ namespace DroidBarBotMaster.Droid
 
         private void BtnConnect_Click(object sender, EventArgs e)
         {
-            myBTservice = new MyBluetoothService(this);
+            Thread th = new Thread(() =>
+            myBTservice = new MyBluetoothService(this));
+            th.Start();
+
             Button btnSend = FindViewById<Button>(Resource.Id.btnSend);
             btnSend.Clickable = true;
             btnSend.Enabled = true;

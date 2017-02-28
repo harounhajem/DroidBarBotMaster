@@ -49,6 +49,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\Helper\DeSerialize.cs" />
+    <Compile Include="Class\Model\Container.cs" />
     <Compile Include="Class\Service\MyBluetoothService.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -70,7 +72,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Class\Adapter\" />
-    <Folder Include="Class\Helper\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>
