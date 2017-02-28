@@ -15,6 +15,8 @@ using System.IO;
 using Android.Media;
 using Java.Util;
 using System.Threading;
+using DroidBarBotMaster.Droid.Class.Helper;
+using DroidBarBotMaster.Droid.Class.Model;
 
 namespace DroidBarBotMaster.Droid.Class.Service
 {
@@ -51,17 +53,36 @@ namespace DroidBarBotMaster.Droid.Class.Service
             int numBytes; // bytes returned from read()
 
             // Keep listening to the InputStream until an exception occurs.
+
+            List<Container> containerList = new List<Container>();
+            Container[] contArray = new Container[6];
+
             while (true)
             {
+
                 try
                 {
 
                     // Read from the InputStream.
                     numBytes = await mInStream.ReadAsync(mmBuffer, 0, mmBuffer.Length);
                     // Send the obtained bytes to the UI activity.
-                    if (numBytes > 5)
+                    if (numBytes > 0)
                     {
-                        System.Console.WriteLine(ASCIIEncoding.ASCII.GetString(mmBuffer));
+                        string recivedMessage = ASCIIEncoding.ASCII.GetString(mmBuffer);
+                        System.Console.WriteLine(recivedMessage);
+
+                        //DeSerialize.DeSerializer(recivedMessage, containerList, this);
+
+                        
+
+                        if (DeSerialize.DeSerializeArray(recivedMessage, contArray, this))
+                        {
+                            break;
+                        }
+                        //if (containerList.Count == 6)
+                        //{
+                        //    break;
+                        //}
                     }
 
                 }
@@ -148,8 +169,8 @@ namespace DroidBarBotMaster.Droid.Class.Service
         {
             // Get Bonded Devices
             mbarBotDevice = (from x in mBluetoothAdapter.BondedDevices
-                                where x.Name.ToLower() == ("BarBot").ToLower()
-                                select x).FirstOrDefault();
+                             where x.Name.ToLower() == ("BarBot").ToLower()
+                             select x).FirstOrDefault();
 
             if (mbarBotDevice == null)
             {
