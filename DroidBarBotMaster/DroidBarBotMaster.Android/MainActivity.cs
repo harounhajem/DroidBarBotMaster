@@ -19,7 +19,7 @@ namespace DroidBarBotMaster.Droid
     {
         int count = 1;
         Toast toastMessenger;
-
+        TextView text;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -31,11 +31,24 @@ namespace DroidBarBotMaster.Droid
             // and attach an event to it
             Button btnConnect = FindViewById<Button>(Resource.Id.btnConnect);
             Button btnSend = FindViewById<Button>(Resource.Id.btnSend);
-
+            Button btnDisConnect= FindViewById<Button>(Resource.Id.btnDisConnect);
+            text =  FindViewById<TextView>(Resource.Id.textView1);
             btnConnect.Click += BtnConnect_Click;
             btnSend.Click += BtnSend_Click;
+            btnDisConnect.Click += BtnDisConnect_Click;
 
             BtnConnect_Click(null, null);
+        }
+
+        public void setText(String sendtext)
+        {
+            RunOnUiThread(() => { text.Text = sendtext; });
+
+        }
+
+        private void BtnDisConnect_Click(object sender, EventArgs e)
+        {
+            myBTservice.cancelSocketServ();
         }
 
         private void BtnSend_Click(object sender, EventArgs e)
@@ -46,7 +59,7 @@ namespace DroidBarBotMaster.Droid
             writeToSlave.Start();
 
             // Read Message
-            Thread readInputThread = new Thread(() => myBTservice.Read());
+            Thread readInputThread = new Thread(() => myBTservice.Read(text, this));
             readInputThread.Start();
         }
 
@@ -59,6 +72,7 @@ namespace DroidBarBotMaster.Droid
             th.Start();
 
             Button btnSend = FindViewById<Button>(Resource.Id.btnSend);
+            FindViewById<Button>(Resource.Id.btnDisConnect).Enabled = true;
             btnSend.Clickable = true;
             btnSend.Enabled = true;
         }

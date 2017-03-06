@@ -2,21 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
-using Android.Bluetooth;
-using Java.IO;
-using System.IO;
-using Android.Media;
 using Java.Util;
+using Android.Bluetooth;
+using System.Threading.Tasks;
 using System.Threading;
 using DroidBarBotMaster.Droid.Class.Helper;
 using DroidBarBotMaster.Droid.Class.Model;
+using System.Diagnostics;
 
 namespace DroidBarBotMaster.Droid.Class.Service
 {
@@ -47,7 +42,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
 
 
         #region Write, Read
-        public async void Read()
+        public async void Read(TextView text, MainActivity main)
         {
             byte[] mmBuffer = new byte[1024];
             int numBytes; // bytes returned from read()
@@ -55,14 +50,28 @@ namespace DroidBarBotMaster.Droid.Class.Service
             // Keep listening to the InputStream until an exception occurs.
 
             List<Container> containerList = new List<Container>();
+
+            for (int i = 0; i < 6; i++)
+            {
+                containerList.Add(new Container());
+            }
+            int listCount;
             Container[] contArray = new Container[6];
 
+            Stopwatch timer = new Stopwatch();
+
+            timer.Start();
+            //text.Text = "Got it";
             while (true)
             {
 
                 try
                 {
-
+                    //if (timer.ElapsedMilliseconds >= 6500)
+                    //{
+                    //    int t = 45;
+                    //    break;
+                    //}
                     // Read from the InputStream.
                     numBytes = await mInStream.ReadAsync(mmBuffer, 0, mmBuffer.Length);
                     // Send the obtained bytes to the UI activity.
@@ -70,17 +79,29 @@ namespace DroidBarBotMaster.Droid.Class.Service
                     {
                         string recivedMessage = ASCIIEncoding.ASCII.GetString(mmBuffer);
                         System.Console.WriteLine(recivedMessage);
+                        DeSerialize.DeSerializeArray(recivedMessage, containerList, this);
 
-                        //DeSerialize.DeSerializer(recivedMessage, containerList, this);
-
-                        
-
-                        if (DeSerialize.DeSerializeArray(recivedMessage, contArray, this))
-                        {
-                            break;
-                        }
-                        //if (containerList.Count == 6)
+                        //listCount = 0;
+                        //foreach (var item in containerList)
                         //{
+                        //    if (item.Name != null)
+                        //    {
+                        //        listCount++;
+                        //    }
+                        //}
+
+
+                        //if (listCount >= 6)
+                        //{
+                        //    String arrivedText = "";
+                        //    foreach (var item in containerList)
+                        //    {
+                        //        arrivedText += item.Name + " " + item.Amount.ToString() + "\n";
+                        //    }
+
+                        //    //main
+                        //    main.setText(arrivedText);
+
                         //    break;
                         //}
                     }
@@ -96,12 +117,12 @@ namespace DroidBarBotMaster.Droid.Class.Service
         }
 
         //Call this from the main activity to send data to the remote device.
-        public async void Write(byte[] bytes)
+        public async void WriteAsync(byte[] bytes)
         {
             try
             {
                 await mOutStream.WriteAsync(bytes, 0, bytes.Length);
-                System.Console.WriteLine("--SEND--");
+                System.Console.WriteLine("--SEND ASYNC--");
                 System.Console.WriteLine(ASCIIEncoding.ASCII.GetString(bytes));
 
             }
@@ -114,7 +135,23 @@ namespace DroidBarBotMaster.Droid.Class.Service
             }
         }
 
+        public void Write(byte[] bytes)
+        {
+            try
+            {
+                mOutStream.Write(bytes, 0, bytes.Length);
+                System.Console.WriteLine("--SEND NO ASYNC--");
+                System.Console.WriteLine(ASCIIEncoding.ASCII.GetString(bytes));
 
+            }
+            catch (System.IO.IOException e)
+            {
+                System.Console.WriteLine("Could not SEND Error:6548");
+                System.Console.WriteLine(e.Message);
+
+                throw;
+            }
+        }
 
 
         #endregion
@@ -169,7 +206,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
         {
             // Get Bonded Devices
             mbarBotDevice = (from x in mBluetoothAdapter.BondedDevices
-                             where x.Name.ToLower() == ("BarBot").ToLower()
+                             where x.Name.ToLower() == ("BarBotPi3").ToLower()
                              select x).FirstOrDefault();
 
             if (mbarBotDevice == null)
@@ -192,7 +229,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
             // Set up socket
             try
             {
-                UUID id = UUID.FromString("00001101-0000-1000-8000-00805F9B34FB");
+                UUID id = UUID.FromString("34B1CF4D-1069-4AD6-89B6-E161D79BE4D8");
                 tmpSocket = mbarBotDevice.CreateInsecureRfcommSocketToServiceRecord(id);
             }
             catch (System.IO.IOException e)
@@ -217,8 +254,9 @@ namespace DroidBarBotMaster.Droid.Class.Service
             {
                 try
                 {
+                    System.Console.WriteLine("\n\nClosing connection:\n");
+                    System.Console.WriteLine(e.Message);
                     mSocket.Close();
-                    System.Console.WriteLine("Closing connection");
 
                 }
                 catch (Exception r)

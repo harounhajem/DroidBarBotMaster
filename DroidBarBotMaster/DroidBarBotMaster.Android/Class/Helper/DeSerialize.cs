@@ -63,45 +63,72 @@ namespace DroidBarBotMaster.Droid.Class.Helper
 
         }
 
-        public static bool DeSerializeArray(String serialMessage, Container[] array, MyBluetoothService btService)
+        public static bool DeSerializeArray(String serialMessage, ICollection<Container> container, MyBluetoothService btService)
         {
-            String[] splitMessage = serialMessage.Split('#');
-            int s;
 
-            for (int i = 0; i < splitMessage.Length; i++)
+            int splitBeginIndex = serialMessage.IndexOf('$');
+            if (splitBeginIndex == -1)
+                return false;
+
+            int splitBeginName = serialMessage.IndexOf('#', splitBeginIndex);
+            if (splitBeginName == -1)
+                return false;
+
+            int splitEndNameBeginNumber = serialMessage.IndexOf('&', splitBeginName);
+            if (splitEndNameBeginNumber == -1)
+                return false;
+
+            int splitEndNumber = serialMessage.IndexOf('@', splitEndNameBeginNumber);
+            if (splitEndNumber == -1)
+                return false;
+
+            if (splitBeginIndex == splitEndNumber)
             {
-
-
-                if (i + 2 >= splitMessage.Length)
-                {
-                    break;
-                }
-                bool ans = Int32.TryParse(splitMessage[i+2], out s);
-
-                if (splitMessage[i].Length < 1 && ans)
-                {
-
-                    int number = Int32.Parse(splitMessage[i]);
-
-                    if (array[number] == null)
-                    {
-                        array[number] = new Container()
-                        {
-                            Name = splitMessage[i + 1],
-                            Amount = Int32.Parse(splitMessage[i+2])
-                        };
-                    }
-                }
-
-            }
-
-            if (array.Contains(null))
-            {
-
-                byte[] send = { 101 };
-                btService.Write(send);
                 return false;
             }
+
+
+
+
+            string indexPos = serialMessage.Substring(splitBeginIndex + 1, splitBeginName - splitBeginIndex - 1);
+            string nameMessage = serialMessage.Substring(splitBeginName + 1, splitEndNameBeginNumber - splitBeginName - 1);
+            string numberMessage = serialMessage.Substring(splitEndNameBeginNumber + 1, splitEndNumber - splitEndNameBeginNumber - 1);
+
+
+            int _amount = 0, _index = 0;
+            try
+            {
+                _index = Int32.Parse(indexPos);
+                _amount = Int32.Parse(numberMessage);
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("ERROR NUMBER PARSE FAIL");
+                return false;
+            }
+
+
+
+
+
+            if (container.ElementAt(_index).Name == nameMessage)
+            {
+                btService.WriteAsync(ASCIIEncoding.ASCII.GetBytes("$" + indexPos + "#" + nameMessage + "&" + numberMessage + "@"));
+                return false;
+            }
+
+
+
+
+
+            container.ElementAt(_index).Name = nameMessage;
+            container.ElementAt(_index).Amount = _amount;
+
+            btService.WriteAsync(ASCIIEncoding.ASCII.GetBytes("$" + indexPos + "#" + nameMessage + "&" + numberMessage + "@"));
+
+
+
 
             return true;
         }
