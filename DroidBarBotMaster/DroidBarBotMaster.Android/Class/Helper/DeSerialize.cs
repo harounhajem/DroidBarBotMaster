@@ -12,6 +12,7 @@ using Android.Widget;
 using DroidBarBotMaster.Droid.Class.Model;
 using DroidBarBotMaster.Droid.Class.Service;
 using System.Threading;
+using System.IO;
 
 namespace DroidBarBotMaster.Droid.Class.Helper
 {
@@ -63,8 +64,12 @@ namespace DroidBarBotMaster.Droid.Class.Helper
 
         }
 
-        public static bool DeSerializeArray(String serialMessage, ICollection<Container> container, MyBluetoothService btService)
+        public static bool DeSerializeArray(String serialMessage, ICollection<Container> container, MyBluetoothService btService, Stream stream)
         {
+
+
+            // Counter
+            //serialMessage = serialMessage.TrimEnd('\');
 
             int splitBeginIndex = serialMessage.IndexOf('$');
             if (splitBeginIndex == -1)
@@ -74,11 +79,11 @@ namespace DroidBarBotMaster.Droid.Class.Helper
             if (splitBeginName == -1)
                 return false;
 
-            int splitEndNameBeginNumber = serialMessage.IndexOf('&', splitBeginName);
-            if (splitEndNameBeginNumber == -1)
+            int splitBeginNumber = serialMessage.IndexOf('&', splitBeginName);
+            if (splitBeginNumber == -1)
                 return false;
 
-            int splitEndNumber = serialMessage.IndexOf('@', splitEndNameBeginNumber);
+            int splitEndNumber = serialMessage.IndexOf('@', splitBeginNumber);
             if (splitEndNumber == -1)
                 return false;
 
@@ -88,49 +93,74 @@ namespace DroidBarBotMaster.Droid.Class.Helper
             }
 
 
+            // Cutter
+            splitBeginIndex += 1;
+            int indexLength = splitBeginName - splitBeginIndex;
+            string indexPos = serialMessage.Substring(splitBeginIndex, indexLength);
+
+            splitBeginName += 1;
+            int nameLength = splitBeginNumber - splitBeginName;
+            string nameMessage = serialMessage.Substring(splitBeginName, nameLength);
+
+            splitBeginNumber += 1;
+            int numberLength = splitEndNumber - splitBeginNumber;
+            string numberMessage = serialMessage.Substring(splitBeginNumber, numberLength);
 
 
-            string indexPos = serialMessage.Substring(splitBeginIndex + 1, splitBeginName - splitBeginIndex - 1);
-            string nameMessage = serialMessage.Substring(splitBeginName + 1, splitEndNameBeginNumber - splitBeginName - 1);
-            string numberMessage = serialMessage.Substring(splitEndNameBeginNumber + 1, splitEndNumber - splitEndNameBeginNumber - 1);
 
-
+            // Double Check
             int _amount = 0, _index = 0;
             try
             {
                 _index = Int32.Parse(indexPos);
                 _amount = Int32.Parse(numberMessage);
 
+
             }
             catch (Exception e)
             {
-                Console.WriteLine("ERROR NUMBER PARSE FAIL");
+                Console.WriteLine("\n\nERROR NUMBER PARSE FAIL" + e.Message + "\n\n");
                 return false;
             }
 
 
 
 
+            //if (_index < container.Count)
+            //{
 
-            if (container.ElementAt(_index).Name == nameMessage)
+            //    btService.Write(ASCIIEncoding.ASCII.GetBytes("$" + container.Count + "#" + container.ElementAt(container.Count).Name + "&" + container.ElementAt(container.Count).Amount + "@"));
+            //    stream.Flush();///---> Flush!
+            //    return false;
+
+            //}
+
+            if (_index > container.Count - 1)
             {
-                btService.WriteAsync(ASCIIEncoding.ASCII.GetBytes("$" + indexPos + "#" + nameMessage + "&" + numberMessage + "@"));
+                container.Add(new Container
+                {
+                    Name = nameMessage,
+                    Amount = _amount
+                });
+
+                    btService.Write(ASCIIEncoding.ASCII.GetBytes("$" + indexPos + "#" + nameMessage + "&" + numberMessage + "@"));
+                    Thread.Sleep(100);
+
+                return true;
+            }
+            else
+            {
                 return false;
+
             }
 
+            //container.ElementAt(_index).Name = nameMessage;
+            //container.ElementAt(_index).Amount = _amount;
 
 
 
 
-            container.ElementAt(_index).Name = nameMessage;
-            container.ElementAt(_index).Amount = _amount;
 
-            btService.WriteAsync(ASCIIEncoding.ASCII.GetBytes("$" + indexPos + "#" + nameMessage + "&" + numberMessage + "@"));
-
-
-
-
-            return true;
         }
     }
 }

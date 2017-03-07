@@ -56,10 +56,11 @@ namespace DroidBarBotMaster.Droid
             // Send message
             byte[] send = { 101 };
             Thread writeToSlave = new Thread(() => myBTservice.Write(send));
-            writeToSlave.Start();
 
             // Read Message
             Thread readInputThread = new Thread(() => myBTservice.Read(text, this));
+
+            writeToSlave.Start();
             readInputThread.Start();
         }
 

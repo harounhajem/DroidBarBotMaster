@@ -51,20 +51,17 @@ namespace DroidBarBotMaster.Droid.Class.Service
 
             List<Container> containerList = new List<Container>();
 
-            for (int i = 0; i < 6; i++)
-            {
-                containerList.Add(new Container());
-            }
-            int listCount;
-            Container[] contArray = new Container[6];
 
             Stopwatch timer = new Stopwatch();
-
             timer.Start();
+
             //text.Text = "Got it";
             while (true)
             {
-
+                if (timer.ElapsedMilliseconds > 10000) 
+                {
+                    break;
+                }
                 try
                 {
                     //if (timer.ElapsedMilliseconds >= 6500)
@@ -79,31 +76,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
                     {
                         string recivedMessage = ASCIIEncoding.ASCII.GetString(mmBuffer);
                         System.Console.WriteLine(recivedMessage);
-                        DeSerialize.DeSerializeArray(recivedMessage, containerList, this);
-
-                        //listCount = 0;
-                        //foreach (var item in containerList)
-                        //{
-                        //    if (item.Name != null)
-                        //    {
-                        //        listCount++;
-                        //    }
-                        //}
-
-
-                        //if (listCount >= 6)
-                        //{
-                        //    String arrivedText = "";
-                        //    foreach (var item in containerList)
-                        //    {
-                        //        arrivedText += item.Name + " " + item.Amount.ToString() + "\n";
-                        //    }
-
-                        //    //main
-                        //    main.setText(arrivedText);
-
-                        //    break;
-                        //}
+                        DeSerialize.DeSerializeArray(recivedMessage, containerList, this, mInStream);
                     }
 
                 }
@@ -206,7 +179,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
         {
             // Get Bonded Devices
             mbarBotDevice = (from x in mBluetoothAdapter.BondedDevices
-                             where x.Name.ToLower() == ("BarBotPi3").ToLower()
+                             where x.Name.ToLower() == ("BarBot").ToLower()
                              select x).FirstOrDefault();
 
             if (mbarBotDevice == null)
@@ -229,7 +202,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
             // Set up socket
             try
             {
-                UUID id = UUID.FromString("34B1CF4D-1069-4AD6-89B6-E161D79BE4D8");
+                UUID id = UUID.FromString("00001101-0000-1000-8000-00805F9B34FB");
                 tmpSocket = mbarBotDevice.CreateInsecureRfcommSocketToServiceRecord(id);
             }
             catch (System.IO.IOException e)
