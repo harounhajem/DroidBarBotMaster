@@ -14,12 +14,13 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnSend"
         android:clickable="false"
+        android:layout_marginTop="20dp"
         android:enabled="false" />
     <Button
-        android:text="disConnect"
+        android:text="SEND COMMAND"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnDisConnect"
+        android:id="@+id/btnSendCommand"
         android:clickable="true"
         android:enabled="false" />
     <TextView
@@ -29,4 +30,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView1"
         android:layout_marginBottom="233.5dp" />
+    <Button
+        android:text="disConnect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnDisConnect"
+        android:clickable="true"
+        android:enabled="false" />
 </LinearLayout>

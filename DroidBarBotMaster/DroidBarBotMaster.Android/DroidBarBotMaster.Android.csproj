@@ -51,7 +51,8 @@
   <ItemGroup>
     <Compile Include="Class\Helper\DeSerialize.cs" />
     <Compile Include="Class\Model\Container.cs" />
-    <Compile Include="Class\Service\MyBluetoothService.cs" />
+    <Compile Include="Class\Service\BarBot.cs" />
+    <Compile Include="Class\Service\BluetoothService.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,8 +71,6 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\Icon.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Class\Adapter\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>

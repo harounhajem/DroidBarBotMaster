@@ -18,58 +18,13 @@ namespace DroidBarBotMaster.Droid.Class.Helper
 {
     public static class DeSerialize
     {
-        public static bool DeSerializer(String serialMessage, ICollection<Container> container, MyBluetoothService btService)
-        {
-            if (container == null || serialMessage == null)
-                return false;
 
-            String[] splitMessage = serialMessage.Split('#');
-
-            int s;
-            if (!Int32.TryParse(splitMessage[1], out s) || splitMessage.Length != 12)
-            {
-                Console.WriteLine("ERROR ERROR MESSAGE CORRUPT, CALL AGAIN!");
-                byte[] send = { 101 };
-                btService.Write(send);
-
-                //Random rn = new Random();
-                //Thread.Sleep(rn.Next(0, 800));
-                return false;
-            }
-
-
-
-
-
-            for (int i = 0; i < splitMessage.Length; i++)
-            {
-                if (i % 2 == 0)
-                {
-                    int newAmount;
-                    Int32.TryParse(splitMessage[i + 1], out newAmount);
-                    container.Add(new Container()
-                    {
-                        Name = splitMessage[i],
-                        Amount = newAmount
-                    });
-
-                }
-            }
-
-
-
-
-            return true;
-
-
-        }
-
-        public static bool DeSerializeArray(String serialMessage, ICollection<Container> container, MyBluetoothService btService, Stream stream)
+        public static bool DeSerializeArray(String serialMessage, ICollection<Container> container, BluetoothService btService)
         {
 
 
-            // Counter
-            //serialMessage = serialMessage.TrimEnd('\');
+
+            serialMessage = serialMessage.Replace("\0", String.Empty);
 
             int splitBeginIndex = serialMessage.IndexOf('$');
             if (splitBeginIndex == -1)
@@ -124,17 +79,6 @@ namespace DroidBarBotMaster.Droid.Class.Helper
             }
 
 
-
-
-            //if (_index < container.Count)
-            //{
-
-            //    btService.Write(ASCIIEncoding.ASCII.GetBytes("$" + container.Count + "#" + container.ElementAt(container.Count).Name + "&" + container.ElementAt(container.Count).Amount + "@"));
-            //    stream.Flush();///---> Flush!
-            //    return false;
-
-            //}
-
             if (_index > container.Count - 1)
             {
                 container.Add(new Container
@@ -153,14 +97,6 @@ namespace DroidBarBotMaster.Droid.Class.Helper
                 return false;
 
             }
-
-            //container.ElementAt(_index).Name = nameMessage;
-            //container.ElementAt(_index).Amount = _amount;
-
-
-
-
-
         }
     }
 }

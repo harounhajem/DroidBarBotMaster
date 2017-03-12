@@ -15,7 +15,7 @@ using System.Diagnostics;
 
 namespace DroidBarBotMaster.Droid.Class.Service
 {
-    public class MyBluetoothService
+    public class BluetoothService
     {
         private BluetoothAdapter mBluetoothAdapter;
         private BluetoothDevice mbarBotDevice;
@@ -23,11 +23,11 @@ namespace DroidBarBotMaster.Droid.Class.Service
         private System.IO.Stream mInStream;
         private System.IO.Stream mOutStream;
         private Toast toastMessenger;
-        private Context context;
+        private MainActivity context;
 
 
 
-        public MyBluetoothService(Context context)
+        public BluetoothService(MainActivity context)
         {
             this.context = context;
             toastMessenger = new Toast(this.context);
@@ -42,7 +42,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
 
 
         #region Write, Read
-        public async void Read(TextView text, MainActivity main)
+        public async void ReadGetIngridients()
         {
             byte[] mmBuffer = new byte[1024];
             int numBytes; // bytes returned from read()
@@ -64,19 +64,13 @@ namespace DroidBarBotMaster.Droid.Class.Service
                 }
                 try
                 {
-                    //if (timer.ElapsedMilliseconds >= 6500)
-                    //{
-                    //    int t = 45;
-                    //    break;
-                    //}
-                    // Read from the InputStream.
                     numBytes = await mInStream.ReadAsync(mmBuffer, 0, mmBuffer.Length);
                     // Send the obtained bytes to the UI activity.
                     if (numBytes > 0)
                     {
                         string recivedMessage = ASCIIEncoding.ASCII.GetString(mmBuffer);
                         System.Console.WriteLine(recivedMessage);
-                        DeSerialize.DeSerializeArray(recivedMessage, containerList, this, mInStream);
+                        DeSerialize.DeSerializeArray(recivedMessage, containerList, this);
                     }
 
                 }
@@ -95,8 +89,9 @@ namespace DroidBarBotMaster.Droid.Class.Service
             try
             {
                 await mOutStream.WriteAsync(bytes, 0, bytes.Length);
-                System.Console.WriteLine("--SEND ASYNC--");
-                System.Console.WriteLine(ASCIIEncoding.ASCII.GetString(bytes));
+                System.Console.WriteLine("--SEND, ASYNC :  " + ASCIIEncoding.ASCII.GetString(bytes));
+                ShowToastMessage("Writing: " + ASCIIEncoding.ASCII.GetString(bytes));
+
 
             }
             catch (System.IO.IOException e)
@@ -113,9 +108,8 @@ namespace DroidBarBotMaster.Droid.Class.Service
             try
             {
                 mOutStream.Write(bytes, 0, bytes.Length);
-                System.Console.WriteLine("--SEND NO ASYNC--");
-                System.Console.WriteLine(ASCIIEncoding.ASCII.GetString(bytes));
-
+                System.Console.WriteLine("--SEND, NO ASYNC :  "+ ASCIIEncoding.ASCII.GetString(bytes));
+                ShowToastMessage("Writing: " + ASCIIEncoding.ASCII.GetString(bytes));
             }
             catch (System.IO.IOException e)
             {
@@ -135,14 +129,12 @@ namespace DroidBarBotMaster.Droid.Class.Service
             mBluetoothAdapter = mBluetoothAdapter = BluetoothAdapter.DefaultAdapter;
             if (mBluetoothAdapter == null)
             {
-                toastMessenger = Toast.MakeText(context, "Error no BT found on device", ToastLength.Long);
-                toastMessenger.Show();
+                ShowToastMessage("Error no BT found on device");
                 return false;
             }
             else
             {
-                toastMessenger = Toast.MakeText(context, "Got adapter", ToastLength.Long);
-                toastMessenger.Show();
+                ShowToastMessage("Got adapter");
             }
             return true;
 
@@ -160,7 +152,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
                 Activity s = new Activity();
                 s.StartActivityForResult(enableBT, REQUEST_ENABLE_BT);
 
-                // TODO: Check for cancelaion
+                // TODO: Check for cancelation
 
                 //OnActivityResult(REQUEST_ENABLE_BT, Result.Canceled, enableBT);
                 //if (REQUEST_ENABLE_BT == 0)
@@ -170,8 +162,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
                 //    return;
                 //}
             }
-            toastMessenger = Toast.MakeText(context, "Enabled BT", ToastLength.Long);
-            toastMessenger.Show();
+            ShowToastMessage("Enabled BT");
             return true;
         }
 
@@ -184,14 +175,12 @@ namespace DroidBarBotMaster.Droid.Class.Service
 
             if (mbarBotDevice == null)
             {
-                toastMessenger = Toast.MakeText(context, "Manual pair connect to BarBot please.", ToastLength.Long);
-                toastMessenger.Show();
+                ShowToastMessage("Manual pair connect to BarBot please.");
                 return false;
             }
             else
             {
-                toastMessenger = Toast.MakeText(context, "Found BarBot bond", ToastLength.Long);
-                toastMessenger.Show();
+                ShowToastMessage("Found BarBot bond");
                 return true;
             }
         }
@@ -209,8 +198,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
             {
                 System.Console.WriteLine(e.Message);
                 System.Console.WriteLine("Socket's listen() method failed");
-                toastMessenger = Toast.MakeText(context, "Found BarBot bond", ToastLength.Long);
-                toastMessenger.Show();
+                ShowToastMessage("Found BarBot bond");
                 return false;
             }
 
@@ -291,8 +279,11 @@ namespace DroidBarBotMaster.Droid.Class.Service
 
         private void ShowToastMessage(String message)
         {
-            toastMessenger = Toast.MakeText(context, message, ToastLength.Long);
-            toastMessenger.Show();
+            context.RunOnUiThread(() =>
+            {
+                toastMessenger = Toast.MakeText(context, message, ToastLength.Long);
+                toastMessenger.Show();
+            });
         }
 
     }
