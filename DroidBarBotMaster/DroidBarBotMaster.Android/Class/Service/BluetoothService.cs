@@ -23,21 +23,30 @@ namespace DroidBarBotMaster.Droid.Class.Service
         private System.IO.Stream mInStream;
         private System.IO.Stream mOutStream;
         private Toast toastMessenger;
-        private MainActivity context;
+        public Activity context;
 
 
 
-        public BluetoothService(MainActivity context)
+        public BluetoothService(Activity context)
         {
             this.context = context;
             toastMessenger = new Toast(this.context);
 
             DeviceHasBT();
+
             EnableBTdevice();
+
+            //bool bluetoothAnswer;
+            //do
+            //{
+            //    bluetoothAnswer = EnableBTdevice()
+            //} while (bluetoothAnswer);
+
+
             GetBondedDevices();
             SocketConnect();
             InOutSocketInit();
-            ShowToastMessage("CONNECTED TO BARBOT");
+            ShowToastMessage("CONNECTED TO BARBOT", ToastLength.Long);
         }
 
 
@@ -83,6 +92,94 @@ namespace DroidBarBotMaster.Droid.Class.Service
             }
         }
 
+        public async Task<bool> ReadOkMessageAsync(int timerTimeOut, int bufferAmount)
+        {
+            byte[] mmBuffer = new byte[bufferAmount];
+            int numBytes; // bytes returned from read()
+
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
+
+            //text.Text = "Got it";
+            while (true)
+            {
+                try
+                {
+                    numBytes = await mInStream.ReadAsync(mmBuffer, 0, mmBuffer.Length);
+                    // Send the obtained bytes to the UI activity.
+                    if (numBytes > 0)
+                    {
+                        string recivedMessage = ASCIIEncoding.ASCII.GetString(mmBuffer);
+                        System.Console.WriteLine(recivedMessage);
+
+                        recivedMessage = recivedMessage.Substring(0, 2);
+
+                        if (recivedMessage == "OK")
+                        {
+                            return true;
+                        }
+                    }
+
+                }
+                catch (System.IO.IOException e)
+                {
+                    System.Console.WriteLine("InputStream failure ERROR:1364");
+                    System.Console.WriteLine(e.Message);
+                    return false;
+                    throw;
+                }
+                System.Console.WriteLine(timer.ElapsedMilliseconds.ToString());
+                if (timer.ElapsedMilliseconds >= timerTimeOut)
+                {
+                    return false;
+                }
+
+            }
+            return false;
+        }
+        public bool ReadOkMessage(int timerTimeOut, int bufferAmount)
+        {
+            byte[] mmBuffer = new byte[bufferAmount];
+            int numBytes; // bytes returned from read()
+
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
+
+            //text.Text = "Got it";
+            while (true)
+            {
+                try
+                {
+                    numBytes = mInStream.Read(mmBuffer, 0, mmBuffer.Length);
+                    // Send the obtained bytes to the UI activity.
+                    if (numBytes > 0)
+                    {
+                        string recivedMessage = ASCIIEncoding.ASCII.GetString(mmBuffer);
+                        System.Console.WriteLine(recivedMessage);
+
+                        recivedMessage = recivedMessage.Substring(0, 2);
+
+                        if (recivedMessage == "OK")
+                        {
+                            return true;
+                        }
+                    }
+
+                }
+                catch (System.IO.IOException e)
+                {
+                    System.Console.WriteLine("InputStream failure ERROR:1364");
+                    System.Console.WriteLine(e.Message);
+                    return false;
+                    throw;
+                }
+                System.Console.WriteLine(timer.ElapsedMilliseconds.ToString());
+                if (timer.ElapsedMilliseconds >= timerTimeOut)
+                {
+                    return false;
+                }
+            }
+        }
         //Call this from the main activity to send data to the remote device.
         public async void WriteAsync(byte[] bytes)
         {
@@ -90,7 +187,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
             {
                 await mOutStream.WriteAsync(bytes, 0, bytes.Length);
                 System.Console.WriteLine("--SEND, ASYNC :  " + ASCIIEncoding.ASCII.GetString(bytes));
-                ShowToastMessage("Writing: " + ASCIIEncoding.ASCII.GetString(bytes));
+                ShowToastMessage("Writing: " + ASCIIEncoding.ASCII.GetString(bytes), ToastLength.Long);
 
 
             }
@@ -109,7 +206,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
             {
                 mOutStream.Write(bytes, 0, bytes.Length);
                 System.Console.WriteLine("--SEND, NO ASYNC :  "+ ASCIIEncoding.ASCII.GetString(bytes));
-                ShowToastMessage("Writing: " + ASCIIEncoding.ASCII.GetString(bytes));
+                ShowToastMessage("Writing: " + ASCIIEncoding.ASCII.GetString(bytes), ToastLength.Long);
             }
             catch (System.IO.IOException e)
             {
@@ -129,18 +226,18 @@ namespace DroidBarBotMaster.Droid.Class.Service
             mBluetoothAdapter = mBluetoothAdapter = BluetoothAdapter.DefaultAdapter;
             if (mBluetoothAdapter == null)
             {
-                ShowToastMessage("Error no BT found on device");
+                ShowToastMessage("Error no BT found on device", ToastLength.Long);
                 return false;
             }
             else
             {
-                ShowToastMessage("Got adapter");
+                ShowToastMessage("Got adapter", ToastLength.Short);
             }
             return true;
 
         }
 
-        public bool EnableBTdevice()
+        public async Task<bool> EnableBTdevice()
         {
             int REQUEST_ENABLE_BT = 0;
 
@@ -150,19 +247,23 @@ namespace DroidBarBotMaster.Droid.Class.Service
             {
                 Intent enableBT = new Intent(BluetoothAdapter.ActionRequestEnable);
                 Activity s = new Activity();
-                s.StartActivityForResult(enableBT, REQUEST_ENABLE_BT);
 
                 // TODO: Check for cancelation
 
-                //OnActivityResult(REQUEST_ENABLE_BT, Result.Canceled, enableBT);
-                //if (REQUEST_ENABLE_BT == 0)
-                //{
-                //    toastMessenger = Toast.MakeText(this, "BT not enabled", ToastLength.Long);
-                //    toastMessenger.Show();
-                //    return;
-                //}
+                //Thread BToutput = new Thread(() => { context.StartActivityForResult(enableBT, REQUEST_ENABLE_BT); });
+                context.StartActivityForResult(enableBT, REQUEST_ENABLE_BT);
+
+                context.adapterOnActivityResult(REQUEST_ENABLE_BT, Result.Canceled, enableBT);
+                
+
+                if (!mBluetoothAdapter.IsEnabled)
+                {
+                    ShowToastMessage("BT not enabled", ToastLength.Long);
+                    
+                    return false;
+                }
             }
-            ShowToastMessage("Enabled BT");
+            ShowToastMessage("Enabled BT", ToastLength.Long);
             return true;
         }
 
@@ -175,12 +276,12 @@ namespace DroidBarBotMaster.Droid.Class.Service
 
             if (mbarBotDevice == null)
             {
-                ShowToastMessage("Manual pair connect to BarBot please.");
+                ShowToastMessage("Manual pair connect to BarBot please.", ToastLength.Long);
                 return false;
             }
             else
             {
-                ShowToastMessage("Found BarBot bond");
+                ShowToastMessage("Found BarBot bond", ToastLength.Short);
                 return true;
             }
         }
@@ -198,7 +299,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
             {
                 System.Console.WriteLine(e.Message);
                 System.Console.WriteLine("Socket's listen() method failed");
-                ShowToastMessage("Found BarBot bond");
+                ShowToastMessage("Found BarBot bond", ToastLength.Short);
                 return false;
             }
 
@@ -223,6 +324,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
                 catch (Exception r)
                 {
                     System.Console.WriteLine("Could not close the client socket");
+                    System.Console.WriteLine(r.Message);
                     return false;
                 }
             }
@@ -277,11 +379,11 @@ namespace DroidBarBotMaster.Droid.Class.Service
 
         #endregion
 
-        private void ShowToastMessage(String message)
+        private void ShowToastMessage(String message, ToastLength ts)
         {
             context.RunOnUiThread(() =>
             {
-                toastMessenger = Toast.MakeText(context, message, ToastLength.Long);
+                toastMessenger = Toast.MakeText(context, message, ts);
                 toastMessenger.Show();
             });
         }

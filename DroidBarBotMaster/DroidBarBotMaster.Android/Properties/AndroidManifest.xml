@@ -4,4 +4,7 @@
 	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 	<uses-permission android:name="android.permission.BLUETOOTH" />
 	<application android:label="DroidBarBotMaster.Android"></application>
+  <activity android:name=".MainActivity"
+          android:label="@string/app_name"
+          android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
 </manifest>

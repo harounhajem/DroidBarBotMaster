@@ -17,10 +17,17 @@
         android:layout_marginTop="20dp"
         android:enabled="false" />
     <Button
-        android:text="SEND COMMAND"
+        android:text="UPDATE BOTTLE"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnSendCommand"
+        android:id="@+id/btnUpdateBottle"
+        android:clickable="true"
+        android:enabled="false" />
+    <Button
+        android:text="ORDER DRINK"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnOrderDrink"
         android:clickable="true"
         android:enabled="false" />
     <TextView
