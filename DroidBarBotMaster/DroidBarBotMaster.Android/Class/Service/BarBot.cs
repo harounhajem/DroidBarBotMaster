@@ -68,14 +68,17 @@ namespace DroidBarBotMaster.Droid.Class.Service
 
         }
 
-        public void GetIngridients()
+        public void GetIngridients(int runTime, List<Container> listContainer)
         {
-            Thread writeToSlave = new Thread(() =>
-            btService.Write(new byte[] { Convert.ToByte(Commands.GetIngridients)}));
-            // Read Message
-            Thread readInputThread = new Thread(() => btService.ReadGetIngridients());
+            Thread writeToSlave = new Thread(() => btService.Write(new byte[] { Convert.ToByte(Commands.GetIngridients)}));
+
+
+            Thread readInputThread = new Thread(() => btService.ReadGetIngridients(runTime, listContainer));
+
             writeToSlave.Start();
+
             readInputThread.Start();
+
         }
     }
 }

@@ -33,33 +33,27 @@ namespace DroidBarBotMaster.Droid.Class.Service
 
             toastMessenger = new Toast(this.context);
 
-            
         }
 
 
         #region Write, Read
-        public async void ReadGetIngridients()
+        public async void ReadGetIngridients(int runTime, List<Container> containerList)
         {
             byte[] mmBuffer = new byte[1024];
             int numBytes; // bytes returned from read()
 
-            // Keep listening to the InputStream until an exception occurs.
-
-            List<Container> containerList = new List<Container>();
-
-
             Stopwatch timer = new Stopwatch();
             timer.Start();
 
-            //text.Text = "Got it";
             while (true)
             {
-                if (timer.ElapsedMilliseconds > 10000) 
-                {
-                    break;
-                }
                 try
                 {
+                    System.Console.WriteLine("reciving...");
+                    if (timer.ElapsedMilliseconds >= runTime || containerList.Count > 5)
+                    {
+                        break;
+                    }
                     numBytes = await mInStream.ReadAsync(mmBuffer, 0, mmBuffer.Length);
                     // Send the obtained bytes to the UI activity.
                     if (numBytes > 0)
@@ -76,6 +70,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
                     System.Console.WriteLine(e.Message);
                     throw;
                 }
+
             }
         }
 

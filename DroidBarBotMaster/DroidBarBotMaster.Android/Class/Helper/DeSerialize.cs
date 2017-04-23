@@ -87,8 +87,10 @@ namespace DroidBarBotMaster.Droid.Class.Helper
                     Amount = _amount
                 });
 
-                    btService.Write(ASCIIEncoding.ASCII.GetBytes("$" + indexPos + "#" + nameMessage + "&" + numberMessage + "@"));
-                    Thread.Sleep(100);
+                Console.WriteLine($"Added :{nameMessage}");
+
+                btService.Write(ASCIIEncoding.ASCII.GetBytes("$" + indexPos + "#" + nameMessage + "&" + numberMessage + "@"));
+                Thread.Sleep(100);
 
                 return true;
             }

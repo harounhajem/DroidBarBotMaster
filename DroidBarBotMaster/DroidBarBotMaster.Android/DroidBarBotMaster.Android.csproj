@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Helper\DeSerialize.cs" />
+    <Compile Include="Class\Helper\TransporterClass.cs" />
     <Compile Include="Class\Model\Container.cs" />
     <Compile Include="Class\Service\BarBot.cs" />
     <Compile Include="Class\Service\BluetoothService.cs" />

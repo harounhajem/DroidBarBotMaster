@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using System.Threading;
 using DroidBarBotMaster.Droid.Class.Service;
+using DroidBarBotMaster.Droid.Class.Helper;
 
 namespace DroidBarBotMaster.Droid
 {
@@ -26,9 +27,10 @@ namespace DroidBarBotMaster.Droid
         {
             RequestWindowFeature(WindowFeatures.NoTitle);
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.Start_and_connect);
+            SetContentView(Resource.Layout.Main);
             // Get our button from the layout resource,
-            // and attach an event to it
+            // and attach an event to it,
+
             Button btnConnect = FindViewById<Button>(Resource.Id.btnConnect);
             Button btnSend = FindViewById<Button>(Resource.Id.btnSend);
             Button btnDisConnect = FindViewById<Button>(Resource.Id.btnDisConnect);
@@ -40,7 +42,20 @@ namespace DroidBarBotMaster.Droid
             btnSend.Click += BtnSend_Click;
             btnDisConnect.Click += BtnDisConnect_Click;
 
-            BtnConnect_Click(null, null);
+            text.Text = "";
+
+        }
+
+        protected override void OnStart()
+        {
+            Thread.Sleep(600);
+
+            foreach (var item in TransporterClass.listContainer)
+            {
+                setText(item.Name);
+            }
+
+            base.OnStart();
         }
 
         private void btnOrderDrink(object sender, EventArgs e)
@@ -55,7 +70,7 @@ namespace DroidBarBotMaster.Droid
 
         public void setText(String sendtext)
         {
-            RunOnUiThread(() => { text.Text = sendtext; });
+            RunOnUiThread(() => { text.Text += sendtext +"\n"; });
 
         }
 
@@ -67,7 +82,7 @@ namespace DroidBarBotMaster.Droid
         private void BtnSend_Click(object sender, EventArgs e)
         {
             // GetIngridients
-            barBot.GetIngridients();
+            //barBot.GetIngridients();
         }
 
         private void BtnConnect_Click(object sender, EventArgs e)

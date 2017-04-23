@@ -12,6 +12,9 @@ using System.IO;
 using DroidBarBotMaster.Droid.Class.Service;
 using System.Threading;
 using System.Text;
+using System.Collections.Generic;
+using DroidBarBotMaster.Droid.Class.Model;
+using DroidBarBotMaster.Droid.Class.Helper;
 
 namespace DroidBarBotMaster.Droid
 {
@@ -36,19 +39,36 @@ namespace DroidBarBotMaster.Droid
 
             FindViewById<Button>(Resource.Id.btnConnect).Click += BtnConnect_Click;
 
+            TransporterClass.listContainer = new List<Container>();
+
         }
+        
 
         private void BtnConnect_Click(object sender, EventArgs e)
         {
+
             Thread th = new Thread(() =>
             {
                 bluetoothService = new BluetoothService(this);
 
+                TransporterClass.bluetoothService = bluetoothService;
+
                 barBot = new BarBot(bluetoothService);
+
+                TransporterClass.barBot = barBot;
+
 
                 if (bluetoothService.ConnectActivateBluetooth())
                 {
-                    RunOnUiThread(() => SetContentView(Resource.Layout.Main));
+
+                    barBot.GetIngridients(5000, TransporterClass.listContainer);
+
+                    var activity2 = new Intent(this, typeof(MainActivity));
+
+                    activity2.PutExtra("MyData", "Data from Activity1");
+
+                    StartActivity(activity2);
+                    
                 }
 
             });
