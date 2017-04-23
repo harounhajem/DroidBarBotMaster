@@ -1,21 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
 using Android.App;
 using Android.Content;
+using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using Android.OS;
-using Android.Bluetooth;
-using System.Linq;
-using Java.Util;
-using System.IO;
-using DroidBarBotMaster.Droid.Class.Service;
 using System.Threading;
-using System.Text;
+using DroidBarBotMaster.Droid.Class.Service;
 
 namespace DroidBarBotMaster.Droid
 {
-    [Activity(Label = "DroidBarBotMaster.Android", Icon = "@drawable/icon", MainLauncher = true)]
+    [Activity(Label = "MainActivity", MainLauncher = false)]
     public class MainActivity : Activity
     {
         Toast toastMessenger;
@@ -23,17 +22,11 @@ namespace DroidBarBotMaster.Droid
         BluetoothService btService;
         BarBot barBot;
 
-
-
-        protected override void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle savedInstanceState)
         {
             RequestWindowFeature(WindowFeatures.NoTitle);
-            base.OnCreate(bundle);
-            toastMessenger = new Toast(this);
-            // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.Main);
-            
-
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.Start_and_connect);
             // Get our button from the layout resource,
             // and attach an event to it
             Button btnConnect = FindViewById<Button>(Resource.Id.btnConnect);
@@ -81,7 +74,7 @@ namespace DroidBarBotMaster.Droid
         {
             Thread th = new Thread(() =>
             {
-                btService = new BluetoothService(this);
+                //btService = new BluetoothService(this);
                 barBot = new BarBot(btService);
             });
             th.Start();
@@ -100,5 +93,3 @@ namespace DroidBarBotMaster.Droid
         }
     }
 }
-
-

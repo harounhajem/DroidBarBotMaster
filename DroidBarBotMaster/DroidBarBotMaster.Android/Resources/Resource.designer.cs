@@ -112,9 +112,6 @@ namespace DroidBarBotMaster.Droid
 			// aapt resource value: 0x7f060002
 			public const int btnUpdateBottle = 2131099650;
 			
-			// aapt resource value: 0x7f060007
-			public const int button1 = 2131099655;
-			
 			// aapt resource value: 0x7f060006
 			public const int imageView1 = 2131099654;
 			

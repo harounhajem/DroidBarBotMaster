@@ -23,30 +23,17 @@ namespace DroidBarBotMaster.Droid.Class.Service
         private System.IO.Stream mInStream;
         private System.IO.Stream mOutStream;
         private Toast toastMessenger;
-        public Activity context;
+        public Start_and_Connect context;
 
 
 
-        public BluetoothService(Activity context)
+        public BluetoothService(Start_and_Connect context)
         {
             this.context = context;
+
             toastMessenger = new Toast(this.context);
 
-            DeviceHasBT();
-
-            EnableBTdevice();
-
-            //bool bluetoothAnswer;
-            //do
-            //{
-            //    bluetoothAnswer = EnableBTdevice()
-            //} while (bluetoothAnswer);
-
-
-            GetBondedDevices();
-            SocketConnect();
-            InOutSocketInit();
-            ShowToastMessage("CONNECTED TO BARBOT", ToastLength.Long);
+            
         }
 
 
@@ -221,6 +208,25 @@ namespace DroidBarBotMaster.Droid.Class.Service
         #endregion
 
         #region Initialize Bluetooth sequence
+
+        public bool ConnectActivateBluetooth()
+        {
+
+            if (!DeviceHasBT()) return false;
+
+            if (!EnableBTdevice().Result) return false;
+
+            if (!GetBondedDevices()) return false;
+
+            if (!SocketConnect()) return false;
+
+            InOutSocketInit();
+
+            ShowToastMessage("CONNECTED TO BARBOT", ToastLength.Long);
+
+            return true;
+        }
+
         public bool DeviceHasBT()
         {
             mBluetoothAdapter = mBluetoothAdapter = BluetoothAdapter.DefaultAdapter;

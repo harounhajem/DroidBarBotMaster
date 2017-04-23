@@ -53,10 +53,10 @@
     <Compile Include="Class\Model\Container.cs" />
     <Compile Include="Class\Service\BarBot.cs" />
     <Compile Include="Class\Service\BluetoothService.cs" />
-    <Compile Include="Views\MainActivity.cs" />
+    <Compile Include="Controller\MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\Start_and_Connect.cs" />
+    <Compile Include="Controller\Start_and_Connect.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

@@ -3,45 +3,45 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-    <Button
-        android:text="CONNECT"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnConnect" />
-    <Button
-        android:text="GET INGRIDIENTS"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnSend"
-        android:clickable="false"
-        android:layout_marginTop="20dp"
-        android:enabled="false" />
-    <Button
-        android:text="UPDATE BOTTLE"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnUpdateBottle"
-        android:clickable="true"
-        android:enabled="false" />
-    <Button
-        android:text="ORDER DRINK"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnOrderDrink"
-        android:clickable="true"
-        android:enabled="false" />
-    <TextView
-        android:text="..."
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView1"
-        android:layout_marginBottom="233.5dp" />
-    <Button
-        android:text="disConnect"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnDisConnect"
-        android:clickable="true"
-        android:enabled="false" />
+  <Button
+      android:text="CONNECT"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btnConnect" />
+  <Button
+      android:text="GET INGRIDIENTS"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btnSend"
+      android:clickable="false"
+      android:layout_marginTop="20dp"
+      android:enabled="false" />
+  <Button
+      android:text="UPDATE BOTTLE"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btnUpdateBottle"
+      android:clickable="true"
+      android:enabled="false" />
+  <Button
+      android:text="ORDER DRINK"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btnOrderDrink"
+      android:clickable="true"
+      android:enabled="false" />
+  <TextView
+      android:text="..."
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/textView1"
+      android:layout_marginBottom="233.5dp" />
+  <Button
+      android:text="disConnect"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/btnDisConnect"
+      android:clickable="true"
+      android:enabled="false" />
 </LinearLayout>
