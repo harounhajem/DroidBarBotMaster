@@ -31,8 +31,9 @@ namespace DroidBarBotMaster.Droid.Class.Service
         {
             this.context = context;
 
-            toastMessenger = new Toast(this.context);
-
+           
+            context.RunOnUiThread(() => 
+            toastMessenger = new Toast(this.context));
         }
 
 

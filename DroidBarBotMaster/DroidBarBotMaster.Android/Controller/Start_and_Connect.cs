@@ -63,9 +63,11 @@ namespace DroidBarBotMaster.Droid
 
                     barBot.GetIngridients(5000, TransporterClass.listContainer);
 
-                    var activity2 = new Intent(this, typeof(MainActivity));
+                    Thread.Sleep(600);
 
-                    activity2.PutExtra("MyData", "Data from Activity1");
+                    var activity2 = new Intent(this, typeof(CocktailListview));
+
+                    activity2.PutExtra("MyData", "Data from Start_and_Connect");
 
                     StartActivity(activity2);
                     

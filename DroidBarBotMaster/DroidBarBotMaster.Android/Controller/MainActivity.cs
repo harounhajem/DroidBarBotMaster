@@ -43,18 +43,21 @@ namespace DroidBarBotMaster.Droid
             btnDisConnect.Click += BtnDisConnect_Click;
 
             text.Text = "";
-
+            BtnConnect_Click(this, null);
         }
 
         protected override void OnStart()
         {
             Thread.Sleep(600);
 
-            foreach (var item in TransporterClass.listContainer)
+            if (TransporterClass.listContainer != null)
             {
-                setText(item.Name);
-            }
+                foreach (var item in TransporterClass.listContainer)
+                {
+                    setText(item.Name);
+                }
 
+            }
             base.OnStart();
         }
 
@@ -70,7 +73,7 @@ namespace DroidBarBotMaster.Droid
 
         public void setText(String sendtext)
         {
-            RunOnUiThread(() => { text.Text += sendtext +"\n"; });
+            RunOnUiThread(() => { text.Text += sendtext + "\n"; });
 
         }
 
@@ -87,12 +90,9 @@ namespace DroidBarBotMaster.Droid
 
         private void BtnConnect_Click(object sender, EventArgs e)
         {
-            Thread th = new Thread(() =>
-            {
-                //btService = new BluetoothService(this);
-                barBot = new BarBot(btService);
-            });
-            th.Start();
+
+            btService = TransporterClass.bluetoothService;
+            barBot = TransporterClass.barBot;
 
             Button btnSend = FindViewById<Button>(Resource.Id.btnSend);
             btnSend.Clickable = true;
