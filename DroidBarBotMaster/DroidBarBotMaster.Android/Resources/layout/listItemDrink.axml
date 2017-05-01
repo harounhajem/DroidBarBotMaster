@@ -15,5 +15,7 @@
         android:id="@+id/drinkImage"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:maxHeight="50dp"
+        android:maxWidth="50dp"
         android:paddingLeft="20dp" />
 </LinearLayout>

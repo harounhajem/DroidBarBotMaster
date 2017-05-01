@@ -36,7 +36,8 @@ namespace DroidBarBotMaster.Droid
 
             List<String> drinkNames = new List<string>() { "lime", "vodka", "tequila" };
 
-            List<DrinkMultiple> availableDrinks = CocktailDBService.getAllDrinks(drinkNames);
+            //List<DrinkMultiple> availableDrinks = CocktailDBService.getAllDrinks(drinkNames);
+            List<DrinkMultiple> availableDrinks = CocktailDBService.getAllDrinksShallow(drinkNames);
 
             //List<DrinkMultiple> availableDrinksMixFiltered = CocktailDBService.MixableDrinksFiltered(availableDrinks, drinkNames, drinkNames.Count);
 
@@ -47,13 +48,17 @@ namespace DroidBarBotMaster.Droid
 
             //ArrayAdapter<Drink> adapter = new ArrayAdapter<Drink>(this, Resource.Layout.XMLFile1, availableDrinks[0].Drinks);
 
+            List<Drink> allDrinks = new List<Drink>();
+
             foreach (var item in availableDrinks)
             {
-            listAdapterDrink adapter = new listAdapterDrink(this, item.Drinks);
+                allDrinks.AddRange(item.Drinks);
+            }
 
+            listAdapterDrink adapter = new listAdapterDrink(this, allDrinks);
             lt.Adapter = adapter;
 
-            }
+
 
 
             #region How to Connect

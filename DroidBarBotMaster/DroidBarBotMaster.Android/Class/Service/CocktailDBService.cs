@@ -84,6 +84,26 @@ namespace DroidBarBotMaster.Droid.Class.Service
             return availableDrinks;
         }
 
+        public static List<DrinkMultiple> getAllDrinksShallow(List<String> drinkNames)
+        {
+
+            List<DrinkMultiple> availableDrinks = new List<DrinkMultiple>();
+
+            foreach (var stringDrinkName in drinkNames)
+            {
+                // Get all drinks accosieated with the ingridient
+                // ! Only shallow information ! 
+                DrinkMultiple tempDrinks = HttpGet(stringDrinkName, HttpGetRequests.CocktailByIngridient);
+
+                if (tempDrinks == null) continue;
+
+                availableDrinks.Add(tempDrinks);
+
+            }
+
+            return availableDrinks;
+        }
+
         public static bool checkIfCanBeMixed(Drink drink, int amountToBeMixed, List<string> bottleNameList)
         {
             int counterCanBeMixed = 0;
