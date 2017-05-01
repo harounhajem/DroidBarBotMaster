@@ -15,7 +15,7 @@ using DroidBarBotMaster.Droid.Class.Model;
 
 namespace DroidBarBotMaster.Droid
 {
-    [Activity(Label = "CocktailListview")]
+    [Activity(Label = "CocktailListview", MainLauncher = true)]
     public class CocktailListview : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -34,17 +34,43 @@ namespace DroidBarBotMaster.Droid
 
             List<DrinkMultiple> available = new List<DrinkMultiple>();
 
-            foreach (var item in TransporterClass.listContainer)
-            {
-                DrinkMultiple tempDrinks = CocktailDBService.HttpGet(item.Name, HttpGetRequests.CocktailByIngridient);
+            List<String> drinkNames = new List<string>() { "lime", "vodka", "tequila" };
 
-                if (tempDrinks != null)
-                {
-                    available.Add(tempDrinks);
-                }
+            List<DrinkMultiple> availableDrinks = CocktailDBService.getAllDrinks(drinkNames);
+
+            //List<DrinkMultiple> availableDrinksMixFiltered = CocktailDBService.MixableDrinksFiltered(availableDrinks, drinkNames, drinkNames.Count);
+
+            //FindViewById<Button>(Resource.Id.cocktailListView).AddChildrenForAccessibility(drinkNames);
+
+            ListView lt = FindViewById<ListView>(Resource.Id.cocktailListView);
+
+
+            //ArrayAdapter<Drink> adapter = new ArrayAdapter<Drink>(this, Resource.Layout.XMLFile1, availableDrinks[0].Drinks);
+
+            foreach (var item in availableDrinks)
+            {
+            listAdapterDrink adapter = new listAdapterDrink(this, item.Drinks);
+
+            lt.Adapter = adapter;
+
             }
 
-            Console.WriteLine(available);
+
+            #region How to Connect
+            // TODO: Dev deactivate
+
+            //foreach (var item in TransporterClass.listContainer)
+            //{
+            //    DrinkMultiple tempDrinks = CocktailDBService.HttpGet(item.Name, HttpGetRequests.CocktailByIngridient);
+
+            //    if (tempDrinks != null)
+            //    {
+            //        available.Add(tempDrinks);
+            //    }
+            //}
+
+            //Console.WriteLine(available); 
+            #endregion
 
 
         }

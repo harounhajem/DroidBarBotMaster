@@ -18,7 +18,9 @@ using DroidBarBotMaster.Droid.Class.Helper;
 
 namespace DroidBarBotMaster.Droid
 {
-    [Activity(Label = "Start", Icon = "@drawable/icon", MainLauncher = true)]
+
+    // TODO: Dev activate:  MainLauncher = true
+    [Activity(Label = "Start", Icon = "@drawable/icon")]
     public class Start_and_Connect : Activity
     {
         Toast toastMessenger;
@@ -46,6 +48,7 @@ namespace DroidBarBotMaster.Droid
 
         private void BtnConnect_Click(object sender, EventArgs e)
         {
+            // TODO: Dev deactivate
 
             Thread th = new Thread(() =>
             {

@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroidBarBotMaster.Android",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroidBarBotMaster", "DroidBarBotMaster\DroidBarBotMaster\DroidBarBotMaster.csproj", "{F297A277-BF44-4F9C-B482-E7C68437CF8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CocktailHttpRequest", "..\..\..\CocktailHttpRequest\CocktailHttpRequest\CocktailHttpRequest.csproj", "{4F6A89FE-C879-463D-8C06-80084FDB57E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CocktailHttpRequest", "..\..\..\Etc\CocktailHttpRequest\CocktailHttpRequest\CocktailHttpRequest.csproj", "{4F6A89FE-C879-463D-8C06-80084FDB57E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

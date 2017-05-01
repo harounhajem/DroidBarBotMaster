@@ -57,6 +57,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Helper\DeSerialize.cs" />
+    <Compile Include="Class\Helper\FractionalConverter.cs" />
+    <Compile Include="Class\Helper\listAdapterDrink.cs" />
     <Compile Include="Class\Helper\TransporterClass.cs" />
     <Compile Include="Class\Model\Container.cs" />
     <Compile Include="Class\Model\Drink.cs" />
@@ -82,6 +84,9 @@
     </None>
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\Start_and_connect.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\listItemDrink.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
