@@ -2,14 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+            >
     <TextView
         android:id="@+id/drinkName"
         android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center" />
+        android:gravity="center"
+        android:paddingTop="5dp"
+        android:textColor="@android:color/darker_gray"
+        />
     <ImageView
         android:src="@android:drawable/ic_menu_gallery"
         android:id="@+id/drinkImage"
@@ -17,5 +21,7 @@
         android:layout_height="wrap_content"
         android:maxHeight="50dp"
         android:maxWidth="50dp"
-        android:paddingLeft="20dp" />
+        android:paddingLeft="20dp"
+        android:paddingBottom="20dp"
+        android:paddingTop="5dp" />
 </LinearLayout>

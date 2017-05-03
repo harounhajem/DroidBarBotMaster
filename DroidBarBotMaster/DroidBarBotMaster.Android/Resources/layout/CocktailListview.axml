@@ -4,13 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:minWidth="25px"
-    android:minHeight="25px">
-    <TextView
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+    android:minHeight="25px"
+    android:background="@color/white">
+    <SearchView
+        android:minWidth="25px"
+        android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView1" />
+        android:id="@+id/searchView1"
+        android:goIcon="@drawable/icon"
+        android:inputType="text"
+        android:searchHintIcon="@drawable/icon"
+        android:layout_marginBottom="0.0dp"
+        android:searchIcon="@android:drawable/ic_menu_search"
+        android:foregroundTint="#fff0f8ff" />
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

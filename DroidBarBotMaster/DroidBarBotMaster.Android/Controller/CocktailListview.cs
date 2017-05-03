@@ -15,7 +15,7 @@ using DroidBarBotMaster.Droid.Class.Model;
 
 namespace DroidBarBotMaster.Droid
 {
-    [Activity(Label = "CocktailListview", MainLauncher = true)]
+    [Activity(Label = "CocktailListview")]
     public class CocktailListview : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -26,7 +26,10 @@ namespace DroidBarBotMaster.Droid
 
             SetContentView(Resource.Layout.CocktailListview);
 
+            
         }
+
+
 
         protected override void OnStart()
         {
