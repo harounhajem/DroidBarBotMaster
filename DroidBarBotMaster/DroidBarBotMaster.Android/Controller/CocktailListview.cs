@@ -40,6 +40,9 @@ namespace DroidBarBotMaster.Droid
 
             List<String> drinkNames = new List<string>() { "lime", "vodka", "tequila" };
 
+
+            // TODO: Activate filter
+
             //List<DrinkMultiple> availableDrinks = CocktailDBService.getAllDrinks(drinkNames);
             List<DrinkMultiple> availableDrinks = CocktailDBService.getAllDrinksShallow(drinkNames);
 
@@ -47,7 +50,7 @@ namespace DroidBarBotMaster.Droid
 
             //FindViewById<Button>(Resource.Id.cocktailListView).AddChildrenForAccessibility(drinkNames);
 
-            ListView lt = FindViewById<ListView>(Resource.Id.cocktailListView);
+            ListView listView = FindViewById<ListView>(Resource.Id.cocktailListView);
 
 
             //ArrayAdapter<Drink> adapter = new ArrayAdapter<Drink>(this, Resource.Layout.XMLFile1, availableDrinks[0].Drinks);
@@ -60,11 +63,9 @@ namespace DroidBarBotMaster.Droid
             }
 
             listAdapterDrink adapter = new listAdapterDrink(this, allDrinks);
-            lt.Adapter = adapter;
+            listView.Adapter = adapter;
 
-            lt.Clickable = true;
-            lt.SetOnClickListener(new ListItemClick());
-
+            listView.ItemClick += listView_ItemClick;
 
             #region How to Connect
             // TODO: Dev deactivate
@@ -85,5 +86,32 @@ namespace DroidBarBotMaster.Droid
 
         }
 
+        private void listView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+        {
+
+            ListView listView = sender as Android.Widget.ListView;
+
+            if (listView == null) return;
+
+            listAdapterDrink listAdapterDrink = listView.Adapter as listAdapterDrink;
+
+            if (listAdapterDrink == null) return;
+
+            Drink drink = listAdapterDrink.listDrink[e.Position];
+
+            // TODO: DEV ONLY :  Remove this, 
+            Drink detailDrink = CocktailDBService.HttpGet(drink.idDrink.ToString(), HttpGetRequests.CocktailByID).Drinks[0];
+
+            ChangePage(detailDrink);
+        }
+
+        private void ChangePage(Drink selectedDrink)
+        {
+            var activity = new Intent(this, typeof(DrinkOrder));
+
+            TransporterClass.SelectedDrink = selectedDrink;
+
+            StartActivity(activity);
+        }
     }
 }

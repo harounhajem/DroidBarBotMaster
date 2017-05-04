@@ -72,7 +72,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
 
                     string drinkID = tempDrinks.Drinks[i].idDrink.ToString();
 
-                    // TODO: Check for latency
+                    
                     tempDrinks.Drinks[i] = HttpGet(drinkID, HttpGetRequests.CocktailByID).Drinks[0];
 
                 }

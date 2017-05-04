@@ -22,5 +22,7 @@ namespace DroidBarBotMaster.Droid.Class.Helper
 
         public static BarBot barBot { get; set; }
 
+        public static Drink SelectedDrink { get; set; }
+
     }
 }

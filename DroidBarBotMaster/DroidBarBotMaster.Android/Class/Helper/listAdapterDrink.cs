@@ -1,25 +1,21 @@
 using System;
 using System.Collections.Generic;
-using Android.App;
 using Android.Content;
-using Android.Provider;
 using Android.Views;
 using Android.Widget;
 using DroidBarBotMaster.Droid.Class.Model;
 using Android.Graphics;
-using Java.IO;
-using Android.OS;
 using System.Net;
 using Android.Graphics.Drawables;
 using System.IO;
-using DroidBarBotMaster.Droid.Controller;
 
 namespace DroidBarBotMaster.Droid.Class.Helper
 {
     class listAdapterDrink : BaseAdapter<Drink>
     {
         Context context;
-        List<Drink> listDrink;
+        
+        public List<Drink> listDrink { get; private set; }
 
         public listAdapterDrink(Context context, List<Drink> listDrink)
         {
@@ -89,7 +85,7 @@ namespace DroidBarBotMaster.Droid.Class.Helper
         }
 
 
-        private Bitmap GetImageBitmapFromUrl(string url)
+        public Bitmap GetImageBitmapFromUrl(string url)
         {
             Bitmap imageBitmap = null;
 

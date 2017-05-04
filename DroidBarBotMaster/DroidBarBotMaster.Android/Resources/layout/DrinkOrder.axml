@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    <ImageView
+        android:id="@+id/drinkImage"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="50dp"
+        android:maxWidth="50dp"
+        android:paddingTop="25dp"
+        android:paddingBottom="5dp"
+        android:src="@drawable/placeholder_white" />
+    <TextView
+        android:id="@+id/drinkName"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="20dp"
+        android:textColor="@android:color/darker_gray"
+        android:textAllCaps="true" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        
+        android:paddingTop="25dp">
+        <TextView
+            android:id="@+id/drinkIngridient1"
+            android:text="drinkIngridient1"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:gravity="center"
+            android:textColor="@android:color/darker_gray"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:capitalize="sentences"
+            android:textAllCaps="false" />
+
+      <TextView
+    android:id="@+id/drinkIngridient1Cl"
+    android:text="Cl"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:gravity="center"
+    android:textColor="@android:color/darker_gray"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:capitalize="sentences"
+    android:textAllCaps="false" />
+    </LinearLayout>
+  <LinearLayout
+    android:orientation="horizontal"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+    <TextView
+        android:id="@+id/drinkIngridient2"
+        android:text="drinkIngridient2"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@android:color/darker_gray" />
+  </LinearLayout>
+
+</LinearLayout>

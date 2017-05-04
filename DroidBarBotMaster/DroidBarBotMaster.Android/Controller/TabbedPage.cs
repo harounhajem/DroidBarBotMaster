@@ -27,13 +27,7 @@ namespace DroidBarBotMaster.Droid.Controller
 
             localActivityManager = new LocalActivityManager(this, false);
             localActivityManager.DispatchCreate(savedInstanceState);
-        }
-        LocalActivityManager localActivityManager;
-       
 
-        protected override void OnStart()
-        {
-            base.OnStart();
 
             // create the TabHost that will contain the Tabs
 
@@ -42,6 +36,16 @@ namespace DroidBarBotMaster.Droid.Controller
             tabHost.Setup(localActivityManager);
             CreateTab(typeof(CocktailListview), "COCKTAIL", "COCKTAIL", tabHost);
             CreateTab(typeof(Start_and_Connect), "", "", tabHost);
+
+        }
+        LocalActivityManager localActivityManager;
+       
+
+        protected override void OnStart()
+        {
+            base.OnStart();
+
+
 
         }
 
