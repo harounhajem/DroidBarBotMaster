@@ -25,10 +25,10 @@ namespace DroidBarBotMaster.Droid.Controller
 
             SetContentView(Resource.Layout.TabbedPage);
 
-            xx = new LocalActivityManager(this, false);
-            xx.DispatchCreate(savedInstanceState);
+            localActivityManager = new LocalActivityManager(this, false);
+            localActivityManager.DispatchCreate(savedInstanceState);
         }
-        LocalActivityManager xx;
+        LocalActivityManager localActivityManager;
        
 
         protected override void OnStart()
@@ -39,21 +39,22 @@ namespace DroidBarBotMaster.Droid.Controller
 
             TabHost tabHost = FindViewById<TabHost>(Resource.Id.tabsHost);
 
-            tabHost.Setup(xx);
-            CreateTab(typeof(CocktailListview), "First Tab", "First Tab", tabHost);
-            CreateTab(typeof(Start_and_Connect), "Sec Tab", "Sec Tab", tabHost);
+            tabHost.Setup(localActivityManager);
+            CreateTab(typeof(CocktailListview), "COCKTAIL", "COCKTAIL", tabHost);
+            CreateTab(typeof(Start_and_Connect), "", "", tabHost);
 
         }
 
         private void CreateTab(Type activityType, string tag, string label, TabHost tabHost)
         {
 
-            var intent = new Intent(this, activityType);
+            Intent intent = new Intent(this, activityType);
             intent.AddFlags(ActivityFlags.NewTask);
 
-            var spec = tabHost.NewTabSpec(tag);
-            spec.SetIndicator(label);
+            TabSpec spec = tabHost.NewTabSpec(tag);
+            spec.SetIndicator(label, this.GetDrawable( Android.Resource.Drawable.IcMenuManage));
             spec.SetContent(intent);
+            
 
             tabHost.AddTab(spec);
         }

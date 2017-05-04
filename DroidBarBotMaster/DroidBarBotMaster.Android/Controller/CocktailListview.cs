@@ -12,6 +12,7 @@ using Android.Widget;
 using DroidBarBotMaster.Droid.Class.Service;
 using DroidBarBotMaster.Droid.Class.Helper;
 using DroidBarBotMaster.Droid.Class.Model;
+using DroidBarBotMaster.Droid.Controller;
 
 namespace DroidBarBotMaster.Droid
 {
@@ -61,7 +62,8 @@ namespace DroidBarBotMaster.Droid
             listAdapterDrink adapter = new listAdapterDrink(this, allDrinks);
             lt.Adapter = adapter;
 
-
+            lt.Clickable = true;
+            lt.SetOnClickListener(new ListItemClick());
 
 
             #region How to Connect

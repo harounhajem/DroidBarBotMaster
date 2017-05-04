@@ -10,6 +10,9 @@ using Android.Graphics;
 using Java.IO;
 using Android.OS;
 using System.Net;
+using Android.Graphics.Drawables;
+using System.IO;
+using DroidBarBotMaster.Droid.Controller;
 
 namespace DroidBarBotMaster.Droid.Class.Helper
 {
@@ -39,13 +42,50 @@ namespace DroidBarBotMaster.Droid.Class.Helper
             TextView drinkName = row.FindViewById<TextView>(Resource.Id.drinkName);
             drinkName.Text = listDrink[position].strDrink;
 
+            ImageView drinkImage = row.FindViewById<ImageView>(Resource.Id.drinkImage);
+
             if (!String.IsNullOrEmpty(listDrink[position].strDrinkThumb))
             {
-                ImageView drinkImage = row.FindViewById<ImageView>(Resource.Id.drinkImage);
                 Bitmap picture = GetImageBitmapFromUrl(listDrink[position].strDrinkThumb);
-                drinkImage.SetImageBitmap(picture);
+                Bitmap pictureRound = GetRoundedShape(picture);
+                drinkImage.SetImageBitmap(pictureRound);
+
             }
+            else
+            {
+                Stream picStream = context.Resources.OpenRawResource(Resource.Drawable.placeholder_white);
+                var bitmapPicture = new BitmapDrawable(picStream);
+                drinkImage.SetImageBitmap(GetRoundedShape(bitmapPicture.Bitmap));
+
+            }
+
+            
+
             return row;
+        }
+
+        public Bitmap GetRoundedShape(Bitmap scaleBitmapImage)
+        {
+            int targetWidth = 650;
+            int targetHeight = 650;
+            Bitmap targetBitmap = Bitmap.CreateBitmap(targetWidth,
+                targetHeight, Bitmap.Config.Argb8888);
+
+            Canvas canvas = new Canvas(targetBitmap);
+            Android.Graphics.Path path = new Android.Graphics.Path();
+            path.AddCircle(((float)targetWidth - 1) / 2,
+                ((float)targetHeight - 1) / 2,
+                (Math.Min(((float)targetWidth),
+                    ((float)targetHeight)) / 2),
+                Android.Graphics.Path.Direction.Ccw);
+
+            canvas.ClipPath(path);
+            Bitmap sourceBitmap = scaleBitmapImage;
+            canvas.DrawBitmap(sourceBitmap,
+                new Rect(0, 0, sourceBitmap.Width,
+                    sourceBitmap.Height),
+                new Rect(0, 0, targetWidth, targetHeight), null);
+            return targetBitmap;
         }
 
 

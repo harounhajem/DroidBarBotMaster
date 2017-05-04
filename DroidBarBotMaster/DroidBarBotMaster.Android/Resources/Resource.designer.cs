@@ -112,6 +112,12 @@ namespace DroidBarBotMaster.Droid
 			// aapt resource value: 0x7f020003
 			public const int myButton = 2130837507;
 			
+			// aapt resource value: 0x7f020004
+			public const int placeholder = 2130837508;
+			
+			// aapt resource value: 0x7f020005
+			public const int placeholder_white = 2130837509;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

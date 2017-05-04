@@ -76,6 +76,7 @@
     <Compile Include="Class\Service\BluetoothService.cs" />
     <Compile Include="Class\Service\CocktailDBService.cs" />
     <Compile Include="Controller\CocktailListview.cs" />
+    <Compile Include="Controller\ListItemClick.cs" />
     <Compile Include="Controller\MainActivity.cs" />
     <Compile Include="Controller\TabbedPage.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -125,6 +126,15 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\logoGray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\drawable-xhdpi\Assets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\placeholder.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\placeholder_white.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>
