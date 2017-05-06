@@ -1,72 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white">
-    <ImageView
-        android:id="@+id/drinkImage"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:maxHeight="50dp"
-        android:maxWidth="50dp"
-        android:paddingTop="25dp"
-        android:paddingBottom="5dp"
-        android:src="@drawable/placeholder_white" />
-    <TextView
-        android:id="@+id/drinkName"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingTop="20dp"
-        android:textColor="@android:color/darker_gray"
-        android:textAllCaps="true" />
-    <LinearLayout
-        android:orientation="horizontal"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        
-        android:paddingTop="25dp">
-        <TextView
-            android:id="@+id/drinkIngridient1"
-            android:text="drinkIngridient1"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:gravity="center"
-            android:textColor="@android:color/darker_gray"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:capitalize="sentences"
-            android:textAllCaps="false" />
-
-      <TextView
-    android:id="@+id/drinkIngridient1Cl"
-    android:text="Cl"
-    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:layout_gravity="center"
     android:gravity="center"
-    android:textColor="@android:color/darker_gray"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:capitalize="sentences"
-    android:textAllCaps="false" />
-    </LinearLayout>
-  <LinearLayout
-    android:orientation="horizontal"
-    android:minWidth="25px"
-    android:minHeight="25px"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content" >
-    <TextView
-        android:id="@+id/drinkIngridient2"
-        android:text="drinkIngridient2"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+    android:background="#ffffffff">
+    <ImageView
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
+        android:id="@+id/imageView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:src="@drawable/logogray" />
+    <TextView
+        android:id="@+id/strDrink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
         android:gravity="center"
-        android:textColor="@android:color/darker_gray" />
-  </LinearLayout>
-
+        android:inputType="textPersonName"
+        android:paddingBottom="10dp"
+        android:paddingTop="5dp"
+        android:text="Str Drink"
+        android:capitalize="sentences"
+        android:textStyle="bold"
+        android:typeface="normal"
+        android:textColor="@android:color/darker_gray"
+        
+        android:textSize="19sp"
+         />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/ingridients1"
+            android:textColor="@android:color/darker_gray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-smallcaps"
+            android:paddingLeft="25dp"
+            android:text="ingridients1"
+            android:textAlignment="textEnd" />
+        <TextView
+            android:id="@+id/cl1"
+            android:textColor="@android:color/darker_gray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-smallcaps"
+            android:paddingLeft="25dp"
+            android:text="25 cl"
+            android:textSize="13sp"
+            android:typeface="normal" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="5dp">
+        <TextView
+            android:textColor="@android:color/darker_gray"
+            android:id="@+id/ingridients3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-smallcaps"
+            android:paddingLeft="25dp"
+            android:text="ingridients1 frontal crock"
+            android:textAlignment="textEnd" />
+        <TextView
+            android:textColor="@android:color/darker_gray"
+            android:id="@+id/cl3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-smallcaps"
+            android:paddingLeft="25dp"
+            android:text="25 cl"
+            android:textSize="13sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5dp"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/ingridients4"
+            android:textColor="@android:color/darker_gray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-smallcaps"
+            android:paddingLeft="25dp"
+            android:text="ingridients1 frontal crock"
+            android:textAlignment="textEnd" />
+        <TextView
+            android:id="@+id/cl4"
+            android:textColor="@android:color/darker_gray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-smallcaps"
+            android:paddingLeft="25dp"
+            android:text="25 cl"
+            android:textSize="13sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5dp"
+        android:gravity="center">
+        <TextView
+            android:textColor="@android:color/darker_gray"
+            android:id="@+id/ingridients2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-smallcaps"
+            android:paddingLeft="25dp"
+            android:text="ingridients1 frontal crock"
+            android:textAlignment="textEnd" />
+        <TextView
+            android:textColor="@android:color/darker_gray"
+            android:id="@+id/cl2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-smallcaps"
+            android:paddingLeft="25dp"
+            android:text="25 cl"
+            android:textSize="13sp" />
+    </LinearLayout>
+    <TextView
+        android:textColor="@android:color/darker_gray"
+        android:id="@+id/titledescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:capitalize="characters"
+        android:gravity="center"
+        android:paddingBottom="5dp"
+        android:paddingTop="8dp"
+        android:text="DESCRIPTION"
+        android:textStyle="bold" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:textColor="@android:color/darker_gray"
+                android:id="@+id/strdescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:text="Cras ut lobortis ligula, in pretium risus. Duis quis ex sed turpis facilisis feugiat ac quis nunc. Quisque condimentum molestie nibh, blandit tristique nisi efficitur quis. Sed suscipit mauris pretium dictum pharetra."
+                android:textSize="12sp" />
+        </LinearLayout>
+    </ScrollView>
+    <Button
+        android:id="@+id/drinkOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="5dp"
+        android:paddingTop="10dp"
+        android:text="ORDER DRINK"
+        
+        android:textColor="@android:color/black" />
 </LinearLayout>

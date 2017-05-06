@@ -68,6 +68,7 @@ namespace DroidBarBotMaster.Droid
             listView.ItemClick += listView_ItemClick;
 
             #region How to Connect
+
             // TODO: Dev deactivate
 
             //foreach (var item in TransporterClass.listContainer)
@@ -99,7 +100,7 @@ namespace DroidBarBotMaster.Droid
 
             Drink drink = listAdapterDrink.listDrink[e.Position];
 
-            // TODO: DEV ONLY :  Remove this, 
+            // TODO: DEV ONLY :  Remove this? Or you can have this left?
             Drink detailDrink = CocktailDBService.HttpGet(drink.idDrink.ToString(), HttpGetRequests.CocktailByID).Drinks[0];
 
             ChangePage(detailDrink);

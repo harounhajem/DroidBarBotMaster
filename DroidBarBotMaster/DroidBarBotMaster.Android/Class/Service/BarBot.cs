@@ -68,6 +68,19 @@ namespace DroidBarBotMaster.Droid.Class.Service
 
         }
 
+        internal void SendCocktailOrder(Drink drink)
+        {
+            // TODO: Send drink
+
+            // 1. Take out what you need, ingrids
+
+            // 2. Format it
+
+            // 3. Send it
+
+            throw new NotImplementedException();
+        }
+
         public void GetIngridients(int runTime, List<Container> listContainer)
         {
             Thread writeToSlave = new Thread(() => btService.Write(new byte[] { Convert.ToByte(Commands.GetIngridients)}));

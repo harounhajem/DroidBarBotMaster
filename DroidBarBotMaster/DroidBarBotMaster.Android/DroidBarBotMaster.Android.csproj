@@ -139,5 +139,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\placeholder_white.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\bottleicon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>
