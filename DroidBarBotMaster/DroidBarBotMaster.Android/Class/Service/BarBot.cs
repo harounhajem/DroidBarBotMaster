@@ -68,13 +68,18 @@ namespace DroidBarBotMaster.Droid.Class.Service
 
         }
 
+        internal void SaveNewBottles(Container selectedBottle)
+        {
+            throw new NotImplementedException();
+        }
+
         internal void SendCocktailOrder(Drink drink)
         {
             // TODO: Send drink
 
-            // 1. Take out what you need, ingrids
+            // 1. Take out what you need, ingridients
 
-            // 2. Format it
+            // 2. Right ormat it
 
             // 3. Send it
 

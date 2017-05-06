@@ -35,7 +35,6 @@ namespace DroidBarBotMaster.Droid.Controller
 
             FindViewById<Button>(Resource.Id.drinkOrder).Click += DrinkOrder_Click; ;
 
-
             PopulateData();
         }
 
@@ -76,16 +75,16 @@ namespace DroidBarBotMaster.Droid.Controller
             FindViewById<TextView>(Resource.Id.strDrink).Text = drink.strDrink;
 
             FindViewById<TextView>(Resource.Id.ingridients1).Text = drink.strIngredient1;
-            FindViewById<TextView>(Resource.Id.cl1).Text = drink.strIngredient1;
+            FindViewById<TextView>(Resource.Id.cl1).Text = drink.strMeasure1;
 
             FindViewById<TextView>(Resource.Id.ingridients2).Text = drink.strIngredient2;
-            FindViewById<TextView>(Resource.Id.cl2).Text = drink.strIngredient2;
+            FindViewById<TextView>(Resource.Id.cl2).Text = drink.strMeasure2;
 
             FindViewById<TextView>(Resource.Id.ingridients3).Text = drink.strIngredient3;
-            FindViewById<TextView>(Resource.Id.cl3).Text = drink.strIngredient3;
+            FindViewById<TextView>(Resource.Id.cl3).Text = drink.strMeasure3;
 
             FindViewById<TextView>(Resource.Id.ingridients4).Text = drink.strIngredient4;
-            FindViewById<TextView>(Resource.Id.cl4).Text = drink.strIngredient4;
+            FindViewById<TextView>(Resource.Id.cl4).Text = drink.strMeasure4;
 
             FindViewById<TextView>(Resource.Id.strdescription).Text = drink.strInstructions;
 

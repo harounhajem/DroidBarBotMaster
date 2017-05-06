@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" android:versionCode="0.1" android:versionName="0.1">
 	<uses-sdk android:minSdkVersion="15" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 	<uses-permission android:name="android.permission.BLUETOOTH" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<uses-permission android:name="android.permission.DIAGNOSTIC" />
-	<application android:label="DroidBarBotMaster.Android"></application>
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<application android:label="Barbot"></application>
 	<activity android:name=".MainActivity" android:label="@string/app_name" android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
 </manifest>

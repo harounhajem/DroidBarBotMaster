@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Net;
 using Newtonsoft.Json;
+using System.Net.Http;
 using System.Collections.Generic;
 using DroidBarBotMaster.Droid.Class.Model;
 
