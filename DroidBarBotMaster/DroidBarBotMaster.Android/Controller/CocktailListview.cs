@@ -26,7 +26,6 @@ namespace DroidBarBotMaster.Droid
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.CocktailListview);
-
             
         }
 
@@ -38,10 +37,10 @@ namespace DroidBarBotMaster.Droid
 
             List<DrinkMultiple> available = new List<DrinkMultiple>();
 
-            List<String> drinkNames = new List<string>() { "lime", "vodka", "tequila" };
+            List<String> drinkNames = new List<string>() {"tequila", "vodka", "lime" };
 
 
-            // TODO: Activate filter
+            // TODO: Activate filter & Get real ingridients
 
             //List<DrinkMultiple> availableDrinks = CocktailDBService.getAllDrinks(drinkNames);
             List<DrinkMultiple> availableDrinks = CocktailDBService.getAllDrinksShallow(drinkNames);

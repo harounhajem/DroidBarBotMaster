@@ -33,7 +33,7 @@ namespace DroidBarBotMaster.Droid.Controller
 
             drink = TransporterClass.SelectedDrink;
 
-            FindViewById<Button>(Resource.Id.drinkOrder).Click += DrinkOrder_Click; ;
+            FindViewById<Button>(Resource.Id.drinkOrder).Click += DrinkOrder_Click; 
 
             PopulateData();
         }
@@ -41,6 +41,7 @@ namespace DroidBarBotMaster.Droid.Controller
         private void DrinkOrder_Click(object sender, EventArgs e)
         {
             BarBot barbot = new BarBot(TransporterClass.bluetoothService);
+
             barbot.SendCocktailOrder(drink);
         }
 
@@ -72,8 +73,14 @@ namespace DroidBarBotMaster.Droid.Controller
 
             // Set text 
 
-            FindViewById<TextView>(Resource.Id.strDrink).Text = drink.strDrink;
+            FindViewById<TextView>(Resource.Id.strDrink).Text = drink.strDrink.ToUpper();
 
+            LinearLayout temp = FindViewById<LinearLayout>(Resource.Id.linearLayoutDrinkOrder);
+             
+            //temp.AddView(2)
+
+
+            // TODO: Create a Factory for creating Textview with ingridients and populate the ListView
             FindViewById<TextView>(Resource.Id.ingridients1).Text = drink.strIngredient1;
             FindViewById<TextView>(Resource.Id.cl1).Text = drink.strMeasure1;
 
@@ -87,6 +94,7 @@ namespace DroidBarBotMaster.Droid.Controller
             FindViewById<TextView>(Resource.Id.cl4).Text = drink.strMeasure4;
 
             FindViewById<TextView>(Resource.Id.strdescription).Text = drink.strInstructions;
+            // ----- Remove this way of getting the data --------------------------------------------- //
 
 
         }

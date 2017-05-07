@@ -47,9 +47,6 @@ namespace DroidBarBotMaster.Droid.Controller
 
         private void btnSave(object sender, EventArgs e)
         {
-            Button btnClicked = sender as Button;
-
-            if (btnClicked == null) return;
 
             Container oldValue = selectedBottle;
 
@@ -69,11 +66,12 @@ namespace DroidBarBotMaster.Droid.Controller
             selectedBottle.Amount = Int32.Parse(inputValue.Text);
 
             // 3. Skicka spara till maskinen
-            TransporterClass.barBot.SaveNewBottles(selectedBottle);
-
-            // 4. Updatera vyn & uppdatera Transporter
 
             Container oldBottle = bottles.Find(x => x == oldValue);
+
+            TransporterClass.barBot.PostIngridients(selectedBottle, bottles.FindIndex(x => x == oldBottle));
+
+            // 4. Updatera vyn & uppdatera Transporter
 
             oldBottle = selectedBottle;
 

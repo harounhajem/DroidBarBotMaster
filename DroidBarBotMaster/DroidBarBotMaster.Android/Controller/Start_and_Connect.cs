@@ -15,12 +15,13 @@ using System.Text;
 using System.Collections.Generic;
 using DroidBarBotMaster.Droid.Class.Model;
 using DroidBarBotMaster.Droid.Class.Helper;
+using DroidBarBotMaster.Droid.Controller;
 
 namespace DroidBarBotMaster.Droid
 {
 
     // TODO: Dev activate:  MainLauncher = true
-    [Activity(Label = "Start", Icon = "@drawable/icon")]
+    [Activity(Label = "BarBot", Icon = "@drawable/icon", MainLauncher = true)]
     public class Start_and_Connect : Activity
     {
         Toast toastMessenger;
@@ -44,7 +45,21 @@ namespace DroidBarBotMaster.Droid
             TransporterClass.listContainer = new List<Container>();
 
         }
-        
+
+        protected override void OnStart()
+        {
+            if (TransporterClass.bluetoothService != null)
+            {
+                var newActivity = new Intent(this, typeof(TabbedPage));
+
+                StartActivity(newActivity);
+
+                this.Finish();
+
+            }
+
+            base.OnStart(); 
+        }
 
         private void BtnConnect_Click(object sender, EventArgs e)
         {
@@ -68,12 +83,13 @@ namespace DroidBarBotMaster.Droid
 
                     Thread.Sleep(600);
 
-                    var activity2 = new Intent(this, typeof(CocktailListview));
+                    var newActivity = new Intent(this, typeof(TabbedPage));
 
-                    activity2.PutExtra("MyData", "Data from Start_and_Connect");
+                    newActivity.PutExtra("MyData", "Data from Start_and_Connect");
 
-                    StartActivity(activity2);
+                    StartActivity(newActivity);
                     
+                    this.Finish();
                 }
 
             });

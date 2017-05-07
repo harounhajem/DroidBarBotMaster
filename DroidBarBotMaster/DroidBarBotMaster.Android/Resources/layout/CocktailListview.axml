@@ -12,14 +12,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/searchView1"
-        android:goIcon="@drawable/icon"
         android:inputType="text"
         android:searchHintIcon="@drawable/icon"
         android:layout_marginBottom="0.0dp"
         android:searchIcon="@android:drawable/ic_menu_search"
-        android:foregroundTint="#fff0f8ff" />
+        android:foregroundTint="#fff0f8ff"
+         />
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/cocktailListView" />
+        android:id="@+id/cocktailListView"
+         />
 </LinearLayout>

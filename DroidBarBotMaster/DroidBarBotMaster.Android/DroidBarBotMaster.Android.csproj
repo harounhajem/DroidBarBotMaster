@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\Helper\DeSerialize.cs" />
+    <Compile Include="Class\Helper\Factory.cs" />
     <Compile Include="Class\Helper\FractionalConverter.cs" />
     <Compile Include="Class\Helper\listAdapterDrink.cs" />
     <Compile Include="Class\Helper\TransporterClass.cs" />
@@ -161,6 +162,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\backgroundlist.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
 </Project>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DroidBarBotMaster.Droid.Class.Helper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -72,6 +73,52 @@ namespace DroidBarBotMaster.Droid.Class.Model
             };
 
             return strIngridientsList;
+        }
+
+        public SortedDictionary<string, int> GetStrIngridientsMeasurementDictionary()
+        {
+            SortedDictionary<string, int> drinkIngridientsSorted = new SortedDictionary<string, int>();
+
+            
+            CheckForDublicatedKeyAndAdd(drinkIngridientsSorted, strIngredient1, strMeasure1);
+            CheckForDublicatedKeyAndAdd(drinkIngridientsSorted, strIngredient2, strMeasure2);
+            CheckForDublicatedKeyAndAdd(drinkIngridientsSorted, strIngredient3, strMeasure3);
+            CheckForDublicatedKeyAndAdd(drinkIngridientsSorted, strIngredient4, strMeasure4);
+            CheckForDublicatedKeyAndAdd(drinkIngridientsSorted, strIngredient5, strMeasure5);
+            CheckForDublicatedKeyAndAdd(drinkIngridientsSorted, strIngredient6, strMeasure6);
+            CheckForDublicatedKeyAndAdd(drinkIngridientsSorted, strIngredient7, strMeasure7);
+            CheckForDublicatedKeyAndAdd(drinkIngridientsSorted, strIngredient8, strMeasure8);
+            CheckForDublicatedKeyAndAdd(drinkIngridientsSorted, strIngredient9, strMeasure9);
+            CheckForDublicatedKeyAndAdd(drinkIngridientsSorted, strIngredient10, strMeasure10);
+            CheckForDublicatedKeyAndAdd(drinkIngridientsSorted, strIngredient11, strMeasure11);
+            CheckForDublicatedKeyAndAdd(drinkIngridientsSorted, strIngredient12, strMeasure12);
+            CheckForDublicatedKeyAndAdd(drinkIngridientsSorted, strIngredient13, strMeasure13);
+            CheckForDublicatedKeyAndAdd(drinkIngridientsSorted, strIngredient14, strMeasure14);
+            CheckForDublicatedKeyAndAdd(drinkIngridientsSorted, strIngredient15, strMeasure15);
+
+
+            return drinkIngridientsSorted;
+
+        }
+
+        static void CheckForDublicatedKeyAndAdd(SortedDictionary<string, int> drinkIngridientsSorted, string ingridient, string measure)
+        {
+            if (String.IsNullOrEmpty(ingridient)) return;
+
+            FractionalConverter fractConv = new FractionalConverter(measure);
+
+            int amountParsed = Convert.ToInt32(fractConv.ResultCl);
+
+            if (amountParsed <= 0) return;
+
+            if (drinkIngridientsSorted.ContainsKey(ingridient))
+            {
+                drinkIngridientsSorted[ingridient] += amountParsed;
+            }
+            else
+            {
+                drinkIngridientsSorted.Add(ingridient, amountParsed);
+            }
         }
     }
 }

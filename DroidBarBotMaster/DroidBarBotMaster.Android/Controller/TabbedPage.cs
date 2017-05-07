@@ -1,19 +1,14 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using static Android.Widget.TabHost;
 
 namespace DroidBarBotMaster.Droid.Controller
 {
-    [Activity(Label = "TabbedPage", MainLauncher = true)]
+    [Activity(Label = "BarBot", Icon = "@drawable/icon")]
     public class TabbedPage : Activity
     {
 
