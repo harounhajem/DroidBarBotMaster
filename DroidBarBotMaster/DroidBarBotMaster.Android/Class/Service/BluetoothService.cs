@@ -172,7 +172,6 @@ namespace DroidBarBotMaster.Droid.Class.Service
                 System.Console.WriteLine("--SEND, ASYNC :  " + ASCIIEncoding.ASCII.GetString(bytes));
                 ShowToastMessage("Writing: " + ASCIIEncoding.ASCII.GetString(bytes), ToastLength.Long);
 
-
             }
             catch (System.IO.IOException e)
             {

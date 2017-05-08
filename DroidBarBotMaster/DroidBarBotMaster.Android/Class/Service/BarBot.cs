@@ -40,8 +40,9 @@ namespace DroidBarBotMaster.Droid.Class.Service
 
             Thread.Sleep(100); // Wait for sync, BT problem
 
-            btService.WriteAsync(Encoding.ASCII.GetBytes("$" + position + "#" + container.Name + "&" + container.Amount + "@"));
+            Thread writeToSlave = new Thread(() => btService.WriteAsync(Encoding.ASCII.GetBytes("$" + position + "#" + container.Name + "&" + container.Amount + "@")));
 
+            writeToSlave.Start();
         }
 
         public async void SendCocktailOrder()

@@ -22,6 +22,12 @@ namespace DroidBarBotMaster.Droid.Controller
 
         Container selectedBottle;
 
+        public override void OnBackPressed()
+        {
+            base.OnBackPressed();
+            this.Finish();
+        }
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             RequestWindowFeature(WindowFeatures.NoTitle);

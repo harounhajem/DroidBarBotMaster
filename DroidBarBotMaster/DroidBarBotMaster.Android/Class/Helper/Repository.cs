@@ -45,7 +45,6 @@ namespace DroidBarBotMaster.Droid.Class.Helper
             using (var streamReader = new StreamReader(filename))
             {
                 content = streamReader.ReadToEnd();
-                System.Diagnostics.Debug.WriteLine(content);
             }
 
             if (string.IsNullOrEmpty(content)) return null;

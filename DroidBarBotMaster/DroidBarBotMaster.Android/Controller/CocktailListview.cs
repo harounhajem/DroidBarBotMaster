@@ -41,7 +41,8 @@ namespace DroidBarBotMaster.Droid
             List<String> drinkNames = new List<string>() { "tequila", "vodka", "lime" };
 
 
-            // Filter and update avalible drinks
+            // Filter and update available drinks
+
             UpdateRepositoryData(drinkNames);
 
 
