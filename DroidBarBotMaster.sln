@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DroidBarBotMaster", "DroidB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CocktailHttpRequest", "..\..\..\Etc\CocktailHttpRequest\CocktailHttpRequest\CocktailHttpRequest.csproj", "{4F6A89FE-C879-463D-8C06-80084FDB57E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalRepository", "LocalRepository\LocalRepository.csproj", "{E5948E5A-72BA-4002-80E1-4E4BE64EDB70}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,18 @@ Global
 		{4F6A89FE-C879-463D-8C06-80084FDB57E6}.Release|iPhone.Build.0 = Release|Any CPU
 		{4F6A89FE-C879-463D-8C06-80084FDB57E6}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{4F6A89FE-C879-463D-8C06-80084FDB57E6}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{E5948E5A-72BA-4002-80E1-4E4BE64EDB70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5948E5A-72BA-4002-80E1-4E4BE64EDB70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5948E5A-72BA-4002-80E1-4E4BE64EDB70}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{E5948E5A-72BA-4002-80E1-4E4BE64EDB70}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{E5948E5A-72BA-4002-80E1-4E4BE64EDB70}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{E5948E5A-72BA-4002-80E1-4E4BE64EDB70}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{E5948E5A-72BA-4002-80E1-4E4BE64EDB70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5948E5A-72BA-4002-80E1-4E4BE64EDB70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5948E5A-72BA-4002-80E1-4E4BE64EDB70}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{E5948E5A-72BA-4002-80E1-4E4BE64EDB70}.Release|iPhone.Build.0 = Release|Any CPU
+		{E5948E5A-72BA-4002-80E1-4E4BE64EDB70}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{E5948E5A-72BA-4002-80E1-4E4BE64EDB70}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

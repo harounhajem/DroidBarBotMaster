@@ -44,6 +44,37 @@ namespace DroidBarBotMaster.Droid
 
             TransporterClass.listContainer = new List<Container>();
 
+
+            ////////////
+            SortedDictionary<string, DrinkMultiple> repository = new SortedDictionary<string, DrinkMultiple>();
+
+
+
+            var drinkMulti = new DrinkMultiple();
+
+
+            var drink = new Drink();
+
+            drink.idDrink = 12345;
+
+            drink.strDrink = "Hello World22";
+
+            drink.strIngredient1 = "Lemon";
+
+
+
+            drinkMulti.Drinks = new List<Drink>() { drink };
+
+
+            Repository.SaveData(drinkMulti, "Lemon");
+
+
+            repository = Repository.GetSavedData();
+
+
+
+            ////////////
+
         }
 
         protected override void OnStart()
@@ -84,8 +115,6 @@ namespace DroidBarBotMaster.Droid
                     Thread.Sleep(600);
 
                     var newActivity = new Intent(this, typeof(TabbedPage));
-
-                    newActivity.PutExtra("MyData", "Data from Start_and_Connect");
 
                     StartActivity(newActivity);
                     
