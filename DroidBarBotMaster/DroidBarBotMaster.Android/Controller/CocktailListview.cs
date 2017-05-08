@@ -41,6 +41,7 @@ namespace DroidBarBotMaster.Droid
 
 
             // TODO: Activate filter & Get real ingridients
+            // TODO: Spara och hämta data ifrån hårddisken
 
             //List<DrinkMultiple> availableDrinks = CocktailDBService.getAllDrinks(drinkNames);
             List<DrinkMultiple> availableDrinks = CocktailDBService.getAllDrinksShallow(drinkNames);

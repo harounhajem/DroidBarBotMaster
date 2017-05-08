@@ -105,6 +105,8 @@ namespace DroidBarBotMaster.Droid.Class.Model
         {
             if (String.IsNullOrEmpty(ingridient)) return;
 
+            measure.Replace(System.Environment.NewLine, string.Empty);
+
             FractionalConverter fractConv = new FractionalConverter(measure);
 
             int amountParsed = Convert.ToInt32(fractConv.ResultCl);

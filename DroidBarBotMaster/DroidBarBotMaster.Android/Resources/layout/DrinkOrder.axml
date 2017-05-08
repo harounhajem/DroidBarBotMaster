@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,7 +8,7 @@
     android:layout_gravity="center"
     android:gravity="center"
     android:background="#ffffffff"
-    android:id="@+id/linearLayoutDrinkOrder" >
+     >
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
@@ -30,114 +31,16 @@
         android:textSize="19sp"
         android:textAllCaps="true"
         android:paddingTop="15dp" />
+  <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
-        <TextView
-            android:id="@+id/ingridients1"
-            android:textColor="@android:color/darker_gray"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-smallcaps"
-            android:paddingLeft="25dp"
-            android:text="ingridients1"
-            android:textAlignment="textEnd" />
-        <TextView
-            android:id="@+id/cl1"
-            android:textColor="@android:color/darker_gray"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-smallcaps"
-            android:paddingLeft="25dp"
-            android:text="25 cl"
-            android:textSize="13sp"
-            android:typeface="normal" />
+        android:orientation="vertical"
+        android:id="@+id/linearLayoutDrinkOrder" >
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:paddingTop="5dp">
-        <TextView
-            android:textColor="@android:color/darker_gray"
-            android:id="@+id/ingridients3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-smallcaps"
-            android:paddingLeft="25dp"
-            android:text="ingridients1 frontal crock"
-            android:textAlignment="textEnd" />
-        <TextView
-            android:textColor="@android:color/darker_gray"
-            android:id="@+id/cl3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-smallcaps"
-            android:paddingLeft="25dp"
-            android:text="25 cl"
-            android:textSize="13sp" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="5dp"
-        android:gravity="center">
-        <TextView
-            android:id="@+id/ingridients4"
-            android:textColor="@android:color/darker_gray"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-smallcaps"
-            android:paddingLeft="25dp"
-            android:text="ingridients1 frontal crock"
-            android:textAlignment="textEnd" />
-        <TextView
-            android:id="@+id/cl4"
-            android:textColor="@android:color/darker_gray"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-smallcaps"
-            android:paddingLeft="25dp"
-            android:text="25 cl"
-            android:textSize="13sp" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="5dp"
-        android:gravity="center">
-        <TextView
-            android:textColor="@android:color/darker_gray"
-            android:id="@+id/ingridients2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-smallcaps"
-            android:paddingLeft="25dp"
-            android:text="ingridients1 frontal crock"
-            android:textAlignment="textEnd" />
-        <TextView
-            android:textColor="@android:color/darker_gray"
-            android:id="@+id/cl2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="sans-serif-smallcaps"
-            android:paddingLeft="25dp"
-            android:text="25 cl"
-            android:textSize="13sp" />
-    </LinearLayout>
+  </ScrollView>
     <TextView
         android:textColor="@android:color/darker_gray"
         android:id="@+id/titledescription"

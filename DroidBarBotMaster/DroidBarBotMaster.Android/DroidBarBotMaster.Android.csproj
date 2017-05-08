@@ -68,6 +68,7 @@
     <Compile Include="Class\Helper\Factory.cs" />
     <Compile Include="Class\Helper\FractionalConverter.cs" />
     <Compile Include="Class\Helper\listAdapterDrink.cs" />
+    <Compile Include="Class\Helper\Repository.cs" />
     <Compile Include="Class\Helper\TransporterClass.cs" />
     <Compile Include="Class\Model\Container.cs" />
     <Compile Include="Class\Model\Drink.cs" />

@@ -33,7 +33,7 @@ namespace DroidBarBotMaster.Droid.Controller
 
             drink = TransporterClass.SelectedDrink;
 
-            FindViewById<Button>(Resource.Id.drinkOrder).Click += DrinkOrder_Click; 
+            FindViewById<Button>(Resource.Id.drinkOrder).Click += DrinkOrder_Click;
 
             PopulateData();
         }
@@ -75,23 +75,80 @@ namespace DroidBarBotMaster.Droid.Controller
 
             FindViewById<TextView>(Resource.Id.strDrink).Text = drink.strDrink.ToUpper();
 
-            LinearLayout temp = FindViewById<LinearLayout>(Resource.Id.linearLayoutDrinkOrder);
-             
-            //temp.AddView(2)
+            LinearLayout drinkOrderLinearView = FindViewById<LinearLayout>(Resource.Id.linearLayoutDrinkOrder);
 
+
+            if (!string.IsNullOrEmpty(drink.strIngredient1) && drink.strIngredient1.Length > 2)
+            {
+                RunOnUiThread(() => drinkOrderLinearView.AddView(Factory.ProduceDetailIngridientsForLinview(this, drink.strIngredient1, drink.strMeasure1)));
+            }
+
+            if (!string.IsNullOrEmpty(drink.strIngredient2) && drink.strIngredient2.Length > 2)
+            {
+                RunOnUiThread(() => drinkOrderLinearView.AddView(Factory.ProduceDetailIngridientsForLinview(this, drink.strIngredient2, drink.strMeasure2)));
+            }
+
+            if (!string.IsNullOrEmpty(drink.strIngredient3) && drink.strIngredient3.Length > 2)
+            {
+                RunOnUiThread(() => drinkOrderLinearView.AddView(Factory.ProduceDetailIngridientsForLinview(this, drink.strIngredient3, drink.strMeasure3)));
+            }
+
+            if (!string.IsNullOrEmpty(drink.strIngredient4) && drink.strIngredient4.Length > 2)
+            {
+                RunOnUiThread(() => drinkOrderLinearView.AddView(Factory.ProduceDetailIngridientsForLinview(this, drink.strIngredient4, drink.strMeasure4)));
+            }
+
+            if (!string.IsNullOrEmpty(drink.strIngredient5) && drink.strIngredient5.Length > 2)
+            {
+                RunOnUiThread(() => drinkOrderLinearView.AddView(Factory.ProduceDetailIngridientsForLinview(this, drink.strIngredient5, drink.strMeasure5)));
+            }
+
+            if (!string.IsNullOrEmpty(drink.strIngredient6) && drink.strIngredient6.Length > 2)
+            {
+                RunOnUiThread(() => drinkOrderLinearView.AddView(Factory.ProduceDetailIngridientsForLinview(this, drink.strIngredient6, drink.strMeasure6)));
+            }
+
+            if (!string.IsNullOrEmpty(drink.strIngredient7) && drink.strIngredient7.Length > 2)
+            {
+                RunOnUiThread(() => drinkOrderLinearView.AddView(Factory.ProduceDetailIngridientsForLinview(this, drink.strIngredient7, drink.strMeasure7)));
+            }
+            if (!string.IsNullOrEmpty(drink.strIngredient8) && drink.strIngredient8.Length > 2)
+            {
+                RunOnUiThread(() => drinkOrderLinearView.AddView(Factory.ProduceDetailIngridientsForLinview(this, drink.strIngredient8, drink.strMeasure8)));
+            }
+            if (!string.IsNullOrEmpty(drink.strIngredient9) && drink.strIngredient9.Length > 2)
+            {
+                RunOnUiThread(() => drinkOrderLinearView.AddView(Factory.ProduceDetailIngridientsForLinview(this, drink.strIngredient9, drink.strMeasure9)));
+            }
+            if (!string.IsNullOrEmpty(drink.strIngredient10) && drink.strIngredient10.Length > 2)
+            {
+                RunOnUiThread(() => drinkOrderLinearView.AddView(Factory.ProduceDetailIngridientsForLinview(this, drink.strIngredient10, drink.strMeasure10)));
+            }
+
+            if (!string.IsNullOrEmpty(drink.strIngredient11) && drink.strIngredient11.Length > 2)
+            {
+                RunOnUiThread(() => drinkOrderLinearView.AddView(Factory.ProduceDetailIngridientsForLinview(this, drink.strIngredient11, drink.strMeasure11)));
+            }
+            if (!string.IsNullOrEmpty(drink.strIngredient12) && drink.strIngredient12.Length > 2)
+            {
+                RunOnUiThread(() => drinkOrderLinearView.AddView(Factory.ProduceDetailIngridientsForLinview(this, drink.strIngredient12, drink.strMeasure12)));
+            }
+            if (!string.IsNullOrEmpty(drink.strIngredient13) && drink.strIngredient13.Length > 2)
+            {
+                RunOnUiThread(() => drinkOrderLinearView.AddView(Factory.ProduceDetailIngridientsForLinview(this, drink.strIngredient13, drink.strMeasure13)));
+            }
+
+            if (!string.IsNullOrEmpty(drink.strIngredient14) && drink.strIngredient14.Length > 2)
+            {
+                RunOnUiThread(() => drinkOrderLinearView.AddView(Factory.ProduceDetailIngridientsForLinview(this, drink.strIngredient14, drink.strMeasure14)));
+            }
+            if (!string.IsNullOrEmpty(drink.strIngredient15) && drink.strIngredient15.Length > 2)
+            {
+                RunOnUiThread(() => drinkOrderLinearView.AddView(Factory.ProduceDetailIngridientsForLinview(this, drink.strIngredient15, drink.strMeasure15)));
+            }
 
             // TODO: Create a Factory for creating Textview with ingridients and populate the ListView
-            FindViewById<TextView>(Resource.Id.ingridients1).Text = drink.strIngredient1;
-            FindViewById<TextView>(Resource.Id.cl1).Text = drink.strMeasure1;
 
-            FindViewById<TextView>(Resource.Id.ingridients2).Text = drink.strIngredient2;
-            FindViewById<TextView>(Resource.Id.cl2).Text = drink.strMeasure2;
-
-            FindViewById<TextView>(Resource.Id.ingridients3).Text = drink.strIngredient3;
-            FindViewById<TextView>(Resource.Id.cl3).Text = drink.strMeasure3;
-
-            FindViewById<TextView>(Resource.Id.ingridients4).Text = drink.strIngredient4;
-            FindViewById<TextView>(Resource.Id.cl4).Text = drink.strMeasure4;
 
             FindViewById<TextView>(Resource.Id.strdescription).Text = drink.strInstructions;
             // ----- Remove this way of getting the data --------------------------------------------- //
