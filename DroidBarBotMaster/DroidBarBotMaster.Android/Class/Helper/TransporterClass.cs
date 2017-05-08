@@ -24,5 +24,7 @@ namespace DroidBarBotMaster.Droid.Class.Helper
 
         public static Drink SelectedDrink { get; set; }
 
+        public static SortedDictionary<string, DrinkMultiple> Repository { get; set; }
+
     }
 }

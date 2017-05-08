@@ -26,7 +26,7 @@ namespace DroidBarBotMaster.Droid
             base.OnCreate(savedInstanceState);
 
             SetContentView(Resource.Layout.CocktailListview);
-            
+
         }
 
 
@@ -35,29 +35,32 @@ namespace DroidBarBotMaster.Droid
         {
             base.OnStart();
 
-            List<DrinkMultiple> available = new List<DrinkMultiple>();
+            
+            // TODO: Change MockData to real
 
-            List<String> drinkNames = new List<string>() {"tequila", "vodka", "lime" };
+            List<String> drinkNames = new List<string>() { "tequila", "vodka", "lime" };
 
 
-            // TODO: Activate filter & Get real ingridients
-            // TODO: Spara och hämta data ifrån hårddisken
+            // Filter and update avalible drinks
+            UpdateRepositoryData(drinkNames);
 
-            //List<DrinkMultiple> availableDrinks = CocktailDBService.getAllDrinks(drinkNames);
-            List<DrinkMultiple> availableDrinks = CocktailDBService.getAllDrinksShallow(drinkNames);
 
-            //List<DrinkMultiple> availableDrinksMixFiltered = CocktailDBService.MixableDrinksFiltered(availableDrinks, drinkNames, drinkNames.Count);
+            var drinkMultiple = (from drinkName in drinkNames
+                                 where TransporterClass.Repository.ContainsKey(drinkName)
+                                 select TransporterClass.Repository[drinkName]).ToList<DrinkMultiple>();
 
-            //FindViewById<Button>(Resource.Id.cocktailListView).AddChildrenForAccessibility(drinkNames);
+            List<DrinkMultiple> availableDrinksMixFiltered = CocktailDBService.MixableDrinksFiltered(drinkMultiple, drinkNames, 2);
+
+
+
+
+
 
             ListView listView = FindViewById<ListView>(Resource.Id.cocktailListView);
 
-
-            //ArrayAdapter<Drink> adapter = new ArrayAdapter<Drink>(this, Resource.Layout.XMLFile1, availableDrinks[0].Drinks);
-
             List<Drink> allDrinks = new List<Drink>();
 
-            foreach (var item in availableDrinks)
+            foreach (var item in availableDrinksMixFiltered)
             {
                 allDrinks.AddRange(item.Drinks);
             }
@@ -85,6 +88,53 @@ namespace DroidBarBotMaster.Droid
             #endregion
 
 
+        }
+
+        private SortedDictionary<string, DrinkMultiple> UpdateRepositoryData(List<string> drinkNames)
+        {
+            bool changed = false;
+
+            // Repository does not exist
+            if (TransporterClass.Repository == null)
+            {
+                foreach (var item in drinkNames)
+                {
+                    DrinkMultiple availableDrinks = CocktailDBService.getAllDrinks(item);
+
+                    Repository.AddDrinkMultiple(availableDrinks, item);
+
+                    changed = true;
+                }
+
+            }
+            else
+            {
+                // Repository exists but checks for new data
+
+                foreach (string drinkItem in drinkNames)
+                {
+                    if (!TransporterClass.Repository.ContainsKey(drinkItem))
+                    {
+
+                        DrinkMultiple missingDrinkMultiple = CocktailDBService.getAllDrinks(drinkItem);
+
+                        Repository.AddDrinkMultiple(missingDrinkMultiple, drinkItem);
+
+                        changed = true;
+
+                    }
+                }
+            }
+
+            if (changed)
+            {
+                Repository.SaveData();
+
+                TransporterClass.Repository = Repository.repositoryDictionery;
+            }
+
+
+            return TransporterClass.Repository;
         }
 
         private void listView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)

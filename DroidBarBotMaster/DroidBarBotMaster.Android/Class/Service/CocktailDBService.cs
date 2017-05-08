@@ -85,6 +85,35 @@ namespace DroidBarBotMaster.Droid.Class.Service
             return availableDrinks;
         }
 
+
+        public static DrinkMultiple getAllDrinks(String drinkNames)
+        {
+
+                // Get all drinks accosieated with the ingridient
+                // ! Only shallow information ! 
+                DrinkMultiple tempDrinks = HttpGet(drinkNames, HttpGetRequests.CocktailByIngridient);
+
+                if (tempDrinks == null) return null;
+
+                // Get all drinks details based on id
+
+                for (int i = 0; i < tempDrinks.Drinks.Count; i++)
+                {
+
+                    string drinkID = tempDrinks.Drinks[i].idDrink.ToString();
+
+
+                    tempDrinks.Drinks[i] = HttpGet(drinkID, HttpGetRequests.CocktailByID).Drinks[0];
+
+                }
+
+            return tempDrinks;
+        }
+
+
+
+
+
         public static List<DrinkMultiple> getAllDrinksShallow(List<String> drinkNames)
         {
 

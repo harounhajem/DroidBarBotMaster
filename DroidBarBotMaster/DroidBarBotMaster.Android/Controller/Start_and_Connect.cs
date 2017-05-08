@@ -44,36 +44,8 @@ namespace DroidBarBotMaster.Droid
 
             TransporterClass.listContainer = new List<Container>();
 
+            TransporterClass.Repository = Repository.GetSavedData();
 
-            ////////////
-            SortedDictionary<string, DrinkMultiple> repository = new SortedDictionary<string, DrinkMultiple>();
-
-
-
-            var drinkMulti = new DrinkMultiple();
-
-
-            var drink = new Drink();
-
-            drink.idDrink = 12345;
-
-            drink.strDrink = "Hello World22";
-
-            drink.strIngredient1 = "Lemon";
-
-
-
-            drinkMulti.Drinks = new List<Drink>() { drink };
-
-
-            Repository.SaveData(drinkMulti, "Lemon");
-
-
-            repository = Repository.GetSavedData();
-
-
-
-            ////////////
 
         }
 
