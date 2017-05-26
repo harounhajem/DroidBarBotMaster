@@ -97,7 +97,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
 
                         recivedMessage = recivedMessage.Substring(0, 2);
 
-                        if (recivedMessage == "OK")
+                        if (recivedMessage.ToLower().Contains("ok"))
                         {
                             return true;
                         }
@@ -128,7 +128,9 @@ namespace DroidBarBotMaster.Droid.Class.Service
             Stopwatch timer = new Stopwatch();
             timer.Start();
 
-            //text.Text = "Got it";
+            Thread.Sleep(100);
+
+            string msgRecived=""; 
             while (true)
             {
                 try
@@ -137,12 +139,13 @@ namespace DroidBarBotMaster.Droid.Class.Service
                     // Send the obtained bytes to the UI activity.
                     if (numBytes > 0)
                     {
-                        string recivedMessage = ASCIIEncoding.ASCII.GetString(mmBuffer);
+                        string recivedMessage = ASCIIEncoding.ASCII.GetString(mmBuffer).Replace("\0",string.Empty).Replace("\r", string.Empty).Replace("\n", string.Empty);
+
                         System.Console.WriteLine(recivedMessage);
+                        msgRecived += recivedMessage;
+                        //recivedMessage = recivedMessage.Substring(0, 2);
 
-                        recivedMessage = recivedMessage.Substring(0, 2);
-
-                        if (recivedMessage == "OK")
+                        if (msgRecived.ToLower().Contains("ok"))
                         {
                             return true;
                         }
@@ -380,7 +383,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
 
         #endregion
 
-        private void ShowToastMessage(String message, ToastLength ts)
+        public void ShowToastMessage(String message, ToastLength ts)
         {
             context.RunOnUiThread(() =>
             {

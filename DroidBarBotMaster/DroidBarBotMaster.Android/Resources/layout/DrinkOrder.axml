@@ -1,85 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:minWidth="25px"
+    android:minHeight="25px"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_gravity="center"
-    android:gravity="center"
-    android:background="#ffffffff"
-     >
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/icon"
-        android:layout_marginTop="-20dp" />
-    <TextView
-        android:id="@+id/strDrink"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
-        android:gravity="center"
-        android:inputType="textPersonName"
-        android:paddingBottom="15dp"
-        android:text="STR DRINK"
-        android:singleLine="false"
-        android:textStyle="bold"
-        android:typeface="normal"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="19sp"
-        android:textAllCaps="true"
-        android:paddingTop="15dp" />
-  <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    android:id="@+id/scrollViewDrinkOrder"
+    android:background="#ffffffff">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:id="@+id/linearLayoutDrinkOrder" >
-    </LinearLayout>
-  </ScrollView>
-    <TextView
-        android:textColor="@android:color/darker_gray"
-        android:id="@+id/titledescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:capitalize="characters"
+        android:layout_gravity="center"
         android:gravity="center"
-        android:paddingBottom="5dp"
-        android:paddingTop="8dp"
-        android:text="DESCRIPTION"
-        android:textStyle="bold" />
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
+        android:background="#ffffffff">
+        <ImageView
+            android:id="@+id/imageView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:textColor="@android:color/darker_gray"
-                android:id="@+id/strdescription"
+            android:src="@drawable/icon"
+            android:paddingTop="10dp" />
+        <TextView
+            android:id="@+id/strDrink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:inputType="textPersonName"
+            android:paddingBottom="15dp"
+            android:text="STR DRINK"
+            android:singleLine="false"
+            android:textStyle="bold"
+            android:typeface="normal"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="19sp"
+            android:textAllCaps="true"
+            android:paddingTop="15dp" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView1">
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:paddingLeft="25dp"
-                android:paddingRight="25dp"
-                android:text="Cras ut lobortis ligula, in pretium risus. Duis quis ex sed turpis facilisis feugiat ac quis nunc. Quisque condimentum molestie nibh, blandit tristique nisi efficitur quis. Sed suscipit mauris pretium dictum pharetra."
-                android:textSize="12sp" />
-        </LinearLayout>
-    </ScrollView>
-    <Button
-        android:id="@+id/drinkOrder"
-        android:layout_width="110dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="22dp"
-        android:text="ORDER DRINK"
-        android:textColor="@android:color/white"
-        android:background="@drawable/myButton" />
-</LinearLayout>
+                android:orientation="vertical"
+                android:id="@+id/linearLayoutDrinkOrder" />
+        </ScrollView>
+        <TextView
+            android:textColor="@android:color/darker_gray"
+            android:id="@+id/titledescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:capitalize="characters"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingTop="8dp"
+            android:text="DESCRIPTION"
+            android:textStyle="bold" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:textColor="@android:color/darker_gray"
+                    android:id="@+id/strdescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="25dp"
+                    android:text="Cras ut lobortis ligula, in pretium risus. Duis quis ex sed turpis facilisis feugiat ac quis nunc. Quisque condimentum molestie nibh, blandit tristique nisi efficitur quis. Sed suscipit mauris pretium dictum pharetra."
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </ScrollView>
+        <Button
+            android:id="@+id/drinkOrder"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:text="ORDER DRINK"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="37.0dp"
+            android:background="@drawable/myButton" />
+    </LinearLayout>
+</ScrollView>

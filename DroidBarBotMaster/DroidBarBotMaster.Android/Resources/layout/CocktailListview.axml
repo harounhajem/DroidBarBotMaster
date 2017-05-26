@@ -6,21 +6,39 @@
     android:minWidth="25px"
     android:minHeight="25px"
     android:background="@color/white">
-    <SearchView
-        android:minWidth="25px"
-        android:minHeight="25px"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout111"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/searchView1"
-        android:inputType="text"
-        android:searchHintIcon="@drawable/icon"
-        android:layout_marginBottom="0.0dp"
-        android:searchIcon="@android:drawable/ic_menu_search"
-        android:foregroundTint="#fff0f8ff"
-         />
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+        <Button
+            android:id="@+id/btnEdit"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/buttonround"
+            android:drawablePadding="2dp"
+            android:drawableStart="@android:drawable/ic_menu_edit"
+            android:paddingLeft="8dp"
+            android:layout_marginLeft="5dp" />
+        <Space
+            android:layout_width="10.5dp"
+            android:layout_height="match_parent"
+            android:id="@+id/space1" />
+        <SearchView
+            android:minWidth="50px"
+            android:minHeight="25px"
+            android:id="@+id/searchView1"
+            android:inputType="text"
+            android:foregroundTint="#fff0f8ff"
+            android:searchIcon="@android:drawable/ic_menu_search"
+            style="@android:style/TextAppearance.Material.SearchResult.Title"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+    </LinearLayout>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/cocktailListView"
-         />
+        android:id="@+id/cocktailListView" />
 </LinearLayout>

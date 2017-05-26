@@ -13,12 +13,15 @@ using DroidBarBotMaster.Droid.Class.Service;
 using DroidBarBotMaster.Droid.Class.Helper;
 using DroidBarBotMaster.Droid.Class.Model;
 using DroidBarBotMaster.Droid.Controller;
+using static Java.Util.ResourceBundle;
 
 namespace DroidBarBotMaster.Droid
 {
     [Activity(Label = "CocktailListview")]
     public class CocktailListview : Activity
     {
+
+        List<string> localDrinkNames;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             RequestWindowFeature(WindowFeatures.NoTitle);
@@ -27,39 +30,129 @@ namespace DroidBarBotMaster.Droid
 
             SetContentView(Resource.Layout.CocktailListview);
 
+            FindViewById<Button>(Resource.Id.btnEdit).Click += CocktailListview_Click;
+
+            FindViewById<ListView>(Resource.Id.cocktailListView).ItemClick += listView_ItemClick;
+
+            Tuple<List<DrinkMultiple>, List<string>> formatedDrinksTuple = FormatListUpdate();
+
+            UpdateDrinkListView(formatedDrinksTuple.Item1, formatedDrinksTuple.Item2);
         }
 
 
-
-        protected override void OnStart()
+        private Tuple<List<DrinkMultiple>, List<string>> FormatListUpdate()
         {
-            base.OnStart();
+            List<String> bottleNames = TransporterClass.listContainer.Select(x => x.Name).ToList();
 
-            
-            // TODO: Change MockData to real
 
-            List<String> drinkNames = new List<string>() { "tequila", "vodka", "lime" };
 
+            localDrinkNames = bottleNames;
 
             // Filter and update available drinks
 
-            UpdateRepositoryData(drinkNames);
+            UpdateRepositoryData(bottleNames);
 
 
-            var drinkMultiple = (from drinkName in drinkNames
-                                 where TransporterClass.Repository.ContainsKey(drinkName)
-                                 select TransporterClass.Repository[drinkName]).ToList<DrinkMultiple>();
-
-            List<DrinkMultiple> availableDrinksMixFiltered = CocktailDBService.MixableDrinksFiltered(drinkMultiple, drinkNames, 2);
+            List<DrinkMultiple> drinkMultiple = new List<DrinkMultiple>();
 
 
+            for (int i = 0; i < bottleNames.Count; i++)
+            {
+
+                string key = bottleNames[i];
+                if (TransporterClass.Repository[key] != null)
+                {
+                    drinkMultiple.Add(TransporterClass.Repository[key]);
+                }
+            }
+
+            return Tuple.Create<List<DrinkMultiple>, List<string>>(drinkMultiple, bottleNames);
+        }
+        private void CocktailListview_Click(object sender, EventArgs e)
+        {
+            var newActivity = new Intent(this, typeof(EditPage));
+
+            StartActivity(newActivity);
+        }
+
+        public override void OnVisibleBehindCanceled()
+        {
+            int x = 4;
+            base.OnVisibleBehindCanceled();
+        }
+
+        protected override void OnResume()
+        {
+
+            List<String> bottleNames = TransporterClass.listContainer.Select(w => w.Name).ToList();
 
 
 
+            //foreach (var bottleName in bottleNames)
+            //{
+            //    foreach (var localDrinkName in localDrinkNames)
+            //    {
+            //        if (!String.Equals(bottleName.ToLower(), localDrinkName.ToLower()))
+            //        {
+            //            Tuple<List<DrinkMultiple>, List<string>> formatedDrinksTuple = FormatListUpdate();
+
+            //            UpdateDrinkListView(formatedDrinksTuple.Item1, formatedDrinksTuple.Item2);
+
+            //            break;
+            //        }
+            //    }
+            //}
+            if (bottleNames.Count == localDrinkNames.Count)
+            {
+                for (int i = 0; i < bottleNames.Count; i++)
+                {
+                    if (!String.Equals(bottleNames[i].ToLower(), localDrinkNames[i].ToLower()))
+                    {
+                        Tuple<List<DrinkMultiple>, List<string>> formatedDrinksTuple = FormatListUpdate();
+
+                        UpdateDrinkListView(formatedDrinksTuple.Item1, formatedDrinksTuple.Item2);
+
+                        break;
+                    }
+                }
+            }
+
+
+
+            base.OnResume();
+        }
+
+
+        private void UpdateDrinkListView(List<DrinkMultiple> drinkMultiple, List<String> drinkNames)
+        {
+
+
+            if (drinkMultiple == null || drinkMultiple.Count < 1) return;
+
+            int drinkOrder_MustContaianAtLeastIngridients = 3;
+
+            List<DrinkMultiple> availableDrinksMixFiltered = CocktailDBService.MixableDrinksFiltered(drinkMultiple, drinkNames, drinkOrder_MustContaianAtLeastIngridients);
 
             ListView listView = FindViewById<ListView>(Resource.Id.cocktailListView);
 
             List<Drink> allDrinks = new List<Drink>();
+
+
+            // Clean the list
+            int childCount = listView.ChildCount;
+
+            if (childCount > 0)
+            {
+                List<Drink> emptyList = new List<Drink>();
+
+                listAdapterDrink adapterTemp = new listAdapterDrink(this, emptyList);
+
+
+                listView.SetAdapter(adapterTemp);
+            }
+
+
+            // Add to list 
 
             foreach (var item in availableDrinksMixFiltered)
             {
@@ -67,35 +160,20 @@ namespace DroidBarBotMaster.Droid
             }
 
             listAdapterDrink adapter = new listAdapterDrink(this, allDrinks);
+
             listView.Adapter = adapter;
 
-            listView.ItemClick += listView_ItemClick;
-
-            #region How to Connect
-
-            // TODO: Dev deactivate
-
-            //foreach (var item in TransporterClass.listContainer)
-            //{
-            //    DrinkMultiple tempDrinks = CocktailDBService.HttpGet(item.Name, HttpGetRequests.CocktailByIngridient);
-
-            //    if (tempDrinks != null)
-            //    {
-            //        available.Add(tempDrinks);
-            //    }
-            //}
-
-            //Console.WriteLine(available); 
-            #endregion
 
 
         }
+
+
 
         private SortedDictionary<string, DrinkMultiple> UpdateRepositoryData(List<string> drinkNames)
         {
             bool changed = false;
 
-            // Repository does not exist
+            // Repo is empty, get all new data
             if (TransporterClass.Repository == null)
             {
                 foreach (var item in drinkNames)
@@ -110,7 +188,7 @@ namespace DroidBarBotMaster.Droid
             }
             else
             {
-                // Repository exists but checks for new data
+                // Check if exist in repo or get it from DB 
 
                 foreach (string drinkItem in drinkNames)
                 {
@@ -164,6 +242,8 @@ namespace DroidBarBotMaster.Droid
             TransporterClass.SelectedDrink = selectedDrink;
 
             StartActivity(activity);
+
+            //this.Finish();
         }
     }
 }

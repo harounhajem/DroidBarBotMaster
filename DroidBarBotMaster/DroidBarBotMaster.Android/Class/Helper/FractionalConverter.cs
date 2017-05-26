@@ -33,15 +33,56 @@ namespace DroidBarBotMaster.Droid.Class.Helper
             if (input.ToLower().Contains("oz"))
             {
                 multiplier = 2.95735296;
-                return SliceChars(input,'o' );
+                return SliceChars(input, 'o');
             }
 
+            // can
+            if (input.ToLower().Contains("can"))
+            {
+                multiplier = 2.95735296 * 0.2;
+                return SliceChars(input, 'c');
+            }
+
+            // fifth
+            if (input.ToLower().Contains("fifth"))
+            {
+                multiplier = 2.95735296 * 0.2;
+                return SliceChars(input, 'f');
+            }
+
+            // qt
+            if (input.ToLower().Contains("qt"))
+            {
+                multiplier = 2.95735296 *0.5;
+                return SliceChars(input, 'q');
+            }
+
+            // jiggers
+            if (input.ToLower().Contains("jig"))
+            {
+                multiplier = 2.95735296 * 0.2;
+                return SliceChars(input, 'j');
+            }
+
+            // cups
+            if (input.ToLower().Contains("cup"))
+            {
+                multiplier = 2.95735296 * 0.4;
+                return SliceChars(input, 'c');
+            }
 
             // Part
             if (input.ToLower().Contains("part"))
             {
-                multiplier = 2.95735296*5;
+                multiplier = 2.95735296 * 1.2;
                 return SliceChars(input, 'p');
+            }
+
+            // tblsp
+            if (input.ToLower().Contains("tblsp"))
+            {
+                multiplier = 2.95735296 * 0.4;
+                return SliceChars(input, 't');
             }
 
             // Bottle
@@ -49,6 +90,12 @@ namespace DroidBarBotMaster.Droid.Class.Helper
             {
                 multiplier = 2.95735296 * 10;
                 return SliceChars(input, 'b');
+            }
+
+            if (input.ToLower().Contains("handful"))
+            {
+                multiplier = 2.95735296 * 0.5;
+                return SliceChars(input, 'h');
             }
 
             // Shot
@@ -72,11 +119,26 @@ namespace DroidBarBotMaster.Droid.Class.Helper
                 return SliceChars(input, 'c');
             }
 
+
             // Pint
             if (input.ToLower().Contains("pint"))
             {
                 multiplier = 2.95735296 * 2;
                 return SliceChars(input, 'p');
+            }
+
+            // cl
+            if (input.ToLower().Contains("ml"))
+            {
+                multiplier = 0.1;
+                return SliceChars(input, 'm');
+            }
+
+            // cl
+            if (input.ToLower().Contains("dashes"))
+            {
+                multiplier = 2.95735296 * 0.2;
+                return SliceChars(input, 'd');
             }
 
             return input;

@@ -67,6 +67,7 @@ namespace DroidBarBotMaster.Droid.Controller
                 Stream picStream = this.Resources.OpenRawResource(Resource.Drawable.placeholder_white);
                 var bitmapPicture = new BitmapDrawable(picStream);
                 FindViewById<ImageView>(Resource.Id.imageView4).SetImageBitmap(listAdapter.GetRoundedShape(bitmapPicture.Bitmap));
+                
             }
 
 

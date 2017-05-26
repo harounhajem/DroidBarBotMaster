@@ -25,10 +25,10 @@
         android:textColor="@android:color/darker_gray" />
     <View
         android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_height="2dp"
         android:layout_marginLeft="120dp"
         android:layout_marginRight="120dp"
-        android:layout_marginBottom="155dp"
+        android:layout_marginBottom="25dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/darker_gray"
         android:id="@+id/line1" />

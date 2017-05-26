@@ -73,7 +73,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
 
                     string drinkID = tempDrinks.Drinks[i].idDrink.ToString();
 
-                    
+
                     tempDrinks.Drinks[i] = HttpGet(drinkID, HttpGetRequests.CocktailByID).Drinks[0];
 
                 }
@@ -89,23 +89,23 @@ namespace DroidBarBotMaster.Droid.Class.Service
         public static DrinkMultiple getAllDrinks(String drinkNames)
         {
 
-                // Get all drinks accosieated with the ingridient
-                // ! Only shallow information ! 
-                DrinkMultiple tempDrinks = HttpGet(drinkNames, HttpGetRequests.CocktailByIngridient);
+            // Get all drinks accosieated with the ingridient
+            // ! Only shallow information ! 
+            DrinkMultiple tempDrinks = HttpGet(drinkNames, HttpGetRequests.CocktailByIngridient);
 
-                if (tempDrinks == null) return null;
+            if (tempDrinks == null) return null;
 
-                // Get all drinks details based on id
+            // Get all drinks details based on id
 
-                for (int i = 0; i < tempDrinks.Drinks.Count; i++)
-                {
+            for (int i = 0; i < tempDrinks.Drinks.Count; i++)
+            {
 
-                    string drinkID = tempDrinks.Drinks[i].idDrink.ToString();
+                string drinkID = tempDrinks.Drinks[i].idDrink.ToString();
 
 
-                    tempDrinks.Drinks[i] = HttpGet(drinkID, HttpGetRequests.CocktailByID).Drinks[0];
+                tempDrinks.Drinks[i] = HttpGet(drinkID, HttpGetRequests.CocktailByID).Drinks[0];
 
-                }
+            }
 
             return tempDrinks;
         }
@@ -144,13 +144,21 @@ namespace DroidBarBotMaster.Droid.Class.Service
                 foreach (string strIngridients in drink.GetStrIngredientsList())
                 {
 
-                    if (strIngridients != null && strIngridients.ToLower().Contains(bottleName.ToLower()))
+                    if (strIngridients != null)
                     {
-                        counterCanBeMixed++;
-                        break;
+                        string ingridientsNameTemp = strIngridients.ToLower();
+                        string bottleNameTemp = bottleName.ToLower();
+
+                        if (ingridientsNameTemp == bottleNameTemp)
+                        {
+                            counterCanBeMixed++;
+                            break;
+                        }
+
                     }
 
                 }
+
             }
 
             if (counterCanBeMixed >= amountToBeMixed)
@@ -162,31 +170,30 @@ namespace DroidBarBotMaster.Droid.Class.Service
 
         }
 
-        public static List<DrinkMultiple> MixableDrinksFiltered(List<DrinkMultiple> availableDrinks, List<String> drinkNames, int amountToBeMixed)
+        public static List<DrinkMultiple> MixableDrinksFiltered(List<DrinkMultiple> availableDrinks, List<String> drinkNames, int miniCoherentAmountForMix)
         {
             List<DrinkMultiple> filteredDrinkList = new List<DrinkMultiple>();
 
             DrinkMultiple tempDrinkMultiple = new DrinkMultiple();
 
+            tempDrinkMultiple.Drinks = new List<Drink>();
+
+
+
             foreach (DrinkMultiple drinksMultiple in availableDrinks)
             {
-
-                List<Drink> tempDrinks = new List<Drink>();
-
-                tempDrinkMultiple.Drinks = tempDrinks;
 
                 foreach (Drink drink in drinksMultiple.Drinks)
                 {
 
-                    bool canBeMixed = checkIfCanBeMixed(drink, amountToBeMixed, drinkNames);
-
-                    if (canBeMixed)
+                    if (checkIfCanBeMixed(drink, miniCoherentAmountForMix, drinkNames))
                     {
 
                         tempDrinkMultiple.Drinks.Add(drink);
 
                     }
                 }
+
             }
 
             filteredDrinkList.Add(tempDrinkMultiple);

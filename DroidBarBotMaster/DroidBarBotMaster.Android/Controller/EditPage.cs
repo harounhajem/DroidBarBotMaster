@@ -54,7 +54,7 @@ namespace DroidBarBotMaster.Droid.Controller
         private void btnSave(object sender, EventArgs e)
         {
 
-            Container oldValue = selectedBottle;
+            Container oldSelectedBottle = selectedBottle;
 
             // 1. Hämta värderna
 
@@ -73,24 +73,36 @@ namespace DroidBarBotMaster.Droid.Controller
 
             // 3. Skicka spara till maskinen
 
-            Container oldBottle = bottles.Find(x => x == oldValue);
+            //int bottlePos = bottles.FindIndex(x => x.Name == oldSelectedBottle.n);
 
-            TransporterClass.barBot.PostIngridients(selectedBottle, bottles.FindIndex(x => x == oldBottle));
+
+            TransporterClass.barBot.PostIngridients(selectedBottle, bottlePosFromName);
+
+
 
             // 4. Updatera vyn & uppdatera Transporter
 
-            oldBottle = selectedBottle;
+            bottles[bottlePosFromName].Name = selectedBottle.Name;
+            bottles[bottlePosFromName].Amount = selectedBottle.Amount;
 
             UpdateButtonSubtitles();
+
+            RepopulateList();
         }
 
+        private void RepopulateList()
+        {
+            //throw new NotImplementedException();
+        }
+
+        int bottlePosFromName;
         private void btnBottleClick(object sender, EventArgs e)
         {
             Button btnClicked = sender as Button;
 
             if (btnClicked == null) return;
 
-            int bottlePosFromName = Int32.Parse(btnClicked.Text) - 1;
+            bottlePosFromName = Int32.Parse(btnClicked.Text) - 1;
 
             UpdateInputField(bottles[bottlePosFromName]);
 
@@ -113,7 +125,11 @@ namespace DroidBarBotMaster.Droid.Controller
 
             if (bottles[0] != null)
             {
-                selectedBottle = bottles[0];
+                selectedBottle = new Container();
+
+                selectedBottle.Name = bottles[0].Name;
+
+                selectedBottle.Amount = bottles[0].Amount;
 
                 UpdateInputField(selectedBottle);
             }
@@ -122,12 +138,13 @@ namespace DroidBarBotMaster.Droid.Controller
 
         private void UpdateButtonSubtitles()
         {
-            FindViewById<TextView>(Resource.Id.bottletextName1).Text = bottles[0]?.Name;
-            FindViewById<TextView>(Resource.Id.bottletextName2).Text = bottles[1]?.Name;
-            FindViewById<TextView>(Resource.Id.bottletextName3).Text = bottles[2]?.Name;
-            FindViewById<TextView>(Resource.Id.bottletextName4).Text = bottles[3]?.Name;
-            FindViewById<TextView>(Resource.Id.bottletextName5).Text = bottles[4]?.Name;
-            FindViewById<TextView>(Resource.Id.bottletextName6).Text = bottles[5]?.Name;
+            int count = bottles.Count;
+            FindViewById<TextView>(Resource.Id.bottletextName1).Text = count > 0 && bottles[0] != null ? bottles[0].Name : "";
+            FindViewById<TextView>(Resource.Id.bottletextName2).Text = count > 1 && bottles[1] != null ? bottles[1].Name : "";
+            FindViewById<TextView>(Resource.Id.bottletextName3).Text = count > 2 && bottles[2] != null ? bottles[2].Name : "";
+            FindViewById<TextView>(Resource.Id.bottletextName4).Text = count > 3 && bottles[3] != null ? bottles[3].Name : "";
+            FindViewById<TextView>(Resource.Id.bottletextName5).Text = count > 4 && bottles[4] != null ? bottles[4].Name : "";
+            FindViewById<TextView>(Resource.Id.bottletextName6).Text = count > 5 && bottles[5] != null ? bottles[5].Name : "";
         }
     }
 }

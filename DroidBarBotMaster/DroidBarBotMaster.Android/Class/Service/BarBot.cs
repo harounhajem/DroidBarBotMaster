@@ -104,20 +104,25 @@ namespace DroidBarBotMaster.Droid.Class.Service
 
 
 
+            Thread x = new Thread(() => { 
 
-            ///--------------- NOT WORKING -------------////////
-            /// TODO: Fix that read input.stream code blocking in btService
-            /// 
-            ///// 3. Vänta på svar att meddelandet är accepterat
-            //bool ans = btService.ReadOkMessage(2000, 10);
+                bool ans = btService.ReadOkMessage(2000, 25);
 
-            //if (ans)
-            //{
-            //    Console.WriteLine("Order confirmed");
-            //}
+                if (ans)
+                {
+                    Console.WriteLine("Order confirmed");
+                    TransporterClass.bluetoothService.ShowToastMessage("Order; Accepted", ToastLength.Long);
+                }
+                else
+                {
+                    TransporterClass.bluetoothService.ShowToastMessage("Order: Not Accepted", ToastLength.Long);
 
-            //// 4. 
-            ///--------------- NOT WORKING -------------////////
+                }
+
+            });
+
+            x.Start();
+
         }
 
         private Dictionary<int, int> FilterAndFormatDrinkOrder(Drink drink)

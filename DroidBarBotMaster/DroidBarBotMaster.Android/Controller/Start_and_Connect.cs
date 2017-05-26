@@ -51,8 +51,12 @@ namespace DroidBarBotMaster.Droid
 
         protected override void OnStart()
         {
+
+            // TODO: For dev att this as true
+        
+            //if (TransporterClass.Repository != null)
             if (TransporterClass.bluetoothService != null)
-            {
+                {
                 var newActivity = new Intent(this, typeof(TabbedPage));
 
                 StartActivity(newActivity);
@@ -86,7 +90,7 @@ namespace DroidBarBotMaster.Droid
 
                     Thread.Sleep(600);
 
-                    var newActivity = new Intent(this, typeof(TabbedPage));
+                    var newActivity = new Intent(this, typeof(CocktailListview));
 
                     StartActivity(newActivity);
                     
