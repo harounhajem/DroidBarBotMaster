@@ -44,7 +44,14 @@ namespace DroidBarBotMaster.Droid
         {
             List<String> bottleNames = TransporterClass.listContainer.Select(x => x.Name).ToList();
 
+            // TODO: Dev, remove this
+            //----------------------------
 
+
+            bottleNames = new List<string>() { "vodka", "lime", "tequila","whiskey","gin" };
+
+
+            //----------------------------
 
             localDrinkNames = bottleNames;
 
@@ -138,7 +145,7 @@ namespace DroidBarBotMaster.Droid
             List<Drink> allDrinks = new List<Drink>();
 
 
-            // Clean the list
+            // Clean and Empty the list
             int childCount = listView.ChildCount;
 
             if (childCount > 0)

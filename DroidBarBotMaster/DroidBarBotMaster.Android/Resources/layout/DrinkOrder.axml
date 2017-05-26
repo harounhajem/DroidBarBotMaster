@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/scrollViewDrinkOrder"
-    android:background="#ffffffff">
+    android:background="@color/white">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/icon"
-            android:paddingTop="10dp" />
+            android:paddingTop="60dp" />
         <TextView
             android:id="@+id/strDrink"
             android:layout_width="match_parent"
@@ -80,12 +80,12 @@
         <Button
             android:id="@+id/drinkOrder"
             android:layout_width="110dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:text="ORDER DRINK"
             android:textColor="@android:color/white"
-            android:layout_marginTop="37.0dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/myButton" />
     </LinearLayout>
 </ScrollView>

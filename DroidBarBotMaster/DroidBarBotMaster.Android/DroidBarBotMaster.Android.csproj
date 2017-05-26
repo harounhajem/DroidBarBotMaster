@@ -84,6 +84,7 @@
     <Compile Include="Controller\DrinkOrder.cs" />
     <Compile Include="Controller\EditPage.cs" />
     <Compile Include="Controller\MainActivity.cs" />
+    <Compile Include="Controller\ManualOrderController.cs" />
     <Compile Include="Controller\TabbedPage.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -112,6 +113,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\EditPage.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ManualOrder.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

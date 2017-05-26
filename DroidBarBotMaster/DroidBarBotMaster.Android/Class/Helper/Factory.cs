@@ -46,9 +46,9 @@ namespace DroidBarBotMaster.Droid.Class.Helper
 
             tw.SetTextColor(Android.Graphics.Color.LightGray);
 
-           tw.SetTextSize(Android.Util.ComplexUnitType.Sp, 13);
+            tw.SetTextSize(Android.Util.ComplexUnitType.Sp, 13);
 
-            tw.Text = measurment;
+            tw.Text = measurment.Replace("\n", "");
 
             tw.Id = 487899546;
             return tw;
@@ -73,7 +73,7 @@ namespace DroidBarBotMaster.Droid.Class.Helper
 
             textView.TextAlignment = TextAlignment.TextEnd;
 
-            textView.Text = textIngridients;
+            textView.Text = textIngridients.Replace("\n", "");
 
             return textView;
 

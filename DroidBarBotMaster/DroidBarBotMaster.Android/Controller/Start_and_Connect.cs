@@ -55,9 +55,9 @@ namespace DroidBarBotMaster.Droid
             // TODO: For dev att this as true
         
             //if (TransporterClass.Repository != null)
-            if (TransporterClass.bluetoothService != null)
+            if (true)
                 {
-                var newActivity = new Intent(this, typeof(TabbedPage));
+                var newActivity = new Intent(this, typeof(CocktailListview));
 
                 StartActivity(newActivity);
 
