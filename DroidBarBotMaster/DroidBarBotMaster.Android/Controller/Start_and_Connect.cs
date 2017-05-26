@@ -96,6 +96,10 @@ namespace DroidBarBotMaster.Droid
                     
                     this.Finish();
                 }
+                else
+                {
+                    bluetoothService.ShowToastMessage("Could not connect", ToastLength.Long);
+                }
 
             });
 

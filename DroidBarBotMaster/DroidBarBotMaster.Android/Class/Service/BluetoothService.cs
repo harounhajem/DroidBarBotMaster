@@ -210,15 +210,15 @@ namespace DroidBarBotMaster.Droid.Class.Service
         public bool ConnectActivateBluetooth()
         {
 
-            if (!DeviceHasBT()) return false;
+            if (!DeviceHasBT())             return false;
 
-            if (!EnableBTdevice().Result) return false;
+            if (!EnableBTdevice().Result)   return false;
 
-            if (!GetBondedDevices()) return false;
+            if (!GetBondedDevices())        return false;
 
-            if (!SocketConnect()) return false;
+            if (!SocketConnect())           return false;
 
-            InOutSocketInit();
+            if (InOutSocketInit())          return false;
 
             ShowToastMessage("CONNECTED TO BARBOT", ToastLength.Long);
 
@@ -336,7 +336,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
             return true;
         }
 
-        private void InOutSocketInit()
+        private bool InOutSocketInit()
         {
 
             // Get the input and output streams; using temp objects because
@@ -349,7 +349,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
             {
                 System.Console.WriteLine("InputStream Socket fail to establish ERROR:4856");
                 System.Console.WriteLine(e.Message);
-                return;
+                return false;
             }
 
 
@@ -361,9 +361,10 @@ namespace DroidBarBotMaster.Droid.Class.Service
             {
                 System.Console.WriteLine("OutputStream Socket fail to establish ERROR:4857");
                 System.Console.WriteLine(e.Message);
-                return;
+                return false;
             }
 
+            return true;
         }
 
         // Call this method from the main activity to shut down the connection.
