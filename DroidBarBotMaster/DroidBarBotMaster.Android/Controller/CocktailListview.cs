@@ -32,13 +32,22 @@ namespace DroidBarBotMaster.Droid
 
             FindViewById<Button>(Resource.Id.btnEdit).Click += CocktailListview_Click;
 
+            FindViewById<Button>(Resource.Id.btnManualOrder).Click += btnManualOrder_Click;
+
             FindViewById<ListView>(Resource.Id.cocktailListView).ItemClick += listView_ItemClick;
+
 
             Tuple<List<DrinkMultiple>, List<string>> formatedDrinksTuple = FormatListUpdate();
 
             UpdateDrinkListView(formatedDrinksTuple.Item1, formatedDrinksTuple.Item2);
         }
 
+        private void btnManualOrder_Click(object sender, EventArgs e)
+        {
+            var activity = new Intent(this, typeof(ManualOrderController));
+
+            StartActivity(activity);
+        }
 
         private Tuple<List<DrinkMultiple>, List<string>> FormatListUpdate()
         {
@@ -48,7 +57,7 @@ namespace DroidBarBotMaster.Droid
             //----------------------------
 
 
-            bottleNames = new List<string>() { "vodka", "lime", "tequila","whiskey","gin" };
+            //bottleNames = new List<string>() { "vodka", "lime", "tequila","whiskey","gin" };
 
 
             //----------------------------

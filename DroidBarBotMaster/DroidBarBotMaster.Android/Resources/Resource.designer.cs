@@ -113,25 +113,34 @@ namespace DroidBarBotMaster.Droid
 			public const int buttonRound = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int icon = 2130837508;
+			public const int icoblue = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int logo = 2130837509;
+			public const int icoGray = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int LogoCocktailGlass = 2130837510;
+			public const int icon = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int logoGray = 2130837511;
+			public const int logo = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int myButton = 2130837512;
+			public const int LogoCocktailGlass = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int placeholder = 2130837513;
+			public const int logoGray = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int placeholder_white = 2130837514;
+			public const int myButton = 2130837514;
+			
+			// aapt resource value: 0x7f02000b
+			public const int placeholder = 2130837515;
+			
+			// aapt resource value: 0x7f02000c
+			public const int placeholder_white = 2130837516;
+			
+			// aapt resource value: 0x7f02000d
+			public const int whiteBack = 2130837517;
 			
 			static Drawable()
 			{
@@ -146,146 +155,203 @@ namespace DroidBarBotMaster.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f05002e
-			public const int LinearLayout01 = 2131034158;
-			
-			// aapt resource value: 0x7f050012
-			public const int bottletextName1 = 2131034130;
-			
-			// aapt resource value: 0x7f050014
-			public const int bottletextName2 = 2131034132;
-			
-			// aapt resource value: 0x7f050016
-			public const int bottletextName3 = 2131034134;
-			
-			// aapt resource value: 0x7f050018
-			public const int bottletextName4 = 2131034136;
-			
-			// aapt resource value: 0x7f05001a
-			public const int bottletextName5 = 2131034138;
-			
-			// aapt resource value: 0x7f05001c
-			public const int bottletextName6 = 2131034140;
-			
-			// aapt resource value: 0x7f050026
-			public const int btnConnect = 2131034150;
-			
-			// aapt resource value: 0x7f05002b
-			public const int btnDisConnect = 2131034155;
-			
-			// aapt resource value: 0x7f050002
-			public const int btnEdit = 2131034114;
-			
-			// aapt resource value: 0x7f050029
-			public const int btnOrderDrink = 2131034153;
-			
-			// aapt resource value: 0x7f050027
-			public const int btnSend = 2131034151;
-			
-			// aapt resource value: 0x7f050028
-			public const int btnUpdateBottle = 2131034152;
-			
-			// aapt resource value: 0x7f050011
-			public const int btnedit1 = 2131034129;
+			// aapt resource value: 0x7f050041
+			public const int LinearLayout01 = 2131034177;
 			
 			// aapt resource value: 0x7f050013
-			public const int btnedit2 = 2131034131;
+			public const int bottletextName1 = 2131034131;
 			
 			// aapt resource value: 0x7f050015
-			public const int btnedit3 = 2131034133;
+			public const int bottletextName2 = 2131034133;
 			
 			// aapt resource value: 0x7f050017
-			public const int btnedit4 = 2131034135;
+			public const int bottletextName3 = 2131034135;
 			
 			// aapt resource value: 0x7f050019
-			public const int btnedit5 = 2131034137;
+			public const int bottletextName4 = 2131034137;
 			
 			// aapt resource value: 0x7f05001b
-			public const int btnedit6 = 2131034139;
-			
-			// aapt resource value: 0x7f050005
-			public const int cocktailListView = 2131034117;
-			
-			// aapt resource value: 0x7f050023
-			public const int drinkImage = 2131034147;
-			
-			// aapt resource value: 0x7f050024
-			public const int drinkName = 2131034148;
-			
-			// aapt resource value: 0x7f05000d
-			public const int drinkOrder = 2131034125;
-			
-			// aapt resource value: 0x7f05000e
-			public const int editPage_title = 2131034126;
-			
-			// aapt resource value: 0x7f05000f
-			public const int editPage_undetitle = 2131034127;
-			
-			// aapt resource value: 0x7f050021
-			public const int editTextAmount = 2131034145;
-			
-			// aapt resource value: 0x7f05001f
-			public const int editTextDrinkName = 2131034143;
-			
-			// aapt resource value: 0x7f050022
-			public const int editsave = 2131034146;
+			public const int bottletextName5 = 2131034139;
 			
 			// aapt resource value: 0x7f05001d
-			public const int imageView = 2131034141;
+			public const int bottletextName6 = 2131034141;
+			
+			// aapt resource value: 0x7f050027
+			public const int btnConnect = 2131034151;
 			
 			// aapt resource value: 0x7f05002c
-			public const int imageView1 = 2131034156;
+			public const int btnDisConnect = 2131034156;
 			
-			// aapt resource value: 0x7f050007
-			public const int imageView4 = 2131034119;
+			// aapt resource value: 0x7f050004
+			public const int btnEdit = 2131034116;
+			
+			// aapt resource value: 0x7f050002
+			public const int btnManualOrder = 2131034114;
+			
+			// aapt resource value: 0x7f05002a
+			public const int btnOrderDrink = 2131034154;
+			
+			// aapt resource value: 0x7f050028
+			public const int btnSend = 2131034152;
+			
+			// aapt resource value: 0x7f050029
+			public const int btnUpdateBottle = 2131034153;
+			
+			// aapt resource value: 0x7f050012
+			public const int btnedit1 = 2131034130;
+			
+			// aapt resource value: 0x7f050014
+			public const int btnedit2 = 2131034132;
+			
+			// aapt resource value: 0x7f050016
+			public const int btnedit3 = 2131034134;
+			
+			// aapt resource value: 0x7f050018
+			public const int btnedit4 = 2131034136;
+			
+			// aapt resource value: 0x7f05001a
+			public const int btnedit5 = 2131034138;
+			
+			// aapt resource value: 0x7f05001c
+			public const int btnedit6 = 2131034140;
+			
+			// aapt resource value: 0x7f050006
+			public const int cocktailListView = 2131034118;
+			
+			// aapt resource value: 0x7f050024
+			public const int drinkImage = 2131034148;
+			
+			// aapt resource value: 0x7f050025
+			public const int drinkName = 2131034149;
+			
+			// aapt resource value: 0x7f05000e
+			public const int drinkOrder = 2131034126;
+			
+			// aapt resource value: 0x7f05000f
+			public const int editPage_title = 2131034127;
+			
+			// aapt resource value: 0x7f050010
+			public const int editPage_undetitle = 2131034128;
+			
+			// aapt resource value: 0x7f050022
+			public const int editTextAmount = 2131034146;
+			
+			// aapt resource value: 0x7f050020
+			public const int editTextDrinkName = 2131034144;
+			
+			// aapt resource value: 0x7f050023
+			public const int editsave = 2131034147;
+			
+			// aapt resource value: 0x7f05001e
+			public const int imageView = 2131034142;
+			
+			// aapt resource value: 0x7f05003f
+			public const int imageView1 = 2131034175;
+			
+			// aapt resource value: 0x7f05002f
+			public const int imageView2 = 2131034159;
+			
+			// aapt resource value: 0x7f050008
+			public const int imageView4 = 2131034120;
 			
 			// aapt resource value: 0x7f050000
 			public const int item_touch_helper_previous_elevation = 2131034112;
 			
-			// aapt resource value: 0x7f050025
-			public const int line1 = 2131034149;
+			// aapt resource value: 0x7f050026
+			public const int line1 = 2131034150;
+			
+			// aapt resource value: 0x7f050037
+			public const int linearLayout1 = 2131034167;
 			
 			// aapt resource value: 0x7f050001
 			public const int linearLayout111 = 2131034113;
 			
+			// aapt resource value: 0x7f050030
+			public const int linearLayout2 = 2131034160;
+			
+			// aapt resource value: 0x7f050038
+			public const int linearLayout3 = 2131034168;
+			
+			// aapt resource value: 0x7f05000b
+			public const int linearLayoutDrinkOrder = 2131034123;
+			
 			// aapt resource value: 0x7f05000a
-			public const int linearLayoutDrinkOrder = 2131034122;
+			public const int scrollView1 = 2131034122;
 			
-			// aapt resource value: 0x7f050009
-			public const int scrollView1 = 2131034121;
+			// aapt resource value: 0x7f050007
+			public const int scrollViewDrinkOrder = 2131034119;
 			
-			// aapt resource value: 0x7f050006
-			public const int scrollViewDrinkOrder = 2131034118;
-			
-			// aapt resource value: 0x7f050004
-			public const int searchView1 = 2131034116;
+			// aapt resource value: 0x7f050005
+			public const int searchView1 = 2131034117;
 			
 			// aapt resource value: 0x7f050003
 			public const int space1 = 2131034115;
 			
-			// aapt resource value: 0x7f050008
-			public const int strDrink = 2131034120;
+			// aapt resource value: 0x7f050009
+			public const int strDrink = 2131034121;
 			
-			// aapt resource value: 0x7f05000c
-			public const int strdescription = 2131034124;
+			// aapt resource value: 0x7f05000d
+			public const int strdescription = 2131034125;
+			
+			// aapt resource value: 0x7f050040
+			public const int tabsHost = 2131034176;
 			
 			// aapt resource value: 0x7f05002d
-			public const int tabsHost = 2131034157;
+			public const int textView = 2131034157;
 			
-			// aapt resource value: 0x7f05002a
-			public const int textView1 = 2131034154;
+			// aapt resource value: 0x7f05002b
+			public const int textView1 = 2131034155;
 			
-			// aapt resource value: 0x7f05001e
-			public const int textView2 = 2131034142;
+			// aapt resource value: 0x7f05001f
+			public const int textView2 = 2131034143;
 			
-			// aapt resource value: 0x7f050020
-			public const int textView3 = 2131034144;
+			// aapt resource value: 0x7f050021
+			public const int textView3 = 2131034145;
 			
-			// aapt resource value: 0x7f05000b
-			public const int titledescription = 2131034123;
+			// aapt resource value: 0x7f05000c
+			public const int titledescription = 2131034124;
 			
-			// aapt resource value: 0x7f050010
-			public const int view1 = 2131034128;
+			// aapt resource value: 0x7f050039
+			public const int txtbAmount1 = 2131034169;
+			
+			// aapt resource value: 0x7f05003a
+			public const int txtbAmount2 = 2131034170;
+			
+			// aapt resource value: 0x7f05003b
+			public const int txtbAmount3 = 2131034171;
+			
+			// aapt resource value: 0x7f05003c
+			public const int txtbAmount4 = 2131034172;
+			
+			// aapt resource value: 0x7f05003d
+			public const int txtbAmount5 = 2131034173;
+			
+			// aapt resource value: 0x7f05003e
+			public const int txtbAmount6 = 2131034174;
+			
+			// aapt resource value: 0x7f05002e
+			public const int txtdescript = 2131034158;
+			
+			// aapt resource value: 0x7f050031
+			public const int txtingridient1 = 2131034161;
+			
+			// aapt resource value: 0x7f050032
+			public const int txtingridient2 = 2131034162;
+			
+			// aapt resource value: 0x7f050033
+			public const int txtingridient3 = 2131034163;
+			
+			// aapt resource value: 0x7f050034
+			public const int txtingridient4 = 2131034164;
+			
+			// aapt resource value: 0x7f050035
+			public const int txtingridient5 = 2131034165;
+			
+			// aapt resource value: 0x7f050036
+			public const int txtingridient6 = 2131034166;
+			
+			// aapt resource value: 0x7f050011
+			public const int view1 = 2131034129;
 			
 			static Id()
 			{

@@ -22,8 +22,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:text="bottles found in the machine"
+        android:textSize="10sp"
+        android:textStyle="italic"
+        android:typeface="normal" />
+    <TextView
+        android:textColor="@android:color/darker_gray"
+        android:id="@+id/editPage_undetitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:paddingBottom="10dp"
-        android:text="bottles found in the machine\n ordered by number"
+        android:text="ordered by number"
         android:textSize="10sp"
         android:textStyle="italic"
         android:typeface="normal" />

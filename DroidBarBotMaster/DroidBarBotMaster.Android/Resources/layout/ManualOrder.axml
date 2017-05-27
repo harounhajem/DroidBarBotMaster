@@ -2,6 +2,296 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:background="@drawable/whiteback">
+<!-- Titles and img-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="25dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingBottom="5dp"
+                android:paddingTop="20dp"
+                android:text="MANUAL ORDER"
+                android:textAlignment="viewStart"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="0.0dp"
+                android:layout_marginTop="0.0dp" />
+            <TextView
+                android:id="@+id/txtdescript"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Specify the amount"
+                android:textAlignment="viewStart"
+                android:textSize="10sp"
+                android:textStyle="italic"
+                android:typeface="normal" />
+            <TextView
+                android:text="for your order"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:textColor="@android:color/darker_gray"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textStyle="italic"
+                android:paddingBottom="10dp"
+                android:id="@+id/textView1" />
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:src="@drawable/icogray" />
+    </LinearLayout>
+<!--Container for names and amount-->
+    <LinearLayout
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
+    <!-- Bottle names-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout2"
+            android:layout_weight="0.2">
+            <TextView
+                android:id="@+id/txtingridient1"
+                android:layout_width="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:text="Vodka"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textSize="14dp"
+                android:paddingTop="6dp" />
+            <TextView
+                android:id="@+id/txtingridient2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:text="Vodka"
+                android:layout_marginTop="5dp"
+                android:textSize="15dp"
+                android:paddingTop="14dp" />
+            <TextView
+                android:id="@+id/txtingridient3"
+                android:layout_width="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:text="Vodka"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textSize="14dp"
+                android:paddingTop="15dp" />
+            <TextView
+                android:id="@+id/txtingridient4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:text="Vodka"
+                android:layout_marginTop="5dp"
+                android:textSize="14dp"
+                android:paddingTop="16dp" />
+            <TextView
+                android:id="@+id/txtingridient5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:text="Vodka"
+                android:layout_marginTop="5dp"
+                android:textSize="14dp"
+                android:paddingTop="16dp" />
+            <TextView
+                android:id="@+id/txtingridient6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/darker_gray"
+                android:text="Vodka"
+                android:layout_marginTop="5dp"
+                android:textSize="14dp"
+                android:paddingTop="16dp" />
+        </LinearLayout>
+        <Space
+            android:id="@+id/space1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.05" />
+    <!-- Amount-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/linearLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.22">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout3">
+                <EditText
+                    android:id="@+id/txtbAmount1"
+                    android:textColor="@android:color/darker_gray"
+                    android:inputType="number"
+                    android:textAlignment="textStart"
+                    android:text="0"
+                    android:textSize="14dp"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/txtingridient1"
+                    android:textColor="@android:color/darker_gray"
+                    android:text="cl"
+                    android:textSize="14dp"
+                    android:paddingTop="10dp"
+                    android:layout_width="12dp"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout3">
+                <EditText
+                    android:id="@+id/txtbAmount2"
+                    android:textColor="@android:color/darker_gray"
+                    android:inputType="number"
+                    android:textAlignment="textStart"
+                    android:text="0"
+                    android:textSize="14dp"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/txtingridient1"
+                    android:textColor="@android:color/darker_gray"
+                    android:text="cl"
+                    android:textSize="14dp"
+                    android:paddingTop="10dp"
+                    android:layout_width="12dp"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout3">
+                <EditText
+                    android:id="@+id/txtbAmount3"
+                    android:textColor="@android:color/darker_gray"
+                    android:inputType="number"
+                    android:textAlignment="textStart"
+                    android:text="0"
+                    android:textSize="14dp"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/txtingridient1"
+                    android:textColor="@android:color/darker_gray"
+                    android:text="cl"
+                    android:textSize="14dp"
+                    android:paddingTop="10dp"
+                    android:layout_width="12dp"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout3">
+                <EditText
+                    android:id="@+id/txtbAmount4"
+                    android:textColor="@android:color/darker_gray"
+                    android:inputType="number"
+                    android:textAlignment="textStart"
+                    android:text="0"
+                    android:textSize="14dp"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/txtingridient1"
+                    android:textColor="@android:color/darker_gray"
+                    android:text="cl"
+                    android:textSize="14dp"
+                    android:paddingTop="10dp"
+                    android:layout_width="12dp"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout3">
+                <EditText
+                    android:id="@+id/txtbAmount5"
+                    android:textColor="@android:color/darker_gray"
+                    android:inputType="number"
+                    android:textAlignment="textStart"
+                    android:text="0"
+                    android:textSize="14dp"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/txtingridient1"
+                    android:textColor="@android:color/darker_gray"
+                    android:text="cl"
+                    android:textSize="14dp"
+                    android:paddingTop="10dp"
+                    android:layout_width="12dp"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout3">
+                <EditText
+                    android:id="@+id/txtbAmount6"
+                    android:textColor="@android:color/darker_gray"
+                    android:inputType="number"
+                    android:textAlignment="textStart"
+                    android:text="0"
+                    android:textSize="14dp"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/txtingridient1"
+                    android:textColor="@android:color/darker_gray"
+                    android:text="cl"
+                    android:textSize="14dp"
+                    android:paddingTop="10dp"
+                    android:layout_width="12dp"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+<!--/////////////////////-->
+    <Button
+        android:id="@+id/drinkOrder"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:text="ORDER DRINK"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="45dp"
+        android:background="@drawable/myButton"
+        android:layout_marginBottom="10dp" />
 </LinearLayout>

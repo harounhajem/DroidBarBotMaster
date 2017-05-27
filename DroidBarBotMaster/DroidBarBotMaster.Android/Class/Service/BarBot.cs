@@ -111,11 +111,11 @@ namespace DroidBarBotMaster.Droid.Class.Service
                 if (ans)
                 {
                     Console.WriteLine("Order confirmed");
-                    TransporterClass.bluetoothService.ShowToastMessage("Order; Accepted", ToastLength.Long);
+                    TransporterClass.bluetoothService.ShowToastMessage("Order; Accepted", ToastLength.Short);
                 }
                 else
                 {
-                    TransporterClass.bluetoothService.ShowToastMessage("Order: Not Accepted", ToastLength.Long);
+                    TransporterClass.bluetoothService.ShowToastMessage("Order: Not Accepted", ToastLength.Short);
 
                 }
 

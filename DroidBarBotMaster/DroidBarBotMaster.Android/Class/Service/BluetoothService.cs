@@ -218,9 +218,9 @@ namespace DroidBarBotMaster.Droid.Class.Service
 
             if (!SocketConnect())           return false;
 
-            if (InOutSocketInit())          return false;
+            if (!InOutSocketInit())         return false;
 
-            ShowToastMessage("CONNECTED TO BARBOT", ToastLength.Long);
+            ShowToastMessage("CONNECTED TO BARBOT", ToastLength.Short);
 
             return true;
         }

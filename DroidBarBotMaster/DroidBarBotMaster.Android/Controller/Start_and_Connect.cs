@@ -55,15 +55,15 @@ namespace DroidBarBotMaster.Droid
             // TODO: For dev att this as true
         
             //if (TransporterClass.Repository != null)
-            if (true)
-                {
-                var newActivity = new Intent(this, typeof(CocktailListview));
+            //if (TransporterClass.Repository != null)
+            //    {
+            //    var newActivity = new Intent(this, typeof(CocktailListview));
 
-                StartActivity(newActivity);
+            //    StartActivity(newActivity);
 
-                this.Finish();
+            //    this.Finish();
 
-            }
+            //}
 
             base.OnStart(); 
         }
@@ -88,7 +88,7 @@ namespace DroidBarBotMaster.Droid
 
                     barBot.GetIngridients(5000, TransporterClass.listContainer);
 
-                    Thread.Sleep(600);
+                    Thread.Sleep(750);
 
                     var newActivity = new Intent(this, typeof(CocktailListview));
 
