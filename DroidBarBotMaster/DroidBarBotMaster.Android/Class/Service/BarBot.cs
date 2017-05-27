@@ -91,6 +91,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
 
             foreach (var item in filteredDrinkIngridients)
             {
+                // Order: @Index;Amount;$
                 bluetoothMessage += item.Key.ToString() + seperator + item.Value + seperator;
             }
 
@@ -98,8 +99,10 @@ namespace DroidBarBotMaster.Droid.Class.Service
 
             if (bluetoothMessage.Length < 5) return;
 
+            // Send command
             btService.Write(new byte[] { Convert.ToByte(CommandsToBarBot.SendCocktailOrder) });
-
+            
+            // Send order
             btService.Write(Encoding.ASCII.GetBytes(bluetoothMessage));
 
 
@@ -127,17 +130,49 @@ namespace DroidBarBotMaster.Droid.Class.Service
 
         private Dictionary<int, int> FilterAndFormatDrinkOrder(Drink drink)
         {
-
+            // Get Machine Bottles
             List<Container> listContainer = TransporterClass.listContainer;
 
+            // Parse drinkorder measurment
             SortedDictionary<string, int> listDrinkIngridients = drink.GetStrIngridientsMeasurementDictionary();
 
-            Dictionary<int, int> filteredDrinkOrder = FilterDrinkOrder(listContainer, listDrinkIngridients);
-           
+            // Position drinkorder ingridient in a list before sending "orderstring"
+            Dictionary<int, int> filteredDrinkOrder = PositionDrinkOrderIngridients(listContainer, listDrinkIngridients);
+
+
+            // Check if order exceeds max limit
+
+            const int glasLimitInCL = 33;
+
+            if (filteredDrinkOrder.Values.Sum() >= glasLimitInCL)
+            {
+                // Correct the measurment in procentage
+                filteredDrinkOrder = ParseForGlasLimitSize(filteredDrinkOrder, glasLimitInCL);
+            }
+
             return filteredDrinkOrder;
         }
 
-        private Dictionary<int, int> FilterDrinkOrder(List<Container> listContainer, SortedDictionary<string, int> listDrinkIngridients)
+        private Dictionary<int, int> ParseForGlasLimitSize(Dictionary<int, int> filteredDrinkOrder, int glasLimitInCL)
+        {
+
+            int measurmentSum = filteredDrinkOrder.Values.Sum();
+
+            // Convert as in procentage of a full glas
+            for (int i = 0; i < filteredDrinkOrder.Count; i++)
+            {
+               
+                decimal procentageDecimal = (decimal)filteredDrinkOrder.Values.ElementAt<int>(i) / measurmentSum;
+
+                procentageDecimal = Math.Floor(procentageDecimal * glasLimitInCL);
+                
+                filteredDrinkOrder[i] = (int)procentageDecimal;
+            }
+
+            return filteredDrinkOrder;
+        }
+
+        private Dictionary<int, int> PositionDrinkOrderIngridients(List<Container> listContainer, SortedDictionary<string, int> listDrinkIngridients)
         {
             Dictionary<int, int> filteredDrinkOrder = new Dictionary<int, int>();
 

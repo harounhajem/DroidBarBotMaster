@@ -39,22 +39,22 @@ namespace DroidBarBotMaster.Droid.Controller
             Drink drink = new Drink();
 
             drink.strIngredient1 = TransporterClass.listContainer[0].Name;
-            drink.strMeasure1 = FindViewById<EditText>(Resource.Id.txtbAmount1).Text;
+            drink.strMeasure1 = FindViewById<EditText>(Resource.Id.txtbAmount1).Text + "cl";
 
             drink.strIngredient2 = TransporterClass.listContainer[1].Name;
-            drink.strMeasure2 = FindViewById<EditText>(Resource.Id.txtbAmount2).Text;
+            drink.strMeasure2 = FindViewById<EditText>(Resource.Id.txtbAmount2).Text + "cl";
 
             drink.strIngredient3 = TransporterClass.listContainer[2].Name;
-            drink.strMeasure3 = FindViewById<EditText>(Resource.Id.txtbAmount3).Text;
+            drink.strMeasure3 = FindViewById<EditText>(Resource.Id.txtbAmount3).Text + "cl";
 
             drink.strIngredient4 = TransporterClass.listContainer[3].Name;
-            drink.strMeasure4 = FindViewById<EditText>(Resource.Id.txtbAmount4).Text;
+            drink.strMeasure4 = FindViewById<EditText>(Resource.Id.txtbAmount4).Text + "cl";
 
             drink.strIngredient5 = TransporterClass.listContainer[4].Name;
-            drink.strMeasure5 = FindViewById<EditText>(Resource.Id.txtbAmount5).Text;
+            drink.strMeasure5 = FindViewById<EditText>(Resource.Id.txtbAmount5).Text + "cl";
 
             drink.strIngredient6 = TransporterClass.listContainer[5].Name;
-            drink.strMeasure6 = FindViewById<EditText>(Resource.Id.txtbAmount6).Text;
+            drink.strMeasure6 = FindViewById<EditText>(Resource.Id.txtbAmount6).Text + "cl";
 
             // Send values
             BarBot barbot = new BarBot(TransporterClass.bluetoothService);

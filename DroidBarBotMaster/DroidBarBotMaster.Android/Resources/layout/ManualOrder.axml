@@ -79,6 +79,7 @@
             <TextView
                 android:id="@+id/txtingridient1"
                 android:layout_width="wrap_content"
+                android:inputType="textCapSentences"
                 android:textColor="@android:color/darker_gray"
                 android:text="Vodka"
                 android:layout_height="wrap_content"
@@ -87,6 +88,7 @@
                 android:paddingTop="6dp" />
             <TextView
                 android:id="@+id/txtingridient2"
+                android:inputType="textCapSentences"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/darker_gray"
@@ -96,6 +98,7 @@
                 android:paddingTop="14dp" />
             <TextView
                 android:id="@+id/txtingridient3"
+                android:inputType="textCapSentences"
                 android:layout_width="wrap_content"
                 android:textColor="@android:color/darker_gray"
                 android:text="Vodka"
@@ -105,6 +108,7 @@
                 android:paddingTop="15dp" />
             <TextView
                 android:id="@+id/txtingridient4"
+                android:inputType="textCapSentences"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/darker_gray"
@@ -114,6 +118,7 @@
                 android:paddingTop="16dp" />
             <TextView
                 android:id="@+id/txtingridient5"
+                android:inputType="textCapSentences"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/darker_gray"
@@ -123,6 +128,7 @@
                 android:paddingTop="16dp" />
             <TextView
                 android:id="@+id/txtingridient6"
+                android:inputType="textCapSentences"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/darker_gray"
