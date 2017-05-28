@@ -170,7 +170,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
 
         }
 
-        public static List<DrinkMultiple> MixableDrinksFiltered(List<DrinkMultiple> availableDrinks, List<String> drinkNames, int miniCoherentAmountForMix)
+        public static List<DrinkMultiple> FilterMixableDrinks(List<DrinkMultiple> availableDrinks, List<String> drinkNames, int miniCoherentAmountForMix)
         {
             List<DrinkMultiple> filteredDrinkList = new List<DrinkMultiple>();
 
@@ -189,7 +189,12 @@ namespace DroidBarBotMaster.Droid.Class.Service
                     if (checkIfCanBeMixed(drink, miniCoherentAmountForMix, drinkNames))
                     {
 
-                        tempDrinkMultiple.Drinks.Add(drink);
+                        if ( 
+                            !tempDrinkMultiple.Drinks.Exists(x => x.strDrink == drink.strDrink)) 
+                            //!String.IsNullOrEmpty(drink.strDrinkThumb) &&
+                        {
+                            tempDrinkMultiple.Drinks.Add(drink);
+                        }
 
                     }
                 }

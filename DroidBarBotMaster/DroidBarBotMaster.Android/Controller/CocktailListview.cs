@@ -145,9 +145,9 @@ namespace DroidBarBotMaster.Droid
 
             if (drinkMultiple == null || drinkMultiple.Count < 1) return;
 
-            int drinkOrder_MustContaianAtLeastIngridients = 3;
+            int drinkOrder_MustContaianAtLeastIngridients = 2;
 
-            List<DrinkMultiple> availableDrinksMixFiltered = CocktailDBService.MixableDrinksFiltered(drinkMultiple, drinkNames, drinkOrder_MustContaianAtLeastIngridients);
+            List<DrinkMultiple> availableDrinksMixFiltered = CocktailDBService.FilterMixableDrinks(drinkMultiple, drinkNames, drinkOrder_MustContaianAtLeastIngridients);
 
             ListView listView = FindViewById<ListView>(Resource.Id.cocktailListView);
 
@@ -174,6 +174,9 @@ namespace DroidBarBotMaster.Droid
             {
                 allDrinks.AddRange(item.Drinks);
             }
+
+            // Order by all pictures first
+            allDrinks = allDrinks.OrderByDescending(o => o.strDrinkThumb).ToList();
 
             listAdapterDrink adapter = new listAdapterDrink(this, allDrinks);
 
