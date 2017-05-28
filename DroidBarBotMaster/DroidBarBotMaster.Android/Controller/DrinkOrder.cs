@@ -36,6 +36,8 @@ namespace DroidBarBotMaster.Droid.Controller
             FindViewById<Button>(Resource.Id.drinkOrder).Click += DrinkOrder_Click;
 
             PopulateData();
+
+            AnimateButton(FindViewById<Button>(Resource.Id.drinkOrder));
         }
 
         private void DrinkOrder_Click(object sender, EventArgs e)
@@ -157,6 +159,15 @@ namespace DroidBarBotMaster.Droid.Controller
 
         }
 
+        private void AnimateButton(Button btn)
+        {
+            Button btnConnect = btn;
+            btnConnect.Alpha = 0f;
+            btnConnect.Animate()
+                      .Alpha(1f)
+                      .SetDuration(1200);
+            btnConnect.Animate().Start();
 
+        }
     }
 }

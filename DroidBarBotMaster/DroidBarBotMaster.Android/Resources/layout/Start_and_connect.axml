@@ -45,7 +45,5 @@
         android:layout_marginLeft="0.0dp"
         android:gravity="center"
         android:background="@drawable/myButton"
-        android:fadingEdge="horizontal"
-        android:fadingEdgeLength="@android:dimen/app_icon_size"
         android:layout_gravity="center" />
 </LinearLayout>

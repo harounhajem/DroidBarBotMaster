@@ -29,6 +29,18 @@ namespace DroidBarBotMaster.Droid.Controller
 
             FindViewById<Button>(Resource.Id.drinkOrder).Click += btnDrinkOrder_click;
 
+            AnimateButton(FindViewById<Button>(Resource.Id.drinkOrder));
+        }
+
+        private void AnimateButton(Button btn)
+        {
+            Button btnConnect = btn;
+            btnConnect.Alpha = 0f;
+            btnConnect.Animate()
+                      .Alpha(1f)
+                      .SetDuration(1200);
+            btnConnect.Animate().Start();
+
         }
 
         private void btnDrinkOrder_click(object sender, EventArgs e)
@@ -68,12 +80,12 @@ namespace DroidBarBotMaster.Droid.Controller
             // Set bottles container values in view
             if (TransporterClass.listContainer != null)
             {
-                FindViewById<TextView>(Resource.Id.txtingridient1).Text = TransporterClass.listContainer[0].Name;
-                FindViewById<TextView>(Resource.Id.txtingridient2).Text = TransporterClass.listContainer[1].Name;
-                FindViewById<TextView>(Resource.Id.txtingridient3).Text = TransporterClass.listContainer[2].Name;
-                FindViewById<TextView>(Resource.Id.txtingridient4).Text = TransporterClass.listContainer[3].Name;
-                FindViewById<TextView>(Resource.Id.txtingridient5).Text = TransporterClass.listContainer[4].Name;
-                FindViewById<TextView>(Resource.Id.txtingridient6).Text = TransporterClass.listContainer[5].Name;
+                FindViewById<TextView>(Resource.Id.txtingridient1).Text = FirstCharToUpper(TransporterClass.listContainer[0].Name);
+                FindViewById<TextView>(Resource.Id.txtingridient2).Text = FirstCharToUpper(TransporterClass.listContainer[1].Name);
+                FindViewById<TextView>(Resource.Id.txtingridient3).Text = FirstCharToUpper(TransporterClass.listContainer[2].Name);
+                FindViewById<TextView>(Resource.Id.txtingridient4).Text = FirstCharToUpper(TransporterClass.listContainer[3].Name);
+                FindViewById<TextView>(Resource.Id.txtingridient5).Text = FirstCharToUpper(TransporterClass.listContainer[4].Name);
+                FindViewById<TextView>(Resource.Id.txtingridient6).Text = FirstCharToUpper(TransporterClass.listContainer[5].Name);
             }
             else
             {
@@ -88,6 +100,13 @@ namespace DroidBarBotMaster.Droid.Controller
 
 
             base.OnStart();
+        }
+
+        private string FirstCharToUpper(string input)
+        {
+            if (String.IsNullOrEmpty(input))
+                return "";
+            return input.First().ToString().ToUpper() + String.Join("", input.Skip(1));
         }
     }
    

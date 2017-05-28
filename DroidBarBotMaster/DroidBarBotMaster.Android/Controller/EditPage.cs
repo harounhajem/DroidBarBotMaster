@@ -49,6 +49,18 @@ namespace DroidBarBotMaster.Droid.Controller
 
 
             PopulateViewWithData();
+            AnimateButton(FindViewById<Button>(Resource.Id.editsave));
+        }
+
+        private void AnimateButton(Button btn)
+        {
+            Button btnConnect = btn;
+            btnConnect.Alpha = 0f;
+            btnConnect.Animate()
+                      .Alpha(1f)
+                      .SetDuration(1200);
+            btnConnect.Animate().Start();
+
         }
 
         private void btnSave(object sender, EventArgs e)
