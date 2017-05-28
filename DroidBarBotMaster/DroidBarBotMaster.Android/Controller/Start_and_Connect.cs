@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using DroidBarBotMaster.Droid.Class.Model;
 using DroidBarBotMaster.Droid.Class.Helper;
 using DroidBarBotMaster.Droid.Controller;
+using Android.Graphics;
 
 namespace DroidBarBotMaster.Droid
 {
@@ -46,6 +47,10 @@ namespace DroidBarBotMaster.Droid
 
             TransporterClass.Repository = Repository.GetSavedData();
 
+
+            var font = Typeface.CreateFromAsset(Assets, "segoe.ttf");
+
+            FindViewById<TextView>(Resource.Id.txtvMotto).Typeface = font;
 
         }
 

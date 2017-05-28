@@ -11,7 +11,7 @@
         android:tint="#00000000"
         android:alpha="1"
         android:layout_gravity="center"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="60dp"
         android:layout_marginBottom="72dp"
         android:src="@drawable/logococktailglass"
         android:layout_marginRight="14dp" />
@@ -31,10 +31,11 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView3"
+        android:id="@+id/txtvMotto"
         android:gravity="center"
         android:layout_marginTop="-8dp"
-        android:paddingBottom="40dp" />
+        android:paddingBottom="40dp"
+        android:textSize="20dp" />
     <Button
         android:text="Connect"
         android:layout_width="162.0dp"

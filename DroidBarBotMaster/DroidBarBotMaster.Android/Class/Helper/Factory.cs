@@ -44,7 +44,11 @@ namespace DroidBarBotMaster.Droid.Class.Helper
 
             tw.SetTypeface(Typeface.SansSerif, TypefaceStyle.Normal);
 
-            tw.SetTextColor(Android.Graphics.Color.LightGray);
+            Color colorGray = new Color(112, 112, 112);
+
+            tw.SetTextColor(colorGray);
+
+            
 
             tw.SetTextSize(Android.Util.ComplexUnitType.Sp, 13);
 
@@ -69,7 +73,9 @@ namespace DroidBarBotMaster.Droid.Class.Helper
 
             textView.SetTypeface(Typeface.SansSerif, TypefaceStyle.Normal);
 
-            textView.SetTextColor(Android.Graphics.Color.LightGray);
+            Color colorGray = new Color(112, 112, 112);
+
+            textView.SetTextColor(colorGray);
 
             textView.TextAlignment = TextAlignment.TextEnd;
 

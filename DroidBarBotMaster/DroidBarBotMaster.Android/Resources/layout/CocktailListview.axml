@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px"
-    android:background="@color/white">
+    android:background="@drawable/whitebacktoned">
     <LinearLayout
         android:orientation="horizontal"
         android:id="@+id/linearLayout111"
@@ -21,7 +21,7 @@
             android:drawablePadding="2dp"
             android:drawableStart="@android:drawable/ic_menu_edit"
             android:paddingLeft="8dp"
-            android:layout_marginLeft="5dp" />
+            android:layout_marginLeft="40dp" />
         <Space
             android:layout_width="10.5dp"
             android:layout_height="match_parent"
@@ -52,6 +52,6 @@
     </LinearLayout>
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/cocktailListView" />
 </LinearLayout>

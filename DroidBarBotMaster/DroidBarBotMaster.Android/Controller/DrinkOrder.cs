@@ -58,15 +58,15 @@ namespace DroidBarBotMaster.Droid.Controller
 
                 Bitmap picture = listAdapter.GetImageBitmapFromUrl(drink.strDrinkThumb);
 
-                Bitmap pictureRound = listAdapter.GetRoundedShape(picture);
+                Bitmap pictureRound = listAdapter.GetRoundedShape(picture, 650,650);
 
                 FindViewById<ImageView>(Resource.Id.imageView4).SetImageBitmap(pictureRound);
             }
             else
             {
-                Stream picStream = this.Resources.OpenRawResource(Resource.Drawable.placeholder_white);
+                Stream picStream = this.Resources.OpenRawResource(Resource.Drawable.placeholder2);
                 var bitmapPicture = new BitmapDrawable(picStream);
-                FindViewById<ImageView>(Resource.Id.imageView4).SetImageBitmap(listAdapter.GetRoundedShape(bitmapPicture.Bitmap));
+                FindViewById<ImageView>(Resource.Id.imageView4).SetImageBitmap(listAdapter.GetRoundedShape(bitmapPicture.Bitmap, 650, 650));
                 
             }
 

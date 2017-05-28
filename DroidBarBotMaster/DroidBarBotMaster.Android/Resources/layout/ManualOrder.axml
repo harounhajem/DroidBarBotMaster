@@ -19,7 +19,7 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/GrayRead"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:paddingBottom="5dp"
@@ -34,7 +34,7 @@
                 android:id="@+id/txtdescript"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/GrayRead"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Specify the amount"
@@ -46,7 +46,7 @@
                 android:text="for your order"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:layout_width="match_parent"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/GrayRead"
                 android:layout_height="wrap_content"
                 android:textSize="10sp"
                 android:textStyle="italic"
@@ -80,7 +80,7 @@
                 android:id="@+id/txtingridient1"
                 android:layout_width="wrap_content"
                 android:inputType="textCapSentences"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/GrayRead"
                 android:text="Vodka"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -91,7 +91,7 @@
                 android:inputType="textCapSentences"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/GrayRead"
                 android:text="Vodka"
                 android:layout_marginTop="5dp"
                 android:textSize="15dp"
@@ -100,7 +100,7 @@
                 android:id="@+id/txtingridient3"
                 android:inputType="textCapSentences"
                 android:layout_width="wrap_content"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/GrayRead"
                 android:text="Vodka"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -111,7 +111,7 @@
                 android:inputType="textCapSentences"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/GrayRead"
                 android:text="Vodka"
                 android:layout_marginTop="5dp"
                 android:textSize="14dp"
@@ -121,7 +121,7 @@
                 android:inputType="textCapSentences"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/GrayRead"
                 android:text="Vodka"
                 android:layout_marginTop="5dp"
                 android:textSize="14dp"
@@ -131,7 +131,7 @@
                 android:inputType="textCapSentences"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/GrayRead"
                 android:text="Vodka"
                 android:layout_marginTop="5dp"
                 android:textSize="14dp"
@@ -156,7 +156,7 @@
                 android:id="@+id/linearLayout3">
                 <EditText
                     android:id="@+id/txtbAmount1"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/GrayRead"
                     android:inputType="number"
                     android:textAlignment="textStart"
                     android:text="0"
@@ -165,7 +165,7 @@
                     android:layout_height="match_parent" />
                 <TextView
                     android:id="@+id/txtingridient1"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/GrayRead"
                     android:text="cl"
                     android:textSize="14dp"
                     android:paddingTop="10dp"
@@ -179,7 +179,7 @@
                 android:id="@+id/linearLayout3">
                 <EditText
                     android:id="@+id/txtbAmount2"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/GrayRead"
                     android:inputType="number"
                     android:textAlignment="textStart"
                     android:text="0"
@@ -188,7 +188,7 @@
                     android:layout_height="match_parent" />
                 <TextView
                     android:id="@+id/txtingridient1"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/GrayRead"
                     android:text="cl"
                     android:textSize="14dp"
                     android:paddingTop="10dp"
@@ -202,7 +202,7 @@
                 android:id="@+id/linearLayout3">
                 <EditText
                     android:id="@+id/txtbAmount3"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/GrayRead"
                     android:inputType="number"
                     android:textAlignment="textStart"
                     android:text="0"
@@ -211,7 +211,7 @@
                     android:layout_height="match_parent" />
                 <TextView
                     android:id="@+id/txtingridient1"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/GrayRead"
                     android:text="cl"
                     android:textSize="14dp"
                     android:paddingTop="10dp"
@@ -225,7 +225,7 @@
                 android:id="@+id/linearLayout3">
                 <EditText
                     android:id="@+id/txtbAmount4"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/GrayRead"
                     android:inputType="number"
                     android:textAlignment="textStart"
                     android:text="0"
@@ -234,7 +234,7 @@
                     android:layout_height="match_parent" />
                 <TextView
                     android:id="@+id/txtingridient1"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/GrayRead"
                     android:text="cl"
                     android:textSize="14dp"
                     android:paddingTop="10dp"
@@ -248,7 +248,7 @@
                 android:id="@+id/linearLayout3">
                 <EditText
                     android:id="@+id/txtbAmount5"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/GrayRead"
                     android:inputType="number"
                     android:textAlignment="textStart"
                     android:text="0"
@@ -257,7 +257,7 @@
                     android:layout_height="match_parent" />
                 <TextView
                     android:id="@+id/txtingridient1"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/GrayRead"
                     android:text="cl"
                     android:textSize="14dp"
                     android:paddingTop="10dp"
@@ -271,7 +271,7 @@
                 android:id="@+id/linearLayout3">
                 <EditText
                     android:id="@+id/txtbAmount6"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/GrayRead"
                     android:inputType="number"
                     android:textAlignment="textStart"
                     android:text="0"
@@ -280,7 +280,7 @@
                     android:layout_height="match_parent" />
                 <TextView
                     android:id="@+id/txtingridient1"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/GrayRead"
                     android:text="cl"
                     android:textSize="14dp"
                     android:paddingTop="10dp"

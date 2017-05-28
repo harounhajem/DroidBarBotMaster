@@ -56,6 +56,9 @@ namespace DroidBarBotMaster.Droid
 		public partial class Color
 		{
 			
+			// aapt resource value: 0x7f070005
+			public const int GrayRead = 2131165189;
+			
 			// aapt resource value: 0x7f070003
 			public const int blueL = 2131165187;
 			
@@ -101,46 +104,64 @@ namespace DroidBarBotMaster.Droid
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int background_start = 2130837504;
+			public const int back2 = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int backgroundlist = 2130837505;
+			public const int Back2Toned = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int bottleicon = 2130837506;
+			public const int back3 = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int buttonRound = 2130837507;
+			public const int back3toned = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int icoblue = 2130837508;
+			public const int background_start = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int icoGray = 2130837509;
+			public const int backgroundlist = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int icon = 2130837510;
+			public const int bottleicon = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int logo = 2130837511;
+			public const int buttonRound = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int LogoCocktailGlass = 2130837512;
+			public const int icoblue = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int logoGray = 2130837513;
+			public const int icoGray = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int myButton = 2130837514;
+			public const int icon = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int placeholder = 2130837515;
+			public const int logo = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int placeholder_white = 2130837516;
+			public const int LogoCocktailGlass = 2130837516;
 			
 			// aapt resource value: 0x7f02000d
-			public const int whiteBack = 2130837517;
+			public const int logoGray = 2130837517;
+			
+			// aapt resource value: 0x7f02000e
+			public const int myButton = 2130837518;
+			
+			// aapt resource value: 0x7f02000f
+			public const int placeholder = 2130837519;
+			
+			// aapt resource value: 0x7f020010
+			public const int placeholder2 = 2130837520;
+			
+			// aapt resource value: 0x7f020011
+			public const int placeholder_white = 2130837521;
+			
+			// aapt resource value: 0x7f020012
+			public const int whiteBack = 2130837522;
+			
+			// aapt resource value: 0x7f020013
+			public const int whiteBackToned = 2130837523;
 			
 			static Drawable()
 			{
@@ -155,8 +176,8 @@ namespace DroidBarBotMaster.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050041
-			public const int LinearLayout01 = 2131034177;
+			// aapt resource value: 0x7f050042
+			public const int LinearLayout01 = 2131034178;
 			
 			// aapt resource value: 0x7f050013
 			public const int bottletextName1 = 2131034131;
@@ -176,11 +197,11 @@ namespace DroidBarBotMaster.Droid
 			// aapt resource value: 0x7f05001d
 			public const int bottletextName6 = 2131034141;
 			
-			// aapt resource value: 0x7f050027
-			public const int btnConnect = 2131034151;
+			// aapt resource value: 0x7f050029
+			public const int btnConnect = 2131034153;
 			
-			// aapt resource value: 0x7f05002c
-			public const int btnDisConnect = 2131034156;
+			// aapt resource value: 0x7f05002e
+			public const int btnDisConnect = 2131034158;
 			
 			// aapt resource value: 0x7f050004
 			public const int btnEdit = 2131034116;
@@ -188,14 +209,14 @@ namespace DroidBarBotMaster.Droid
 			// aapt resource value: 0x7f050002
 			public const int btnManualOrder = 2131034114;
 			
+			// aapt resource value: 0x7f05002c
+			public const int btnOrderDrink = 2131034156;
+			
 			// aapt resource value: 0x7f05002a
-			public const int btnOrderDrink = 2131034154;
+			public const int btnSend = 2131034154;
 			
-			// aapt resource value: 0x7f050028
-			public const int btnSend = 2131034152;
-			
-			// aapt resource value: 0x7f050029
-			public const int btnUpdateBottle = 2131034153;
+			// aapt resource value: 0x7f05002b
+			public const int btnUpdateBottle = 2131034155;
 			
 			// aapt resource value: 0x7f050012
 			public const int btnedit1 = 2131034130;
@@ -218,11 +239,14 @@ namespace DroidBarBotMaster.Droid
 			// aapt resource value: 0x7f050006
 			public const int cocktailListView = 2131034118;
 			
-			// aapt resource value: 0x7f050024
-			public const int drinkImage = 2131034148;
+			// aapt resource value: 0x7f050028
+			public const int drinkCategori = 2131034152;
 			
 			// aapt resource value: 0x7f050025
-			public const int drinkName = 2131034149;
+			public const int drinkImage = 2131034149;
+			
+			// aapt resource value: 0x7f050027
+			public const int drinkName = 2131034151;
 			
 			// aapt resource value: 0x7f05000e
 			public const int drinkOrder = 2131034126;
@@ -248,8 +272,8 @@ namespace DroidBarBotMaster.Droid
 			// aapt resource value: 0x7f05003f
 			public const int imageView1 = 2131034175;
 			
-			// aapt resource value: 0x7f05002f
-			public const int imageView2 = 2131034159;
+			// aapt resource value: 0x7f050031
+			public const int imageView2 = 2131034161;
 			
 			// aapt resource value: 0x7f050008
 			public const int imageView4 = 2131034120;
@@ -257,20 +281,17 @@ namespace DroidBarBotMaster.Droid
 			// aapt resource value: 0x7f050000
 			public const int item_touch_helper_previous_elevation = 2131034112;
 			
-			// aapt resource value: 0x7f050026
-			public const int line1 = 2131034150;
-			
-			// aapt resource value: 0x7f050037
-			public const int linearLayout1 = 2131034167;
+			// aapt resource value: 0x7f050024
+			public const int linearLayout1 = 2131034148;
 			
 			// aapt resource value: 0x7f050001
 			public const int linearLayout111 = 2131034113;
 			
-			// aapt resource value: 0x7f050030
-			public const int linearLayout2 = 2131034160;
+			// aapt resource value: 0x7f050032
+			public const int linearLayout2 = 2131034162;
 			
-			// aapt resource value: 0x7f050038
-			public const int linearLayout3 = 2131034168;
+			// aapt resource value: 0x7f050026
+			public const int linearLayout3 = 2131034150;
 			
 			// aapt resource value: 0x7f05000b
 			public const int linearLayoutDrinkOrder = 2131034123;
@@ -293,14 +314,14 @@ namespace DroidBarBotMaster.Droid
 			// aapt resource value: 0x7f05000d
 			public const int strdescription = 2131034125;
 			
-			// aapt resource value: 0x7f050040
-			public const int tabsHost = 2131034176;
+			// aapt resource value: 0x7f050041
+			public const int tabsHost = 2131034177;
+			
+			// aapt resource value: 0x7f05002f
+			public const int textView = 2131034159;
 			
 			// aapt resource value: 0x7f05002d
-			public const int textView = 2131034157;
-			
-			// aapt resource value: 0x7f05002b
-			public const int textView1 = 2131034155;
+			public const int textView1 = 2131034157;
 			
 			// aapt resource value: 0x7f05001f
 			public const int textView2 = 2131034143;
@@ -329,26 +350,29 @@ namespace DroidBarBotMaster.Droid
 			// aapt resource value: 0x7f05003e
 			public const int txtbAmount6 = 2131034174;
 			
-			// aapt resource value: 0x7f05002e
-			public const int txtdescript = 2131034158;
-			
-			// aapt resource value: 0x7f050031
-			public const int txtingridient1 = 2131034161;
-			
-			// aapt resource value: 0x7f050032
-			public const int txtingridient2 = 2131034162;
+			// aapt resource value: 0x7f050030
+			public const int txtdescript = 2131034160;
 			
 			// aapt resource value: 0x7f050033
-			public const int txtingridient3 = 2131034163;
+			public const int txtingridient1 = 2131034163;
 			
 			// aapt resource value: 0x7f050034
-			public const int txtingridient4 = 2131034164;
+			public const int txtingridient2 = 2131034164;
 			
 			// aapt resource value: 0x7f050035
-			public const int txtingridient5 = 2131034165;
+			public const int txtingridient3 = 2131034165;
 			
 			// aapt resource value: 0x7f050036
-			public const int txtingridient6 = 2131034166;
+			public const int txtingridient4 = 2131034166;
+			
+			// aapt resource value: 0x7f050037
+			public const int txtingridient5 = 2131034167;
+			
+			// aapt resource value: 0x7f050038
+			public const int txtingridient6 = 2131034168;
+			
+			// aapt resource value: 0x7f050040
+			public const int txtvMotto = 2131034176;
 			
 			// aapt resource value: 0x7f050011
 			public const int view1 = 2131034129;

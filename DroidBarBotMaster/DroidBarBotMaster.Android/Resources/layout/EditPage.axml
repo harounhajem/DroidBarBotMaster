@@ -4,9 +4,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@drawable/back3toned">
     <TextView
-        android:textColor="@android:color/darker_gray"
+        android:textColor="@color/GrayRead"
         android:id="@+id/editPage_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
         android:textSize="18sp"
         android:textStyle="bold" />
     <TextView
-        android:textColor="@android:color/darker_gray"
+        android:textColor="@color/GrayRead"
         android:id="@+id/editPage_undetitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
         android:textStyle="italic"
         android:typeface="normal" />
     <TextView
-        android:textColor="@android:color/darker_gray"
+        android:textColor="@color/GrayRead"
         android:id="@+id/editPage_undetitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="5dp"
-        android:background="@android:color/darker_gray"
+        android:background="@color/GrayRead"
         android:id="@+id/view1" />
     <LinearLayout
         android:layout_width="match_parent"
@@ -64,7 +64,7 @@
                 android:layout_weight="1"
                 android:text="1" />
             <TextView
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/GrayRead"
                 android:id="@+id/bottletextName1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
                 android:layout_weight="1"
                 android:text="2" />
             <TextView
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/GrayRead"
                 android:id="@+id/bottletextName2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -108,7 +108,7 @@
                 android:layout_weight="1"
                 android:text="3" />
             <TextView
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/GrayRead"
                 android:id="@+id/bottletextName3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -130,7 +130,7 @@
                 android:layout_weight="1"
                 android:text="4" />
             <TextView
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/GrayRead"
                 android:id="@+id/bottletextName4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -152,7 +152,7 @@
                 android:layout_weight="1"
                 android:text="5" />
             <TextView
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/GrayRead"
                 android:id="@+id/bottletextName5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -174,7 +174,7 @@
                 android:layout_weight="1"
                 android:text="6" />
             <TextView
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/GrayRead"
                 android:id="@+id/bottletextName6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -205,7 +205,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
             <TextView
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/GrayRead"
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -217,14 +217,14 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:textColor="@android:color/darker_gray" />
+                android:textColor="@color/GrayRead" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
             <TextView
-                android:textColor="@android:color/darker_gray"
+                android:textColor="@color/GrayRead"
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -235,7 +235,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="numberSigned"
-                android:textColor="@android:color/darker_gray" />
+                android:textColor="@color/GrayRead" />
         </LinearLayout>
     </LinearLayout>
     <LinearLayout

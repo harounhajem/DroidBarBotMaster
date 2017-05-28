@@ -3,33 +3,54 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ImageView
-        android:src="@android:drawable/ic_menu_gallery"
-        android:id="@+id/drinkImage"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:maxHeight="50dp"
-        android:maxWidth="50dp"
-        android:gravity="center"
-        android:paddingBottom="5dp" />
-    <TextView
-        android:id="@+id/drinkName"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingTop="15dp"
-        android:singleLine="false"
-        android:textAllCaps="true"
-        android:textColor="@android:color/darker_gray" />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginRight="120dp"
-        android:layout_marginBottom="25dp"
-        android:layout_marginTop="8dp"
-        android:background="@android:color/darker_gray"
-        android:id="@+id/line1" />
+        android:id="@+id/linearLayout1"
+        android:gravity="left"
+        android:layout_marginBottom="40dp">
+        <ImageView
+            android:src="@android:drawable/ic_menu_gallery"
+            android:id="@+id/drinkImage"
+            android:maxHeight="50dp"
+            android:maxWidth="50dp"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="40dp" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/linearLayout3"
+            android:layout_marginLeft="20dp"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/drinkName"
+                android:text="Large Text"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:gravity="left"
+                android:singleLine="false"
+                android:textAllCaps="true"
+                android:textColor="@color/GrayRead"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="Small Text"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:id="@+id/drinkCategori"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/GrayRead"
+                android:gravity="left"
+                android:textStyle="bold"
+                android:textAllCaps="true" />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

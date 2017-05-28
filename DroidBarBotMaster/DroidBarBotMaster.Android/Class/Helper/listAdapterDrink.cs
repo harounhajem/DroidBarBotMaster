@@ -36,22 +36,25 @@ namespace DroidBarBotMaster.Droid.Class.Helper
             }
 
             TextView drinkName = row.FindViewById<TextView>(Resource.Id.drinkName);
-            drinkName.Text = listDrink[position].strDrink;
+            drinkName.Text = listDrink[position].strDrink.Replace(" ","\n");
+
+            TextView txtvDrinkCategori= row.FindViewById<TextView>(Resource.Id.drinkCategori);
+            txtvDrinkCategori.Text =  String.IsNullOrEmpty(listDrink[position].strCategory) ? "" : listDrink[position].strCategory;
 
             ImageView drinkImage = row.FindViewById<ImageView>(Resource.Id.drinkImage);
 
             if (!String.IsNullOrEmpty(listDrink[position].strDrinkThumb))
             {
                 Bitmap picture = GetImageBitmapFromUrl(listDrink[position].strDrinkThumb);
-                Bitmap pictureRound = GetRoundedShape(picture);
+                Bitmap pictureRound = GetRoundedShape(picture,400,400);
                 drinkImage.SetImageBitmap(pictureRound);
 
             }
             else
             {
-                Stream picStream = context.Resources.OpenRawResource(Resource.Drawable.placeholder_white);
+                Stream picStream = context.Resources.OpenRawResource(Resource.Drawable.placeholder2);
                 var bitmapPicture = new BitmapDrawable(picStream);
-                drinkImage.SetImageBitmap(GetRoundedShape(bitmapPicture.Bitmap));
+                drinkImage.SetImageBitmap(GetRoundedShape(bitmapPicture.Bitmap, 400, 400));
 
             }
 
@@ -60,10 +63,10 @@ namespace DroidBarBotMaster.Droid.Class.Helper
             return row;
         }
 
-        public Bitmap GetRoundedShape(Bitmap scaleBitmapImage)
+        public Bitmap GetRoundedShape(Bitmap scaleBitmapImage, int width, int height)
         {
-            int targetWidth = 650;
-            int targetHeight = 650;
+            int targetWidth = width;
+            int targetHeight = height; 
             Bitmap targetBitmap = Bitmap.CreateBitmap(targetWidth,
                 targetHeight, Bitmap.Config.Argb8888);
 
