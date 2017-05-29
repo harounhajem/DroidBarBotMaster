@@ -47,26 +47,6 @@ namespace DroidBarBotMaster.Droid
 
             btnConnect.Click += BtnConnect_Click;
 
-            //btnConnect.Alpha = 0f;
-
-            //float yPos = 1450;
-            //float movement = 33f;
-            //btnConnect.SetY(yPos + movement);
-
-            //int[] x = new int[2];
-            //btnConnect.GetLocationInWindow(x);
-
-            //int tp = btnConnect.Top;
-
-            //btnConnect.Animate()
-            //          .Alpha(1f)
-            //          .Y(yPos - movement)
-            //          .SetDuration(2200);
-
-            //btnConnect.Animate().Start();
-
-
-
             TransporterClass.listContainer = new List<Container>();
 
             TransporterClass.Repository = Repository.GetSavedData();

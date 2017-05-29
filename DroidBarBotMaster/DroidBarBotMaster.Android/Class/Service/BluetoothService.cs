@@ -323,6 +323,7 @@ namespace DroidBarBotMaster.Droid.Class.Service
                     System.Console.WriteLine("\n\nClosing connection:\n");
                     System.Console.WriteLine(e.Message);
                     mSocket.Close();
+                    return false;
 
                 }
                 catch (Exception r)

@@ -155,7 +155,7 @@ namespace DroidBarBotMaster.Droid
 
 
             // Clean and Empty the list
-            int childCount = listView.ChildCount;
+            int childCount = listView.ChildCount;   
 
             if (childCount > 0)
             {
